@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      नयाँ आम्दनी
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background">
+  <ion-row>
+    <ion-col>
+      <ion-card (click)="incomeCategory('salary', 'तलब')">
+        <ion-card-header color="danger" align="center">
+          तलब
+        </ion-card-header>
+        <img src="assets/icon/salary.png">
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="incomeCategory('allowancebonus', 'भत्ता/बोनस')">
+        <ion-card-header color="danger" align="center">
+          भत्ता/बोनस
+        </ion-card-header>
+        <img src="assets/icon/allowancebonus.png">
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="incomeCategory('household', 'घर खर्च')">
+        <ion-card-header color="danger" align="center">
+         घर खर्च
+        </ion-card-header>
+        <img src="assets/icon/household.png">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card (click)="incomeCategory('rent', 'भाडा')">
+        <ion-card-header color="danger" align="center">
+          भाडा
+        </ion-card-header>
+        <img src="assets/icon/rent.png">
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="incomeCategory('sales', 'बिक्री')">
+        <ion-card-header color="danger" align="center">
+          बिक्री
+        </ion-card-header>
+        <img src="assets/icon/sales.png">
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="incomeCategory('commission', 'कमिसन')">
+        <ion-card-header color="danger" align="center">
+          कमिसन
+        </ion-card-header>
+        <img src="assets/icon/commission.png">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col>
+      <ion-card (click)="incomeCategory('interest', 'ब्याज')">
+        <ion-card-header color="danger" align="center">
+          ब्याज
+        </ion-card-header>
+        <img src="assets/icon/interest.png">
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="incomeCategory('pocketmoney', 'पाकेत खर्च(प्राप्त)')">
+        <ion-card-header color="danger" align="center">
+          पकेट खर्च
+        </ion-card-header>
+        <img src="assets/icon/pocketmoney.png">
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="incomeCategory('gift', 'उपहार')">
+        <ion-card-header color="danger" align="center">
+          उपहार
+        </ion-card-header>
+        <img src="assets/icon/gift.png">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card (click)="incomeCategory('others', 'अन्य')">
+        <ion-card-header color="danger" align="center">
+          अन्य
+        </ion-card-header>
+        <img src="assets/icon/others.png">
+      </ion-card>
+    </ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-content>

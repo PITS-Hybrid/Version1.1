@@ -1,0 +1,39 @@
+.background{
+    background-color: #F8F8F8;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.fab[mini] {
+    margin: 0px;
+    width: 60px;
+    height: 60px;
+    line-height: 50px;
+    background: red;
+}
+
+.line {
+    border: 0;
+    height: 2px;
+    background-image: -webkit-linear-gradient(left, #FFF, #FFF, #FFF);
+    background-image: -moz-linear-gradient(left, #FFF, #FFF, #FFF);
+    background-image: -ms-linear-gradient(left, #FFF, #FFF, #FFF);
+    background-image: -o-linear-gradient(left, #FFF, #FFF, #FFF);
+}
+
+.blue{
+    background-color: #3567ac;
+    color: #ffffff;
+}
+
+.redDark{
+    background-color: #ff3b30;
+    color: #ffffff;
+}
+
+.red{
+    background-color: #85bb65;
+    color: #ffffff;
+}
