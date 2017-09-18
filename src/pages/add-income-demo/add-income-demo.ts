@@ -56,14 +56,30 @@ public nepalicategoryParam;
 
     };
 
+    console.log(this.myDate);
+    if(this.amountofIncome.value=="" || this.myDate==undefined){
+            let toast = this.toastCtrl.create({
+                message: 'असफल भयो! कृपया सबै बिवरनहरु भर्नु होस्',
+                duration: 2000
+              });
+              toast.present();
+            }
+            else{
+              let toast = this.toastCtrl.create({
+                message: 'नयाँ आम्दनी थप् भएको छ',
+                duration: 2000
+              });
+
+
     localStorage.setItem(timestamp.toString(), JSON.stringify(newIncome));
     
 
     console.log(newIncome);
 
      this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
-
+}
   }
 
 }
+
 

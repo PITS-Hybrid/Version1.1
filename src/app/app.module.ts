@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AddIncomePage } from '../pages/add-income/add-income';
 import { AddIncomeDemoPage } from '../pages/add-income-demo/add-income-demo';
 import { AddExpensePage } from '../pages/add-expense/add-expense';
+import { AddExpenseDemoPage } from '../pages/add-expense-demo/add-expense-demo';
 import { ProfilePage } from '../pages/profile/profile';
 import { IncomeReportPage } from '../pages/income-report/income-report';
 import { ExpenseReportPage } from '../pages/expense-report/expense-report';
@@ -34,7 +35,8 @@ import { MonthWiseIncomeReport } from '../pages/monthwise-income-report/monthwis
     MoreReportIncomePage,
     MonthWiseIncomeReport,
     Edit
-    ,AddIncomeDemoPage
+    ,AddIncomeDemoPage,
+    AddExpenseDemoPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { MonthWiseIncomeReport } from '../pages/monthwise-income-report/monthwis
     MoreReportIncomePage,
     MonthWiseIncomeReport,
     Edit
-    ,AddIncomeDemoPage
+    ,AddIncomeDemoPage,
+   AddExpenseDemoPage
   ],
   providers: [
     StatusBar,

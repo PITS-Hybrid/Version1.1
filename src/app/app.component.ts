@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { AddIncomePage } from '../pages/add-income/add-income';
 import { AddIncomeDemoPage } from '../pages/add-income-demo/add-income-demo';
 import { AddExpensePage } from '../pages/add-expense/add-expense';
+import { AddExpenseDemoPage } from '../pages/add-expense-demo/add-expense-demo';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { IncomeReportPage } from '../pages/income-report/income-report';
 import { ExpenseReportPage } from '../pages/expense-report/expense-report';
