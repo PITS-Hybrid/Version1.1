@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>नयाँ खर्च - {{nepalicategoryParam}}</ion-title>
+    <ion-title>नयाँ आम्दनी - {{nepalicategoryParam}}</ion-title>
     
   
   </ion-navbar>
@@ -10,21 +10,21 @@
   	
  
   <ion-item>
-    <ion-label color="primary" fixed>रकम</ion-label>
-    <ion-input type="number" id="amount" [(ngModel)]="myAmount" #amt ></ion-input>
+    <ion-label color="primary" floating>रकम</ion-label>
+    <ion-input type="number" id="amount" [(ngModel)]="myAmount" ></ion-input>
   </ion-item>
 
   <ion-item>
-  <ion-label color="primary" fixed>मिति</ion-label>
-  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  #date></ion-datetime>
+  <ion-label color="primary" floating>मिति</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  ></ion-datetime>
 </ion-item>
 
   <ion-item>
-    <ion-label color="primary" fixed>नोट</ion-label>
-    <ion-input type="text" id="note" [(ngModel)]="myNote" #note></ion-input>
+    <ion-label color="primary" floating>नोट</ion-label>
+    <ion-input type="text" id="note" [(ngModel)]="myNote"></ion-input>
   </ion-item>
   
-  <ion-item style="margin-top: 25px;">
-    <ion-input type="button" (click)="addExpense()" class="addButton" value="शेभ गर्नु"></ion-input>
-  </ion-item>
+    <button ion-button full (click)="addExpense()">शेभ गर्नु</button>
+    
+ 
 </ion-content>

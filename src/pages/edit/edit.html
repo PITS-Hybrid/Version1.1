@@ -22,7 +22,6 @@
     <ion-label color="primary" fixed>नोट</ion-label>
     <ion-input type="text" id="note" [value]=item.note #note></ion-input>
   </ion-item>
-  <ion-item style="margin-top: 25px;">
-    <ion-input type="button" (click)="edit(id.value ,dateAdded.value, amount.value, category_name.value, category_name_nepali.value, type.value, note.value)" class="updateButton" value="एडिट"></ion-input>
+  <button ion-button full (click)="edit(id.value ,dateAdded.value, amount.value, category_name.value, category_name_nepali.value, type.value, note.value)" class="updateButton" >एडिट</button>
   </ion-item>
 </ion-content>

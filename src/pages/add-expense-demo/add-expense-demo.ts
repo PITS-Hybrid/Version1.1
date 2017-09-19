@@ -1,15 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { AddExpensePage} from '../add-expense/add-expense';
 
-/**
- * Generated class for the AddExpenseDemoPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-add-expense-demo',
@@ -18,10 +12,10 @@ import { AddExpensePage} from '../add-expense/add-expense';
 export class AddExpenseDemoPage {
 
 
- @ViewChild('amt') amountofExpense;
- @ViewChild('date') date;
- @ViewChild('note') note;
+
 myDate: String ;
+myAmount: String;
+myNote: String;
 public categoryParam;
 public nepalicategoryParam;
 
@@ -47,29 +41,29 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public t
 
     var newExpense= {
       type : 'Expense',
-      amount : this.amountofExpense.value,
+      amount : this.myAmount,
       category_name_nepali : this.nepalicategoryParam,
       category_name : this.categoryParam,
       date : this.myDate,
       ID : timestamp,
-      note : this.note.value
+      note : this.myNote
 
 
     };
 
 
-    console.log(this.myDate);
-    if(this.amountofExpense.value=="" || this.myDate==undefined){
+    
+    if(this.myAmount=="" || this.myDate==undefined){
             let toast = this.toastCtrl.create({
                 message: 'असफल भयो! कृपया सबै बिवरनहरु भर्नु होस्',
-                duration: 2000
+                duration: 1000
               });
               toast.present();
             }
             else{
               let toast = this.toastCtrl.create({
                 message: 'नयाँ खर्च थप् भएको छ',
-                duration: 2000
+                duration: 1000
               });
 
     localStorage.setItem(timestamp.toString(), JSON.stringify(newExpense));
