@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 //import { Chart } from 'chart.js';
 
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Platform, ActionSheetController, ToastController } from 'ionic-angular';
 
 import { AddIncomePage } from '../add-income/add-income';
@@ -33,9 +33,11 @@ export class HomePage {
   expenses = [];
   expenseSum = 0;
   expenseIndex = 0;
+  monthName;
 
-  constructor(public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
-  	this.isAndroid = platform.is('android');
+  constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
+  	
+    this.isAndroid = platform.is('android');
 
     window.localStorage.removeItem('ionic_labmenu');
     window.localStorage.removeItem('ionic_lastdevices');
@@ -43,6 +45,43 @@ export class HomePage {
     
     var currentMonth = (new Date().getMonth())+1;
     var currentYear = new Date().getFullYear();
+
+    if(currentMonth == 1){
+      this.monthName = "January";
+    }
+    else if(currentMonth == 2){
+      this.monthName = "Febraury";
+    }
+    else if(currentMonth == 3){
+      this.monthName = "March";
+    }
+    else if(currentMonth == 4){
+      this.monthName = "April";
+    }
+    else if(currentMonth == 5){
+      this.monthName = "May";
+    }
+    else if(currentMonth == 6){
+      this.monthName = "June";
+    }
+    else if(currentMonth == 7){
+      this.monthName = "July";
+    }
+    else if(currentMonth == 8){
+      this.monthName = "August";
+    }
+    else if(currentMonth == 9){
+      this.monthName = "September";
+    }
+    else if(currentMonth == 10){
+      this.monthName = "October";
+    }
+    else if(currentMonth == 11){
+      this.monthName = "November";
+    }
+    else if(currentMonth == 12){
+      this.monthName = "December";
+    }
 
     if(localStorage.length>0){
       for (var i = 0; i < localStorage.length; i++){

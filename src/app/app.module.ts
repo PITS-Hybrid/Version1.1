@@ -20,6 +20,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { Edit } from '../pages/edit/edit';
 import { MoreReportIncomePage } from '../pages/more-report-income/more-report-income';
 import { MonthWiseIncomeReport } from '../pages/monthwise-income-report/monthwise-income-report';
+import { MonthwiseExpenseReportPage } from '../pages/monthwise-expense-report/monthwise-expense-report'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MonthWiseIncomeReport } from '../pages/monthwise-income-report/monthwis
     ProfilePage,
     MoreReportIncomePage,
     MonthWiseIncomeReport,
+    MonthwiseExpenseReportPage,
     Edit
     ,AddIncomeDemoPage,
     AddExpenseDemoPage
@@ -55,6 +57,7 @@ import { MonthWiseIncomeReport } from '../pages/monthwise-income-report/monthwis
     ProfilePage,
     MoreReportIncomePage,
     MonthWiseIncomeReport,
+    MonthwiseExpenseReportPage,
     Edit
     ,AddIncomeDemoPage,
    AddExpenseDemoPage

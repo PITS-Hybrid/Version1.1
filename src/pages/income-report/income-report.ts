@@ -3,7 +3,7 @@ import { HomePage } from '../home/home';
 import { Edit } from '../edit/edit';
 import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { Chart } from 'chart.js';
-
+import { PopoverController } from 'ionic-angular';
 import { MoreReportIncomePage } from '../more-report-income/more-report-income';
 
 @Component({
@@ -28,11 +28,50 @@ export class IncomeReportPage {
   expenseIndex = 0;
 
   message;
+  
+  monthName;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController, public popoverCtrl: PopoverController) {
 
   	var currentMonth = (new Date().getMonth())+1;
     var currentYear = new Date().getFullYear();
+
+    if(currentMonth == 1){
+      this.monthName = "January";
+    }
+    else if(currentMonth == 2){
+      this.monthName = "Febraury";
+    }
+    else if(currentMonth == 3){
+      this.monthName = "March";
+    }
+    else if(currentMonth == 4){
+      this.monthName = "April";
+    }
+    else if(currentMonth == 5){
+      this.monthName = "May";
+    }
+    else if(currentMonth == 6){
+      this.monthName = "June";
+    }
+    else if(currentMonth == 7){
+      this.monthName = "July";
+    }
+    else if(currentMonth == 8){
+      this.monthName = "August";
+    }
+    else if(currentMonth == 9){
+      this.monthName = "September";
+    }
+    else if(currentMonth == 10){
+      this.monthName = "October";
+    }
+    else if(currentMonth == 11){
+      this.monthName = "November";
+    }
+    else if(currentMonth == 12){
+      this.monthName = "December";
+    }
 
     if(localStorage.length>0){
       for (var i = 0; i < localStorage.length; i++){
@@ -51,10 +90,10 @@ export class IncomeReportPage {
     }
 
     if(this.incomeIndex == 0){
-    	this.message = 'आम्दनी भेटेन! कृपया नयाँ आम्दनी थप्नुहोस् पहिला';
+    	this.message = 'आम्दानि भेटीएन, कृपया पहिला  आम्दानिको विवरण थप्नुहोस';
     }
     else{	
-    	this.message = 'कुल आम्दनी संक्या: ' + this.incomeIndex;
+    	this.message = 'कुल आम्दानि संख्या: ' + this.incomeIndex;
     }
 
   }
@@ -63,7 +102,7 @@ export class IncomeReportPage {
   	window.localStorage.removeItem(ID);
 
    let toast = this.toastCtrl.create({
-	    message: 'आम्दनी डिलिट भयो ।',
+	    message: 'आम्दानि डिलिट भयो ।',
 	    duration: 2000
 	  });
   	toast.present();
@@ -120,10 +159,17 @@ export class IncomeReportPage {
 
   }
 
-
-  settings(){
-    let modal = this.modalCtrl.create(MoreReportIncomePage);
-    modal.present();
+presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create('PopoverIncomePage');
+    popover.present({
+      ev: myEvent
+    });
   }
+
+
+  // settings(){
+  //   let modal = this.modalCtrl.create(MoreReportIncomePage);
+  //   modal.present();
+  // }
 
 }

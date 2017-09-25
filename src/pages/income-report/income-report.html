@@ -1,19 +1,28 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>आम्दनी विवरण - मासिक</ion-title>
-    <!--
+    <ion-title>आम्दानि विवरण - {{monthName}}</ion-title>
+
     <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+          <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+<!--     <ion-buttons end>
       <button ion-button (click)="settings()">
         <ion-icon name="more"></ion-icon>
       </button>
-    </ion-buttons>
-    -->
-    <button ion-button menuToggle>
+    </ion-buttons> -->
+    
+<!--     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button> -->
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+
+
+
   <canvas #barCanvas></canvas>
   <p align="center" class="grayBackgroundWithPaddings">{{message}}</p>
   <div style="overflow-y: scroll; height: 185px;">
@@ -41,6 +50,6 @@
       </ion-item-sliding>
     </ion-list>
   </div>
-  <p align="center" *ngIf="incomeSum" class="grayBackgroundWithPaddings">जम्मा आम्दनी: रु {{incomeSum}}</p>
-  <p align="center" class="grayBackgroundWithPaddings">ADVERTISEMENT</p>
+  <p align="center" *ngIf="incomeSum" class="grayBackgroundWithPaddings">जम्मा आम्दानि: रु {{incomeSum}}</p>
+  <!-- <p align="center" class="grayBackgroundWithPaddings">ADVERTISEMENT</p> -->
 </ion-content>

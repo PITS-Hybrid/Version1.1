@@ -3,6 +3,7 @@ import { HomePage } from '../home/home';
 import { Edit } from '../edit/edit';
 import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { PopoverController } from 'ionic-angular';
 
 import { MoreReportIncomePage } from '../more-report-income/more-report-income';
 
@@ -29,10 +30,50 @@ export class ExpenseReportPage {
 
   message;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+  monthName;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController, public popoverCtrl: PopoverController) {
 
   	var currentMonth = (new Date().getMonth())+1;
     var currentYear = new Date().getFullYear();
+
+
+    if(currentMonth == 1){
+      this.monthName = "January";
+    }
+    else if(currentMonth == 2){
+      this.monthName = "Febraury";
+    }
+    else if(currentMonth == 3){
+      this.monthName = "March";
+    }
+    else if(currentMonth == 4){
+      this.monthName = "April";
+    }
+    else if(currentMonth == 5){
+      this.monthName = "May";
+    }
+    else if(currentMonth == 6){
+      this.monthName = "June";
+    }
+    else if(currentMonth == 7){
+      this.monthName = "July";
+    }
+    else if(currentMonth == 8){
+      this.monthName = "August";
+    }
+    else if(currentMonth == 9){
+      this.monthName = "September";
+    }
+    else if(currentMonth == 10){
+      this.monthName = "October";
+    }
+    else if(currentMonth == 11){
+      this.monthName = "November";
+    }
+    else if(currentMonth == 12){
+      this.monthName = "December";
+    }
 
     if(localStorage.length>0){
       for (var i = 0; i < localStorage.length; i++){
@@ -51,10 +92,10 @@ export class ExpenseReportPage {
     }
 
     if(this.expenseIndex == 0){
-    	this.message = 'खर्च भेटेन! कृपया खर्च थप्नुहोस् पहिला';
+    	this.message = 'खर्च भेटीएन, कृपया पहिला  खर्चको विवरण थप्नुहोस';
     }
     else{	
-    	this.message = 'कुल खर्च संक्या: ' + this.expenseIndex;
+    	this.message = 'कुल खर्च संख्या: ' + this.expenseIndex;
     }
 
   }
@@ -120,10 +161,18 @@ export class ExpenseReportPage {
 
   }
 
-
-  settings(){
-    let modal = this.modalCtrl.create(MoreReportIncomePage);
-    modal.present();
+presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create('PopoverExpensePage');
+    popover.present({
+      ev: myEvent
+    });
   }
+
+ 
+
+  // settings(){
+  //   let modal = this.modalCtrl.create(MoreReportIncomePage);
+  //   modal.present();
+  // }
 
 }

@@ -90,10 +90,10 @@ export class MonthWiseIncomeReport {
     }
 
     if(this.incomeIndex == 0){
-    	this.message = 'आम्दनी भेटेन! कृपया नयाँ आम्दनी थप्नुहोस् पहिला';
+    	this.message = 'आम्दानि भेटीएन, कृपया पहिला आम्दानिको विवरण थप्नुहोस';
     }
     else{	
-    	this.message = 'कुल आम्दनी संक्या: ' + this.incomeIndex;
+    	this.message = 'कुल आम्दानि संख्या:' + this.incomeIndex;
     }
 
   }
@@ -102,7 +102,7 @@ export class MonthWiseIncomeReport {
   	window.localStorage.removeItem(ID);
 
    let toast = this.toastCtrl.create({
-	    message: 'आम्दनी डिलिट भयो ।',
+	    message: 'आम्दानि डिलिट भयो ।',
 	    duration: 2000
 	  });
   	toast.present();

@@ -25269,16 +25269,25 @@ edit .updateButton {
 }
 
 page-expense-report .grayBackgroundWithPaddings {
-  background-color: #f8f8f8;
+  background-color: #ff3b30;
+  color: #FFFFFF;
   padding: 15px;
 }
 
 page-income-report .grayBackgroundWithPaddings {
-  background-color: #f8f8f8;
+  background-color: #85bb65;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+page-monthwise-expense-report .grayBackgroundWithPaddings {
+  background-color: #ff3b30;
+  color: #FFFFFF;
   padding: 15px;
 }
 
 monthwise-income-report .grayBackgroundWithPaddings {
-  background-color: #f8f8f8;
+  background-color: #85bb65;
+  color: #FFFFFF;
   padding: 15px;
 }
