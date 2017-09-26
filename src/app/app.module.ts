@@ -20,7 +20,10 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { Edit } from '../pages/edit/edit';
 import { MoreReportIncomePage } from '../pages/more-report-income/more-report-income';
 import { MonthWiseIncomeReport } from '../pages/monthwise-income-report/monthwise-income-report';
-import { MonthwiseExpenseReportPage } from '../pages/monthwise-expense-report/monthwise-expense-report'
+import { MonthwiseExpenseReportPage } from '../pages/monthwise-expense-report/monthwise-expense-report';
+import { PopoverIncomePage } from '../pages/popover-income/popover-income';
+import { PopoverExpensePage } from '../pages/popover-expense/popover-expense';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { MonthwiseExpenseReportPage } from '../pages/monthwise-expense-report/mo
     MonthwiseExpenseReportPage,
     Edit
     ,AddIncomeDemoPage,
-    AddExpenseDemoPage
+    AddExpenseDemoPage,
+    PopoverIncomePage,
+    PopoverExpensePage,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,10 @@ import { MonthwiseExpenseReportPage } from '../pages/monthwise-expense-report/mo
     MonthwiseExpenseReportPage,
     Edit
     ,AddIncomeDemoPage,
-   AddExpenseDemoPage
+   AddExpenseDemoPage,
+   PopoverIncomePage,
+    PopoverExpensePage,
+
   ],
   providers: [
     StatusBar,

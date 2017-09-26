@@ -6,6 +6,7 @@ import { Chart } from 'chart.js';
 import { PopoverController } from 'ionic-angular';
 
 import { MoreReportIncomePage } from '../more-report-income/more-report-income';
+import { PopoverExpensePage } from '../popover-expense/popover-expense';
 
 @Component({
   selector: 'page-expense-report',
@@ -162,7 +163,7 @@ export class ExpenseReportPage {
   }
 
 presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create('PopoverExpensePage');
+    let popover = this.popoverCtrl.create(PopoverExpensePage);
     popover.present({
       ev: myEvent
     });

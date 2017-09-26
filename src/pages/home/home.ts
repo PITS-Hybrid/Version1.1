@@ -138,7 +138,7 @@ export class HomePage {
       title: itemName +' - '+' ('+addedOn+')',
       buttons: [
         {
-          text: ' इदित',
+          text: ' एडिट',
           icon: !this.platform.is('ios') ? 'create' : null,
           handler: () => {
           

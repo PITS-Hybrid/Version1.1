@@ -8,7 +8,7 @@ import { MoreReportIncomePage } from '../more-report-income/more-report-income';
 
 @Component({
   selector: 'monthwise-income-report',
-  templateUrl: 'monthwise-income-report.html',
+  templateUrl: 'monthwise-income-report.html'
 })
 export class MonthWiseIncomeReport {
  

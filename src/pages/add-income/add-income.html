@@ -85,6 +85,16 @@
     </ion-col>
   </ion-row>
   <ion-row>
+
+    <ion-col (click)="incomeCategory('jyala', 'ज्याला')">
+      <ion-card>
+        <ion-card-header color="danger" align="center">
+          ज्याला
+        </ion-card-header>
+        <img src="assets/icon/jyala.png">
+      </ion-card>
+    </ion-col>
+
     <ion-col (click)="incomeCategory('others', 'अन्य')">
       <ion-card>
         <ion-card-header color="danger" align="center">
@@ -93,7 +103,7 @@
         <img src="assets/icon/others.png">
       </ion-card>
     </ion-col>
-    <ion-col></ion-col>
+    
     <ion-col></ion-col>
   </ion-row>
 </ion-content>

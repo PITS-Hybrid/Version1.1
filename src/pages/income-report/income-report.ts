@@ -5,6 +5,7 @@ import { NavController, NavParams, ToastController, ModalController } from 'ioni
 import { Chart } from 'chart.js';
 import { PopoverController } from 'ionic-angular';
 import { MoreReportIncomePage } from '../more-report-income/more-report-income';
+import { PopoverIncomePage } from '../popover-income/popover-income';
 
 @Component({
   selector: 'page-income-report',
@@ -160,7 +161,7 @@ export class IncomeReportPage {
   }
 
 presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create('PopoverIncomePage');
+    let popover = this.popoverCtrl.create(PopoverIncomePage);
     popover.present({
       ev: myEvent
     });
