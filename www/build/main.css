@@ -25273,6 +25273,13 @@ page-add-income-demo .addButton {
   color: #FFFFFF;
 }
 
+page-daily-income-report .grayBackgroundWithPaddings {
+  background-color: #85bb65;
+  color: #FFFFFF;
+  padding: 15px;
+  statusbarPadding: true;
+}
+
 edit .updateButton {
   background-color: #428bca;
   color: #FFFFFF;

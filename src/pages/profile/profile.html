@@ -8,4 +8,12 @@
 <ion-content padding>
 	<p align="center">अहिलेसम्म को सबै रेकडहरु मेटनका लागि तलको बटन थिच्नुहोस ।</p>
   <button ion-button full color="danger" (click)="clearAll()">सबै रेकडहरु मेट्नुहोस</button>
+
+
+
+
+<!-- <p *ngFor="let info of incomes">{{info|json}}</p> -->
+
+<p *ngFor="let infoincome of incomeJSON">{{infoincome.type}}-{{infoincome.amount}}</p>
+<p *ngFor="let infoexpense of expenseJSON">{{infoexpense.type}}</p>
 </ion-content>

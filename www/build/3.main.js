@@ -1,12 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 452:
+/***/ 454:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddIncomePageModule", function() { return AddIncomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DailyIncomeReportPageModule", function() { return DailyIncomeReportPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__daily_income_report__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,21 +16,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-//import { AddIncomePage } from './add-income';
-var AddIncomePageModule = (function () {
-    function AddIncomePageModule() {
-    }
-    return AddIncomePageModule;
-}());
-AddIncomePageModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
-        declarations: [],
-        imports: [],
-        exports: []
-    })
-], AddIncomePageModule);
 
-//# sourceMappingURL=add-income.module.js.map
+
+var DailyIncomeReportPageModule = (function () {
+    function DailyIncomeReportPageModule() {
+    }
+    return DailyIncomeReportPageModule;
+}());
+DailyIncomeReportPageModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__daily_income_report__["a" /* DailyIncomeReportPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__daily_income_report__["a" /* DailyIncomeReportPage */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__daily_income_report__["a" /* DailyIncomeReportPage */]
+        ]
+    })
+], DailyIncomeReportPageModule);
+
+//# sourceMappingURL=daily-income-report.module.js.map
 
 /***/ })
 
