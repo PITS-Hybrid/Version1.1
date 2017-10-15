@@ -1,8 +1,10 @@
 <ion-list >
-  <button ion-item  (click)="daily()">Daily</button>
+  <button ion-item  (click)="daily()">दैनिक</button>
+  <button ion-item  (click)="monthly()">मासिक</button>
+  <button ion-item  (click)="yearly()">वार्षिक</button>
 
 
-      <ion-list-header>महिना अनुसार</ion-list-header>
+      <!-- <ion-list-header>महिना अनुसार</ion-list-header>
       <button ion-item  (click)="monthName(1)">January</button>
       <button ion-item  (click)="monthName(2)">Febraury</button>
       <button ion-item  (click)="monthName(3)">March</button>
@@ -14,11 +16,31 @@
       <button ion-item  (click)="monthName(9)">September</button>
       <button ion-item  (click)="monthName(10)">October</button>
       <button ion-item  (click)="monthName(11)">November</button>
-      <button ion-item  (click)="monthName(12)">December</button>
+      <button ion-item  (click)="monthName(12)">December</button> -->
 
 
-  
-    
+  <!-- 
+    <ion-item>
+      <ion-label>महिना</ion-label>
+      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">
+
+
+        <ion-option  (click)="monthName(1)">January</ion-option>
+       <ion-option  (click)="monthName(2)">Febraury</ion-option>
+       <ion-option  (click)="monthName(3)">March</ion-option>
+       <ion-option  (click)="monthName(4)">April</ion-option>
+       <ion-option (click)="monthName(5)">May</ion-option>
+       <ion-option  (click)="monthName(6)">June</ion-option>
+       <ion-option  (click)="monthName(7)">July</ion-option>
+       <ion-option  (click)="monthName(8)">August</ion-option>
+       <ion-option  (click)="monthName(9)">September</ion-option>
+       <ion-option  (click)="monthName(10)">October</ion-option>
+       <ion-option  (click)="monthName(11)">November</ion-option>
+      <ion-option  (click)="monthName(12)">December</ion-option>
+
+      </ion-select>
+    </ion-item> -->
+   
 
 
     </ion-list>

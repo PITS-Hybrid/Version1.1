@@ -25309,3 +25309,10 @@ monthwise-income-report .grayBackgroundWithPaddings {
   padding: 15px;
   statusbarPadding: true;
 }
+
+page-yearly-income-report .grayBackgroundWithPaddings {
+  background-color: #85bb65;
+  color: #FFFFFF;
+  padding: 15px;
+  statusbarPadding: true;
+}
