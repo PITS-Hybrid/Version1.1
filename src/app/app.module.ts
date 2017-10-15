@@ -24,7 +24,9 @@ import { MonthwiseExpenseReportPage } from '../pages/monthwise-expense-report/mo
 import { PopoverIncomePage } from '../pages/popover-income/popover-income';
 import { PopoverExpensePage } from '../pages/popover-expense/popover-expense';
 import { DailyIncomeReportPage } from '../pages/daily-income-report/daily-income-report';
+import { DailyExpenseReportPage } from '../pages/daily-expense-report/daily-expense-report';
 import { YearlyIncomeReportPage } from '../pages/yearly-income-report/yearly-income-report';
+import { YearlyExpenseReportPage } from '../pages/yearly-expense-report/yearly-expense-report';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { YearlyIncomeReportPage } from '../pages/yearly-income-report/yearly-inc
     PopoverIncomePage,
     PopoverExpensePage,
     DailyIncomeReportPage,
-    YearlyIncomeReportPage
+    DailyExpenseReportPage,
+    YearlyIncomeReportPage,
+    YearlyExpenseReportPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,9 @@ import { YearlyIncomeReportPage } from '../pages/yearly-income-report/yearly-inc
    PopoverIncomePage,
     PopoverExpensePage,
 DailyIncomeReportPage,
-YearlyIncomeReportPage
+DailyExpenseReportPage,
+YearlyIncomeReportPage,
+YearlyExpenseReportPage
   ],
   providers: [
     StatusBar,

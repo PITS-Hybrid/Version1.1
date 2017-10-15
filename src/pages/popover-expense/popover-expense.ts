@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MonthwiseExpenseReportPage } from '../monthwise-expense-report/monthwise-expense-report';
+import { DailyExpenseReportPage } from '../daily-expense-report/daily-expense-report';
+import { YearlyExpenseReportPage } from '../yearly-expense-report/yearly-expense-report';
+
 
 /**
  * Generated class for the PopoverExpensePage page.
@@ -18,12 +21,18 @@ export class PopoverExpensePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PopoverExpensePage');
-  }
 
-  monthName(monthValue){
-	this.navCtrl.push(MonthwiseExpenseReportPage, {'monthName': monthValue}, {animate: true, direction: 'forward'})
+  
+  daily(){
+    this.navCtrl.push(DailyExpenseReportPage);
+  }
+  
+  monthly(){
+  this.navCtrl.push(MonthwiseExpenseReportPage);
+  }
+ 
+  yearly(){
+    this.navCtrl.push(YearlyExpenseReportPage)
   }
 
 }

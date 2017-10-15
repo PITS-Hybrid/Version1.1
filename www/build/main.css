@@ -25273,6 +25273,12 @@ page-add-income-demo .addButton {
   color: #FFFFFF;
 }
 
+page-daily-expense-report .grayBackgroundWithPaddings {
+  background-color: #ff3b30;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
 page-daily-income-report .grayBackgroundWithPaddings {
   background-color: #85bb65;
   color: #FFFFFF;
@@ -25308,6 +25314,12 @@ monthwise-income-report .grayBackgroundWithPaddings {
   color: #FFFFFF;
   padding: 15px;
   statusbarPadding: true;
+}
+
+page-yearly-expense-report .grayBackgroundWithPaddings {
+  background-color: #ff3b30;
+  color: #FFFFFF;
+  padding: 15px;
 }
 
 page-yearly-income-report .grayBackgroundWithPaddings {

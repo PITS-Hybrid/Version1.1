@@ -3,6 +3,8 @@ import { HomePage } from '../home/home';
 import { Edit } from '../edit/edit';
 import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { PopoverController } from 'ionic-angular';
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import { Chart } from 'chart.js';
 })
 export class MonthwiseExpenseReportPage {
  
+  public monthSelected;
   @ViewChild('barCanvas') barCanvas;
   barChart: any;
 
@@ -32,49 +35,55 @@ export class MonthwiseExpenseReportPage {
   message;
   monthName;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+  constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController) {
 
-  	var currentMonth = navParams.get('monthName');
+  	var currentTime = new Date();
+    var currentMonth = currentTime.getMonth() + 1
+    this.monthSelected = navParams.get('monthName');
 
-    if(currentMonth == 1){
+      if(this.monthSelected == undefined){
+      this.monthSelected=currentMonth;
+    }
+ 
+     if (this.monthSelected == 1){
       this.monthName = "January";
     }
-    else if(currentMonth == 2){
+    else if(this.monthSelected == 2){
       this.monthName = "Febraury";
     }
-    else if(currentMonth == 3){
+    else if(this.monthSelected == 3){
       this.monthName = "March";
     }
-    else if(currentMonth == 4){
+    else if(this.monthSelected == 4){
       this.monthName = "April";
     }
-    else if(currentMonth == 5){
+    else if(this.monthSelected == 5){
       this.monthName = "May";
     }
-    else if(currentMonth == 6){
+    else if(this.monthSelected == 6){
       this.monthName = "June";
     }
-    else if(currentMonth == 7){
+    else if(this.monthSelected == 7){
       this.monthName = "July";
     }
-    else if(currentMonth == 8){
+    else if(this.monthSelected == 8){
       this.monthName = "August";
     }
-    else if(currentMonth == 9){
+    else if(this.monthSelected == 9){
       this.monthName = "September";
     }
-    else if(currentMonth == 10){
+    else if(this.monthSelected == 10){
       this.monthName = "October";
     }
-    else if(currentMonth == 11){
+    else if(this.monthSelected == 11){
       this.monthName = "November";
     }
-    else if(currentMonth == 12){
+    else if(this.monthSelected == 12){
       this.monthName = "December";
     }
-
+    
+  
     var currentYear = new Date().getFullYear();
-
     if(localStorage.length>0){
       for (var i = 0; i < localStorage.length; i++){
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
@@ -83,7 +92,7 @@ export class MonthwiseExpenseReportPage {
         var transactionMonth = parseInt(transactionDate.slice(5,7));
 		
 
-		if(singleTransaction.type == "Expense" && transactionYear == currentYear && transactionMonth == currentMonth){
+		if(singleTransaction.type == "Expense" && transactionYear == currentYear && transactionMonth == this.monthSelected){
           this.expenses[this.expenseIndex] = JSON.parse(localStorage.getItem(localStorage.key(i)));
           this.expenseSum = parseFloat(this.expenses[this.expenseIndex].amount)+this.expenseSum;
           this.expenseIndex++;
@@ -160,6 +169,12 @@ export class MonthwiseExpenseReportPage {
  
         });
 
+  }
+presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create('PopoverExpenseMonthPage');
+    popover.present({
+      ev: myEvent
+    });
   }
 
 

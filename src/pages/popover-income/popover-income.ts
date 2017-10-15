@@ -39,8 +39,8 @@ export class PopoverIncomePage {
   //   this.navCtrl.push(YearlyIncomeReportPage, {'yearName': this.yearName}, {animate: true, direction: 'forward'})
   // }
 
-  yearly(yearValue){
-    this.navCtrl.push(YearlyIncomeReportPage, {'yearName': yearValue}, {animate: true, direction: 'forward'})
+  yearly(){
+    this.navCtrl.push(YearlyIncomeReportPage)
   }
 
   close() {
