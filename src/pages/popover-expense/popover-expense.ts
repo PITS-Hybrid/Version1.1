@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MonthwiseExpenseReportPage } from '../monthwise-expense-report/monthwise-expense-report';
 import { DailyExpenseReportPage } from '../daily-expense-report/daily-expense-report';
 import { YearlyExpenseReportPage } from '../yearly-expense-report/yearly-expense-report';
+import { DaterangeExpensePage } from '../daterange-expense/daterange-expense';
 
 
 /**
@@ -33,6 +34,10 @@ export class PopoverExpensePage {
  
   yearly(){
     this.navCtrl.push(YearlyExpenseReportPage)
+  }
+
+  daterange(){
+    this.navCtrl.push(DaterangeExpensePage);
   }
 
 }

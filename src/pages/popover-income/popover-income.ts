@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 import { MonthWiseIncomeReport } from '../monthwise-income-report/monthwise-income-report';
 import { DailyIncomeReportPage } from '../daily-income-report/daily-income-report';
 import { YearlyIncomeReportPage } from '../yearly-income-report/yearly-income-report';
+import { DaterangeIncomePage } from '../daterange-income/daterange-income';
 
 
 
@@ -40,7 +41,12 @@ export class PopoverIncomePage {
   // }
 
   yearly(){
-    this.navCtrl.push(YearlyIncomeReportPage)
+    this.navCtrl.push(YearlyIncomeReportPage);
+  }
+
+
+  daterange(){
+    this.navCtrl.push(DaterangeIncomePage);
   }
 
   close() {

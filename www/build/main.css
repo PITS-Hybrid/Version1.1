@@ -25286,6 +25286,18 @@ page-daily-income-report .grayBackgroundWithPaddings {
   statusbarPadding: true;
 }
 
+page-daterange-expense-report .grayBackgroundWithPaddings {
+  background-color: #ff3b30;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+page-daterange-income-report .grayBackgroundWithPaddings {
+  background-color: #85bb65;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
 edit .updateButton {
   background-color: #428bca;
   color: #FFFFFF;

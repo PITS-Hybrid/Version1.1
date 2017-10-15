@@ -27,6 +27,10 @@ import { DailyIncomeReportPage } from '../pages/daily-income-report/daily-income
 import { DailyExpenseReportPage } from '../pages/daily-expense-report/daily-expense-report';
 import { YearlyIncomeReportPage } from '../pages/yearly-income-report/yearly-income-report';
 import { YearlyExpenseReportPage } from '../pages/yearly-expense-report/yearly-expense-report';
+import { DaterangeIncomePage } from '../pages/daterange-income/daterange-income';
+import { DaterangeExpensePage } from '../pages/daterange-expense/daterange-expense';
+import { DaterangeIncomeReportPage } from '../pages/daterange-income-report/daterange-income-report';
+import { DaterangeExpenseReportPage } from '../pages/daterange-expense-report/daterange-expense-report';
 
 
 @NgModule({
@@ -51,7 +55,13 @@ import { YearlyExpenseReportPage } from '../pages/yearly-expense-report/yearly-e
     DailyIncomeReportPage,
     DailyExpenseReportPage,
     YearlyIncomeReportPage,
-    YearlyExpenseReportPage
+    YearlyExpenseReportPage,
+    DaterangeIncomePage,
+    DaterangeIncomeReportPage,
+    DaterangeExpensePage,
+    DaterangeExpenseReportPage
+    
+
   ],
   imports: [
     BrowserModule,
@@ -79,7 +89,11 @@ import { YearlyExpenseReportPage } from '../pages/yearly-expense-report/yearly-e
 DailyIncomeReportPage,
 DailyExpenseReportPage,
 YearlyIncomeReportPage,
-YearlyExpenseReportPage
+YearlyExpenseReportPage,
+DaterangeIncomePage,
+DaterangeIncomeReportPage,
+DaterangeExpensePage,
+DaterangeExpenseReportPage
   ],
   providers: [
     StatusBar,

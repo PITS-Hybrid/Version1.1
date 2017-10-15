@@ -65,6 +65,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public t
                 message: 'नयाँ खर्च थप् भएको छ',
                 duration: 1000
               });
+                toast.present();
 
     localStorage.setItem(timestamp.toString(), JSON.stringify(newExpense));
     

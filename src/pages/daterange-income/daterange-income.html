@@ -1,0 +1,26 @@
+
+
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>आम्दानि विवरण मिति अनुसार</ion-title>
+
+  
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<ion-item>
+  <ion-label color="primary" floating> सुरू मिति</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myStartDate"  #startdate></ion-datetime>
+</ion-item>
+
+
+<ion-item>
+  <ion-label color="primary" floating> अन्त्य मिति</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myEndDate"  #enddate></ion-datetime>
+</ion-item>
+
+  <button ion-button full (click)="setRange()">चयन गर्नुहोस्</button>
+
+
+
+</ion-content>

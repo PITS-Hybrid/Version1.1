@@ -18,6 +18,9 @@ import { Edit } from '../edit/edit';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+
+
   
  //@ViewChild('doughnutCanvas') doughnutCanvas;
     
@@ -37,6 +40,7 @@ export class HomePage {
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
   	
+  
     this.isAndroid = platform.is('android');
 
     window.localStorage.removeItem('ionic_labmenu');
