@@ -25292,6 +25292,13 @@ page-daterange-expense-report .grayBackgroundWithPaddings {
   padding: 15px;
 }
 
+page-daterange-income .grayBackgroundWithPaddings {
+  background-color: #85bb65;
+  color: #FFFFFF;
+  padding: 15px;
+  statusbarPadding: true;
+}
+
 page-daterange-income-report .grayBackgroundWithPaddings {
   background-color: #85bb65;
   color: #FFFFFF;
