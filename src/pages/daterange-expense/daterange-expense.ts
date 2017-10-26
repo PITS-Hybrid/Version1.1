@@ -17,8 +17,10 @@ import { ToastController } from 'ionic-angular';
 export class DaterangeExpensePage {
 	 myStartDate: String ;
 	 myEndDate: String ;
+   languageSelected;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+     this.languageSelected=localStorage.getItem('LV');
   }
 
   ionViewDidLoad() {
@@ -32,14 +34,31 @@ setRange(){
   
 
 
+
     if(this.myStartDate == undefined || this.myEndDate==undefined){
+      if(this.languageSelected == 1){
+
+            let toast = this.toastCtrl.create({
+                message: 'Please fill in all the details',
+                duration: 1000
+              });
+              toast.present();
+            }
+
+             else if(this.languageSelected == 2){
+
             let toast = this.toastCtrl.create({
                 message: 'असफल भयो! कृपया सबै बिवरनहरु भर्नु होस्',
                 duration: 1000
               });
               toast.present();
             }
+          }
+
+
             else{
+
+              
               
 
 

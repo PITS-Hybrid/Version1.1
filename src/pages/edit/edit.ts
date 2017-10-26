@@ -11,21 +11,48 @@ export class Edit {
 	
 	itemID;
 	item;
+  languageSelected;
+  categorySelected;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController) {
   	this.itemID = navParams.get('id');
 
   	this.item = JSON.parse(window.localStorage.getItem(this.itemID));
+    this.languageSelected=localStorage.getItem('LV');
+    
+
+    if(this.languageSelected == 1){
+   
+    this.categorySelected= this.item.category_name;
 
   }
 
+ else if(this.languageSelected == 2){
+    this.categorySelected= this.item.category_name_nepali;
+  }
+
+     
+  }
+
   edit(id, dateAdded, amount, cat_name, cat_name_nep, type, note){
+
+    
     if(amount == ""){
+      if(this.languageSelected == 1){
+      let toast = this.toastCtrl.create({
+        message: 'Please fill in the details',
+        duration: 2000
+      });
+      toast.present();
+    }
+     else if(this.languageSelected == 2){
       let toast = this.toastCtrl.create({
         message: 'असफल भयो! कृपया सबै बिवरनहरु भर्नु होस्',
         duration: 2000
       });
       toast.present();
+    }
     }
     else{
 
@@ -38,6 +65,8 @@ export class Edit {
         note: note,
         type: type
       };
+
+
 
       window.localStorage.removeItem(id);
     

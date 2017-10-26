@@ -13,27 +13,92 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { IncomeReportPage } from '../pages/income-report/income-report';
 import { ExpenseReportPage } from '../pages/expense-report/expense-report';
 import { ProfilePage } from '../pages/profile/profile';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+
   @ViewChild(Nav) nav: Nav;
 
+  
   rootPage: any = HomePage;
+ abc;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor( translate: TranslateService,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+   
+
+
+
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+   // used for an example of ngFor and navigation
+
+ 
+
+
+translate.setDefaultLang('en');
+this.abc=localStorage.getItem('LV');
+
+
+if(this.abc == null){
+  translate.setDefaultLang('en');
+  window.localStorage.setItem('LV', '1');
+
+}
+
+else if(this.abc == 1 ){
+translate.setDefaultLang('en');
+
+}
+
+
+
+else if(this.abc == 2){
+  translate.setDefaultLang('nep');
+}
+
+
+ platform.ready().then(() => {
+    statusBar.styleDefault();
+    splashScreen.hide();
+  });
+
+
+  if(this.abc == 1 ){
+    this.pages = [
+     { title: 'Monthly Report', component: HomePage },
+     { title: 'Income Report', component: IncomeReportPage},
+     { title: 'Expense Report', component: ExpenseReportPage},
+      { title: 'About Us', component: AboutUsPage}
+    ];
+
+
+     platform.ready().then(() => {
+    statusBar.styleDefault();
+    splashScreen.hide();
+  });
+
+}
+  else if(this.abc == 2 ){
     this.pages = [
      { title: 'मासिक विवरण', component: HomePage },
      { title: 'आम्दानि रिपोर्ट', component: IncomeReportPage},
      { title: 'खर्च रिपोर्ट', component: ExpenseReportPage},
       { title: 'हाम्रो बारेमा', component: AboutUsPage}
     ];
+
+
+     platform.ready().then(() => {
+    statusBar.styleDefault();
+    splashScreen.hide();
+  });
+
+}
+
 
   }
 

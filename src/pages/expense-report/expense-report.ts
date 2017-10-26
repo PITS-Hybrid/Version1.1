@@ -32,13 +32,24 @@ export class ExpenseReportPage {
   message;
 
   monthName;
+  languageSelected;
+  languageEnglish;
+  languageNepali;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController, public popoverCtrl: PopoverController) {
 
   	var currentMonth = (new Date().getMonth())+1;
     var currentYear = new Date().getFullYear();
 
+this.languageSelected=localStorage.getItem('LV');
+if(this.languageSelected == 1){
+    this.languageEnglish=this.languageSelected;
+  }
 
+ else if(this.languageSelected == 2){
+    this.languageNepali=this.languageSelected;
+  }
+  
     if(currentMonth == 1){
       this.monthName = "January";
     }
@@ -76,9 +87,10 @@ export class ExpenseReportPage {
       this.monthName = "December";
     }
 
-    if(localStorage.length>0){
+    if(localStorage.length>1){
       for (var i = 0; i < localStorage.length; i++){
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
+         if(singleTransaction.date != undefined){
         var transactionDate = singleTransaction.date;
         var transactionYear = parseInt(transactionDate.slice(0,4));
         var transactionMonth = parseInt(transactionDate.slice(5,7));
@@ -91,24 +103,46 @@ export class ExpenseReportPage {
 
       }
     }
+    }
 
-    if(this.expenseIndex == 0){
-    	this.message = 'खर्च भेटीएन, कृपया पहिला  खर्चको विवरण थप्नुहोस';
+  if(this.expenseIndex == 0){
+      if(this.languageSelected == 1){
+      this.message = 'Could not find any expense, Please add expenses first';
     }
-    else{	
-    	this.message = 'कुल खर्च संख्या: ' + this.expenseIndex;
+
+     else if(this.languageSelected == 2){
+      this.message = 'खर्च भेटीएन, कृपया पहिला  खर्चको विवरण थप्नुहोस';
     }
+
+    }
+    else{  
+      if(this.languageSelected == 1){
+      this.message = 'No. of Expenses: ' + this.expenseIndex;
+    }
+ else if(this.languageSelected == 2){
+      this.message = 'कुल खर्च संख्या: ' + this.expenseIndex;
+    }
+  }
+
 
   }
 
   deleteItem(ID){
   	window.localStorage.removeItem(ID);
-
+if(this.languageSelected == 1){
    let toast = this.toastCtrl.create({
-	    message: 'खर्च डिलिट भयो ।',
+	    message: 'Expense has been deleted',
 	    duration: 2000
 	  });
   	toast.present();
+}
+else if(this.languageSelected == 1){
+   let toast = this.toastCtrl.create({
+      message: 'खर्च डिलिट भयो ।',
+      duration: 2000
+    });
+    toast.present();
+}
 
   	this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
 
@@ -126,7 +160,12 @@ export class ExpenseReportPage {
 
     for(var i = 0; i<=noOfExpense; i++){
       if(this.expenses[i] != undefined){
+        if(this.languageSelected == 1){
+        this.expensesTitle.push(this.expenses[i].category_name);
+      }
+       else if(this.languageSelected == 2){
         this.expensesTitle.push(this.expenses[i].category_name_nepali);
+      }
         this.expenseRupeesAmount.push(this.expenses[i].amount);
       }
     }

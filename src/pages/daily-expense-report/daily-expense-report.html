@@ -1,6 +1,6 @@
 <ion-header >
   <ion-navbar color="danger"  class="ios-header">
-    <ion-title class="ios-header-text">आजको खर्च विवरण</ion-title>
+    <ion-title class="ios-header-text"> {{'TODAY_EXPENSE_REPORT' | translate}}</ion-title>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -34,5 +34,6 @@
       </ion-item-sliding>
     </ion-list>
   </div>
-  <p align="center" *ngIf="expenseSum" class="grayBackgroundWithPaddings">जम्मा खर्च: रु {{expenseSum}}</p>
+  <p align="center" *ngIf="expenseSum" class="grayBackgroundWithPaddings">
+  {{'TOTAL_EXPENSE_AMOUNT' | translate}} {{expenseSum}}</p>
 </ion-content>

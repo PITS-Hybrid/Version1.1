@@ -35,9 +35,21 @@ export class DaterangeExpenseReportPage {
   message;
 
   monthName;
+  languageSelected;
+  languageEnglish;
+  languageNepali;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController, public popoverCtrl: PopoverController) {
+    
 
+this.languageSelected=localStorage.getItem('LV');
+if(this.languageSelected == 1){
+    this.languageEnglish=this.languageSelected;
+  }
+
+ else if(this.languageSelected == 2){
+    this.languageNepali=this.languageSelected;
+  }
   	this.myStartDate = navParams.get("startDateValue");
   	this.myEndDate = navParams.get("endDateValue");
   	var currentMonth = (new Date().getMonth())+1;
@@ -45,9 +57,10 @@ export class DaterangeExpenseReportPage {
 
 
 
-    if(localStorage.length>0){
+    if(localStorage.length>1){
       for (var i = 0; i < localStorage.length; i++){
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
+         if(singleTransaction.date != undefined){
         var transactionDate = singleTransaction.date;
         var transactionYear = parseInt(transactionDate.slice(0,4));
         var transactionMonth = parseInt(transactionDate.slice(5,7));
@@ -59,26 +72,47 @@ if(singleTransaction.type == "Expense" && transactionDate >=this.myStartDate && 
 
       }
     }
+    }
 
-    if(this.expenseIndex == 0){
-    	this.message = 'खर्च भेटीएन, कृपया पहिला  खर्चको विवरण थप्नुहोस';
+   if(this.expenseIndex == 0){
+      if(this.languageSelected == 1){
+      this.message = 'Could not find any expense, Please add expenses first';
     }
-    else{	
-    	this.message = 'कुल खर्च संख्या: ' + this.expenseIndex;
+
+     else if(this.languageSelected == 2){
+      this.message = 'खर्च भेटीएन, कृपया पहिला  खर्चको विवरण थप्नुहोस';
     }
+
+    }
+    else{  
+      if(this.languageSelected == 1){
+      this.message = 'No. of Expenses: ' + this.expenseIndex;
+    }
+ else if(this.languageSelected == 2){
+      this.message = 'कुल खर्च संख्या: ' + this.expenseIndex;
+    }
+  }
 
   }
 
-  deleteItem(ID){
-  	window.localStorage.removeItem(ID);
-
+ deleteItem(ID){
+    window.localStorage.removeItem(ID);
+if(this.languageSelected == 1){
    let toast = this.toastCtrl.create({
-	    message: 'खर्च डिलिट भयो ।',
-	    duration: 2000
-	  });
-  	toast.present();
+      message: 'Expense has been deleted',
+      duration: 2000
+    });
+    toast.present();
+}
+else if(this.languageSelected == 1){
+   let toast = this.toastCtrl.create({
+      message: 'खर्च डिलिट भयो ।',
+      duration: 2000
+    });
+    toast.present();
+}
 
-  	this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
+    this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
 
   }
 

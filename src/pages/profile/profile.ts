@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @IonicPage()
 @Component({
@@ -11,7 +13,7 @@ import { HomePage } from '../home/home';
 export class ProfilePage {
 
 
-
+public age: number = 30;
 
   incomeJSON = [];
   expenseJSON = [];
@@ -31,7 +33,7 @@ export class ProfilePage {
   expenseIndex = 0;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public translate: TranslateService, public translateService: TranslateService, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 
     var currentYear = new Date().getFullYear();
 
@@ -39,9 +41,13 @@ export class ProfilePage {
 
 
 
-      if(localStorage.length>0){
+      if(localStorage.length>1){
       for (var i = 0; i < localStorage.length; i++){
+
+
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+         if(singleTransaction.date != undefined){
         var transactionDate = singleTransaction.date;
         var transactionYear = parseInt(transactionDate.slice(0,4));
         var transactionMonth = parseInt(transactionDate.slice(5,7));
@@ -58,6 +64,8 @@ export class ProfilePage {
         }
 
       }
+
+      }
   }
 
 }
@@ -71,7 +79,7 @@ export class ProfilePage {
         this.incomeTitle.push(this.incomes[i].category_name_nepali);
         this.incomeRupeesAmount.push(this.incomes[i].amount);
         this.incomeJSON.push(this.incomes[i]);
-        console.log(this.incomeJSON);
+       // console.log(this.incomeJSON);
       }
     
   }
@@ -83,16 +91,17 @@ var noOfExpense = this.expenses.length;
         this.expensesTitle.push(this.expenses[i].category_name_nepali);
         this.expenseRupeesAmount.push(this.expenses[i].amount);
         this.expenseJSON.push(this.expenses[i]);
-        console.log(this.expenseJSON);
+       // console.log(this.expenseJSON);
       }}
 
 
 
 }
 
+
   clearAll(){
-  	window.localStorage.clear();
-  	let alert = this.alertCtrl.create({
+    window.localStorage.clear();
+    let alert = this.alertCtrl.create({
       title: 'सफल भयो!',
       subTitle: 'सबै रेकोर्द्सहरु मेटियो',
       buttons: ['OK']
@@ -101,4 +110,30 @@ var noOfExpense = this.expenses.length;
     this.navCtrl.setRoot(HomePage);
   }
 
+
+
+
+
+
+
+languageOption(languageValue){
+
+ if(languageValue == 1 ){
+   window.localStorage.setItem('LV', languageValue);
+    //this.translateService.use('en');
+  this.translate.setDefaultLang('en');
+
 }
+else if(languageValue == 2 ){
+  this.translate.setDefaultLang('nep');
+   //this.translateService.use('nep');
+  window.localStorage.setItem('LV', languageValue);
+}
+
+  }
+
+  }
+
+
+
+

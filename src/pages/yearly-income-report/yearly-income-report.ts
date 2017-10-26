@@ -4,7 +4,7 @@ import { Edit } from '../edit/edit';
 import { NavController, NavParams, ToastController, ModalController, IonicPage } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { PopoverController } from 'ionic-angular';
-
+import { PopoverIncomeYearPage } from '../popover-income-year/popover-income-year';
 
 import { MoreReportIncomePage } from '../more-report-income/more-report-income';
 /**
@@ -42,17 +42,29 @@ export class YearlyIncomeReportPage {
   message;
   yearName;
   yearNameinNavBar;
+  languageSelected;
+  languageEnglish;
+  languageNepali;
 
   constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController) {
 	this.yearSelected = navParams.get("yearName");
- 
+
+ this.languageSelected=localStorage.getItem('LV');
+ if(this.languageSelected == 1){
+    this.languageEnglish=this.languageSelected;
+  }
+
+ else if(this.languageSelected == 2){
+    this.languageNepali=this.languageSelected;
+  }
+  
   
    
 
   var current = navParams.get('yearName');
-  //console.log(current);
   	var currentDay = new Date().toISOString().slice(0,10)
   	var currentYear = new Date().getFullYear();
+
      console.log(currentYear);
 
      if(this.yearSelected == undefined){
@@ -60,9 +72,10 @@ export class YearlyIncomeReportPage {
      }
   	
 
-    if(localStorage.length>0){
+    if(localStorage.length>1){
       for (var i = 0; i < localStorage.length; i++){
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
+         if(singleTransaction.date != undefined){
         var transactionDate = singleTransaction.date;
         var transactionYear = parseInt(transactionDate.slice(0,4));
         console.log(transactionYear);
@@ -76,25 +89,46 @@ export class YearlyIncomeReportPage {
 
       }
     }
+    }
 
     if(this.incomeIndex == 0){
-    	this.message = 'आम्दानि भेटीएन, कृपया पहिला आम्दानिको विवरण थप्नुहोस';
+    	if(this.languageSelected == 1){
+      this.message = 'Could not find any income, Please add income first';
+    }
+    else if(this.languageSelected == 2){
+      this.message = 'आम्दानि भेटीएन, कृपया पहिला आम्दानिको विवरण थप्नुहोस';
+    }
     }
     else{	
-    	this.message = 'कुल आम्दानि संख्या:' + this.incomeIndex;
+    	
+      if(this.languageSelected == 1){
+      this.message = 'No. of Incomes : ' + this.incomeIndex;
+    }
+
+    else  if(this.languageSelected == 2){
+      this.message = 'कुल आम्दानि संख्या:' + this.incomeIndex;
+    }
     }
 
   }
 
   deleteItem(ID){
   	window.localStorage.removeItem(ID);
-
+if(this.languageSelected == 1){
    let toast = this.toastCtrl.create({
-	    message: 'आम्दानि डिलिट भयो ।',
+	    message: 'Income has been deleted',
 	    duration: 2000
 	  });
   	toast.present();
+}
 
+else if(this.languageSelected == 2){
+   let toast = this.toastCtrl.create({
+      message: 'आम्दानि डिलिट भयो ।',
+      duration: 2000
+    });
+    toast.present();
+}
   	this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
 
   }
@@ -111,7 +145,12 @@ export class YearlyIncomeReportPage {
 
     for(var i = 0; i<=noOfIncome; i++){
       if(this.incomes[i] != undefined){
+        if(this.languageSelected == 1){
+        this.incomeTitle.push(this.incomes[i].category_name);
+      }
+       else if(this.languageSelected == 2){
         this.incomeTitle.push(this.incomes[i].category_name_nepali);
+      }
         this.incomeRupeesAmount.push(this.incomes[i].amount);
       }
     }
@@ -148,7 +187,7 @@ export class YearlyIncomeReportPage {
   }
 
   presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create('PopoverIncomeYearPage');
+    let popover = this.popoverCtrl.create(PopoverIncomeYearPage);
     popover.present({
       ev: myEvent
     });

@@ -1,19 +1,20 @@
 <ion-header>
   <ion-navbar color="danger">
     <ion-title>
-     प्रोफाइल
+     {{'PROFILE' | translate}} 
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-	<p align="center">अहिलेसम्म को सबै रेकडहरु मेटनका लागि तलको बटन थिच्नुहोस ।</p>
-  <button ion-button full color="danger" (click)="clearAll()">सबै रेकडहरु मेट्नुहोस</button>
+	<p align="center">{{ 'TO_CLEAR_RECORDS' | translate }}</p>
+  <button ion-button full color="danger" (click)="clearAll()"> 
+   {{'CLEARALLRECORD' | translate}}
+   </button>
 
-
-
-
+  <ion-label>  {{ 'CHANGE_LANGUAGE' | translate }}</ion-label>
+  <button ion-item  (click)="languageOption(1)"> {{ "ENGLISH" | translate }}</button>
+      <button ion-item  (click)="languageOption(2)">{{ "NEPALI" | translate }}</button>
 <!-- <p *ngFor="let info of incomes">{{info|json}}</p> -->
-
-<p *ngFor="let infoincome of incomeJSON">{{infoincome.type}}-{{infoincome.amount}}</p>
-<p *ngFor="let infoexpense of expenseJSON">{{infoexpense.type}}</p>
+<!-- <p *ngFor="let infoincome of incomeJSON">{{infoincome.type}}-{{infoincome.amount}}</p>
+<p *ngFor="let infoexpense of expenseJSON">{{infoexpense.type}}</p> -->
 </ion-content>

@@ -28,7 +28,7 @@ export class PopoverIncomeYearPage {
 
 yearName(yearID){
     this.navCtrl.push(YearlyIncomeReportPage,
-      {'yearName1' : yearID})
+      {'yearName' : yearID})
 
     
   }

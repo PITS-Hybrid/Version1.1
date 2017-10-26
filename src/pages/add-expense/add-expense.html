@@ -1,19 +1,19 @@
 <ion-header>
   <ion-navbar color="danger">
     <ion-title>
-      नयाँ खर्च
+       {{'NEW_EXPENSE' | translate}} 
     </ion-title>
   </ion-navbar>
   <ion-toolbar no-border-bottom>
     <ion-segment [(ngModel)]="titleExpense">
       <ion-segment-button value="daily">
-        दैनिक
+        {{'DAILY' | translate}} 
       </ion-segment-button>
       <ion-segment-button value="monthly">
-        मासिक
+        {{'MONTHLY' | translate}}
       </ion-segment-button>
       <ion-segment-button value="yearly">
-        वार्षिक
+        {{'YEARLY' | translate}}
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -22,162 +22,162 @@
   <div [ngSwitch]="titleExpense">
     <ion-list *ngSwitchCase="'daily'">
       <ion-row>
-        <ion-col (click)="expenseCategory('household', 'घर खर्च')">
+        <ion-col col-4  (click)="expenseCategory('Household', 'घर खर्च')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              घर खर्च
+              {{'EXPENSE_CATEGORY_HOUSEHOLD' | translate}}
             </ion-card-header>
-            <img src="assets/icon/household.png">
+            <img src="assets/icon/Household.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('transport', 'यातायात')">
+        <ion-col col-4  (click)="expenseCategory('Transport', 'यातायात')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              यातायात
+              {{'EXPENSE_CATEGORY_TRANSPORT' | translate}}
             </ion-card-header>
-            <img src="assets/icon/transport.png">
+            <img src="assets/icon/Transport.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('tea', 'खाजा')">
+        <ion-col col-4  (click)="expenseCategory('Snacks', 'खाजा')">
           <ion-card >
             <ion-card-header color="danger" align="center">
-              खाजा
+                {{'EXPENSE_CATEGORY_SNACKS' | translate}}
             </ion-card-header>
-            <img src="assets/icon/tea.png">
+            <img src="assets/icon/Snacks.png">
           </ion-card>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col (click)="expenseCategory('travel', 'घुम्घाम')">
+        <ion-col col-4  (click)="expenseCategory('Travel', 'घुम्घाम')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              घुम्घाम
+                 {{'EXPENSE_CATEGORY_TRAVEL' | translate}}
             </ion-card-header>
-            <img src="assets/icon/travel.png">
+            <img src="assets/icon/Travel.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('restaurant', 'रेस्टुरेन्ट')">
+        <ion-col col-4  (click)="expenseCategory('Restaurant', 'रेस्टुरेन्ट')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              रेस्टुरेन्ट
+              {{'EXPENSE_CATEGORY_RESTAURANT' | translate}}
             </ion-card-header>
-            <img src="assets/icon/restaurant.png">
+            <img src="assets/icon/Restaurant.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('bikecar', 'सवारी खर्च')">
+        <ion-col col-4  (click)="expenseCategory('Transportation', 'सवारी खर्च')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              सवारी खर्च
+              {{'EXPENSE_CATEGORY_TRANSPORTATION' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/bikecar.png">
+            <img src="assets/icon/Transportation.png">
           </ion-card>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col (click)="expenseCategory('cosmetics', 'कस्मेटिक')">
+        <ion-col col-4  (click)="expenseCategory('Cosmetics', 'कस्मेटिक')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              कस्मेटिक
+              {{'EXPENSE_CATEGORY_COSMETICS' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/cosmetics.png">
+            <img src="assets/icon/Cosmetics.png">
           </ion-card>
         </ion-col>
-        <ion-col></ion-col>
-        <ion-col></ion-col>
+        <ion-col col-4 ></ion-col>
+        <ion-col col-4 ></ion-col>
       </ion-row>
     </ion-list>
     <ion-list *ngSwitchCase="'monthly'">
       <ion-row>
-        <ion-col  (click)="expenseCategory('education', 'शैक्षिक')">
+        <ion-col col-4  (click)="expenseCategory('Education', 'शैक्षिक')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              शैक्षिक
+            {{'EXPENSE_CATEGORY_EDUCATION' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/education.png">
+            <img src="assets/icon/Education.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('rent', 'घर भाडा')">
+        <ion-col col-4  (click)="expenseCategory('Rent', 'घर भाडा')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              घर भाडा
+               {{'EXPENSE_CATEGORY_RENT' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/rent.png">
+            <img src="assets/icon/Rent.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('interest', 'ब्याज ')">
+        <ion-col col-4  (click)="expenseCategory('Interest', 'ब्याज ')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              ब्याज 
+             {{'EXPENSE_CATEGORY_INTEREST' | translate}}  
             </ion-card-header>
-            <img src="assets/icon/interest.png">
-          </ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col (click)="expenseCategory('health', 'स्वास्थ्य')">
-          <ion-card>
-            <ion-card-header color="danger" align="center">
-              स्वास्थ्य
-            </ion-card-header>
-            <img src="assets/icon/health.png">
-          </ion-card>
-        </ion-col>
-        <ion-col (click)="expenseCategory('buy', 'सामान')">
-          <ion-card>
-            <ion-card-header color="danger" align="center">
-              सामान
-            </ion-card-header>
-            <img src="assets/icon/buy.png">
-          </ion-card>
-        </ion-col>
-        <ion-col (click)="expenseCategory('repair', 'मर्मत')">
-          <ion-card>
-            <ion-card-header color="danger" align="center">
-              मर्मत
-            </ion-card-header>
-            <img src="assets/icon/repair.png">
+            <img src="assets/icon/Interest.png">
           </ion-card>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col (click)="expenseCategory('waterelectricity', 'धारा/बत्ती')">
+        <ion-col col-4  (click)="expenseCategory('Health', 'स्वास्थ्य')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              धारा/बत्ती
+              {{'EXPENSE_CATEGORY_HEALTH' | translate}}
             </ion-card-header>
-            <img src="assets/icon/waterelectricity.png">
+            <img src="assets/icon/Health.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('phone', 'फोन')">
+        <ion-col col-4  (click)="expenseCategory('Stuffs', 'सामान')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              फोन
+             {{'EXPENSE_CATEGORY_STUFFS' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/phone.png">
+            <img src="assets/icon/Stuffs.png">
           </ion-card>
         </ion-col>
-        <ion-col (click)="expenseCategory('internet', 'ईन्टरनेट')">
+        <ion-col col-4  (click)="expenseCategory('Repairs', 'मर्मत')">
           <ion-card>
             <ion-card-header color="danger" align="center">
-              ईन्टरनेट
+               {{'EXPENSE_CATEGORY_REPAIRS' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/internet.png">
+            <img src="assets/icon/Repairs.png">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4  (click)="expenseCategory('Utilities', 'धारा/बत्ती')">
+          <ion-card>
+            <ion-card-header color="danger" align="center">
+              {{'EXPENSE_CATEGORY_UTILITIES' | translate}} 
+            </ion-card-header>
+            <img src="assets/icon/Utilities.png">
+          </ion-card>
+        </ion-col>
+        <ion-col  col-4 (click)="expenseCategory('Phone', 'फोन')">
+          <ion-card>
+            <ion-card-header color="danger" align="center">
+              {{'EXPENSE_CATEGORY_PHONE' | translate}} 
+            </ion-card-header>
+            <img src="assets/icon/Phone.png">
+          </ion-card>
+        </ion-col>
+        <ion-col col-4  (click)="expenseCategory('Internet', 'ईन्टरनेट')">
+          <ion-card>
+            <ion-card-header color="danger" align="center">
+               {{'EXPENSE_CATEGORY_INTERNET' | translate}}
+            </ion-card-header>
+            <img src="assets/icon/Internet.png">
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-list>
     <ion-list *ngSwitchCase="'yearly'">
       <ion-row>
-        <ion-col (click)="expenseCategory('tax', 'कर/जरिवाना')">
+        <ion-col col-4  (click)="expenseCategory('Tax', 'कर/जरिवाना')">
           <ion-card >
             <ion-card-header color="danger" align="center">
-              कर/जरिवाना
+             {{'EXPENSE_CATEGORY_TAX' | translate}} 
             </ion-card-header>
-            <img src="assets/icon/tax.png">
+            <img src="assets/icon/Tax.png">
           </ion-card>
         </ion-col>
-        <ion-col></ion-col>
-        <ion-col></ion-col>
+        <ion-col col-4 ></ion-col>
+        <ion-col col-4 ></ion-col>
       </ion-row>
     </ion-list>
   </div>

@@ -1,6 +1,7 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>आम्दानि शिर्षक - {{nepalicategoryParam}}</ion-title>
+    <ion-title>
+    {{'INCOME_TITLE' | translate}} - {{catParam}}</ion-title>
     
   
   </ion-navbar>
@@ -10,21 +11,21 @@
   	
  
   <ion-item>
-    <ion-label color="primary" floating>रकम</ion-label>
+    <ion-label color="primary" floating>{{'AMOUNT' | translate}}</ion-label>
     <ion-input type="number"  #amt></ion-input>
   </ion-item>
 
   <ion-item>
-  <ion-label color="primary" floating>मिति</ion-label>
+  <ion-label color="primary" floating>{{'DATE' | translate}}</ion-label>
   <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  #date></ion-datetime>
 </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>नोट</ion-label>
+    <ion-label color="primary" floating>{{'NOTE' | translate}}</ion-label>
     <ion-input type="text" #note></ion-input>
   </ion-item>
   
-    <button ion-button full (click)="addIncome()">शेभ गर्नुहोस</button>
+    <button ion-button full (click)="addIncome()">{{'SAVE' | translate}}</button>
     
  
 </ion-content>

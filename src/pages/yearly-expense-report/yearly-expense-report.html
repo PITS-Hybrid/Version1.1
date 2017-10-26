@@ -1,6 +1,6 @@
 <ion-header >
   <ion-navbar color="danger"  class="ios-header">
-    <ion-title class="ios-header-text">खर्च विवरण - {{yearSelected}}</ion-title>
+    <ion-title class="ios-header-text">{{'EXPENSE_REPORT' | translate}} - {{yearSelected}}</ion-title>
     
     <ion-buttons end>
       <button ion-button icon-only (click)="presentPopover($event)">
@@ -18,27 +18,38 @@
   <div style="overflow-y: scroll; height: 185px;">
     <ion-list *ngFor="let info of expenses">
       <ion-item-sliding>
-        <ion-item>
+         <ion-item *ngIf=languageEnglish>
+          <ion-thumbnail item-start>
+            <img src="assets/icon/{{info.category_name}}.png">
+          </ion-thumbnail>
+          <h2 style="color: #3567ac"><strong>{{info.category_name}}</strong></h2>
+          <h4>{{'RUPEES' | translate}} {{info.amount}}</h4>
+          <p>{{info.date}}</p>
+          <p>{{info.note}}</p>
+        </ion-item>
+
+        <ion-item *ngIf=languageNepali>
           <ion-thumbnail item-start>
             <img src="assets/icon/{{info.category_name}}.png">
           </ion-thumbnail>
           <h2 style="color: #3567ac"><strong>{{info.category_name_nepali}}</strong></h2>
-          <h4>रु {{info.amount}}</h4>
+          <h4>{{'RUPEES' | translate}} {{info.amount}}</h4>
           <p>{{info.date}}</p>
           <p>{{info.note}}</p>
         </ion-item>
+
         <ion-item-options side="right">
           <button ion-button color="success" (click)="editItem(info.ID)">
             <ion-icon name="open"></ion-icon>
-            इदित
+             {{'BUTTON_EDIT' | translate}}
           </button>
           <button ion-button color="danger" (click)="deleteItem(info.ID)">
             <ion-icon name="trash"></ion-icon>
-            डिलिट
+           {{'BUTTON_DELETE' | translate}} 
           </button>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
   </div>
-  <p align="center" *ngIf="expenseSum" class="grayBackgroundWithPaddings">जम्मा खर्च: रु {{expenseSum}}</p>
+  <p align="center" *ngIf="expenseSum" class="grayBackgroundWithPaddings">{{'TOTAL_EXPENSE_AMOUNT' | translate}}  {{expenseSum}}</p>
 </ion-content>

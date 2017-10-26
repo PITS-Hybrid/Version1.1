@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>खर्च शिर्षक - {{nepalicategoryParam}}</ion-title>
+    <ion-title>{{'EXPENSE_TITLE' | translate}} - {{catParam}}</ion-title>
     
   
   </ion-navbar>
@@ -10,21 +10,21 @@
   	
  
   <ion-item>
-    <ion-label color="primary" floating>रकम</ion-label>
+    <ion-label color="primary" floating>{{'AMOUNT' | translate}}</ion-label>
     <ion-input type="number" id="amount" [(ngModel)]="myAmount" ></ion-input>
   </ion-item>
 
   <ion-item>
-  <ion-label color="primary" floating>मिति</ion-label>
+  <ion-label color="primary" floating>{{'DATE' | translate}}</ion-label>
   <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  ></ion-datetime>
 </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>नोट</ion-label>
+    <ion-label color="primary" floating>{{'NOTE' | translate}}</ion-label>
     <ion-input type="text" id="note" [(ngModel)]="myNote"></ion-input>
   </ion-item>
   
-    <button ion-button full (click)="addExpense()">शेभ गर्नुहोस</button>
+    <button ion-button full (click)="addExpense()">{{'SAVE' | translate}}</button>
     
  
 </ion-content>

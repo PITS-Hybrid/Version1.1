@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>{{item.category_name_nepali}} - {{item.date}}</ion-title>
+    <ion-title>{{categorySelected}} - {{item.date}}</ion-title>
     <ion-buttons end>
       <button ion-button (click)="deleteItem(item.ID)">
         <ion-icon name="trash"></ion-icon>
@@ -15,13 +15,13 @@
   <input type="hidden" id="type" [value]=item.type #type>
   <ion-input type="hidden" id="dateAdded" [value]=item.date #dateAdded></ion-input>
   <ion-item>
-    <ion-label color="primary" fixed>रकम</ion-label>
+    <ion-label color="primary" fixed>{{ 'AMOUNT' | translate}}</ion-label>
     <ion-input type="number" id="amount" [value]=item.amount #amount></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label color="primary" fixed>नोट</ion-label>
+    <ion-label color="primary" fixed>{{ 'NOTE' | translate}}</ion-label>
     <ion-input type="text" id="note" [value]=item.note #note></ion-input>
   </ion-item>
-  <button ion-button full (click)="edit(id.value ,dateAdded.value, amount.value, category_name.value, category_name_nepali.value, type.value, note.value)" class="updateButton" >एडिट</button>
+  <button ion-button full (click)="edit(id.value ,dateAdded.value, amount.value, category_name.value, category_name_nepali.value, type.value, note.value)" class="updateButton" >{{ 'BUTTON_EDIT' | translate}}</button>
   
 </ion-content>

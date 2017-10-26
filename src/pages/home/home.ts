@@ -20,7 +20,7 @@ import { Edit } from '../edit/edit';
 export class HomePage {
 
 
-
+abc;
   
  //@ViewChild('doughnutCanvas') doughnutCanvas;
     
@@ -38,9 +38,31 @@ export class HomePage {
   expenseIndex = 0;
   monthName;
 
+  expensesTitle =[];
+  expenseRupeesAmount=[];
+  incomeTitle;
+  incomeRupeesAmount;
+
+
+  languageSelected;
+  languageEnglish;
+  languageNepali;
+
+
   constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
   	
-  
+ 
+
+  this.languageSelected=localStorage.getItem('LV');
+
+  if(this.languageSelected == 1){
+    this.languageEnglish=this.languageSelected;
+  }
+
+ else if(this.languageSelected == 2){
+    this.languageNepali=this.languageSelected;
+  }
+
     this.isAndroid = platform.is('android');
 
     window.localStorage.removeItem('ionic_labmenu');
@@ -87,23 +109,31 @@ export class HomePage {
       this.monthName = "December";
     }
 
-    if(localStorage.length>0){
+// console.log(localStorage.length);
+    if(localStorage.length>1){
       for (var i = 0; i < localStorage.length; i++){
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        var transactionDate = singleTransaction.date;
-        var transactionYear = parseInt(transactionDate.slice(0,4));
-        var transactionMonth = parseInt(transactionDate.slice(5,7));
+        
+        
+        if(singleTransaction.date != undefined){
+          var transactionDate = singleTransaction.date;
+          var transactionYear = parseInt(transactionDate.slice(0,4));
+          var transactionMonth = parseInt(transactionDate.slice(5,7));
 
-        if(singleTransaction.type == "Income" && transactionYear == currentYear && transactionMonth == currentMonth){
-          this.incomes[this.incomeIndex] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-          this.incomeSum = parseFloat(this.incomes[this.incomeIndex].amount)+this.incomeSum;
-          this.incomeIndex++;
+          if(singleTransaction.type == "Income" && transactionYear == currentYear && transactionMonth == currentMonth){
+            this.incomes[this.incomeIndex] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            this.incomeSum = parseFloat(this.incomes[this.incomeIndex].amount)+this.incomeSum;
+            this.incomeIndex++;
+          }
+
+          if(singleTransaction.type == "Expense" && transactionYear == currentYear && transactionMonth == currentMonth){
+            this.expenses[this.expenseIndex] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            this.expenseSum = parseFloat(this.expenses[this.expenseIndex].amount)+this.expenseSum;
+            this.expenseIndex++;
+          }
         }
-
-        if(singleTransaction.type == "Expense" && transactionYear == currentYear && transactionMonth == currentMonth){
-          this.expenses[this.expenseIndex] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-          this.expenseSum = parseFloat(this.expenses[this.expenseIndex].amount)+this.expenseSum;
-          this.expenseIndex++;
+        else{
+          console.log('undefined found');
         }
 
       }
@@ -138,8 +168,10 @@ export class HomePage {
 
 
   itemClicked(itemName, amount, addedOn, ID){
+
+     if(this.languageSelected == 2){
     let actionSheet = this.actionsheetCtrl.create({
-      title: itemName +' - '+' ('+addedOn+')',
+      // title: itemName +' - '+' ('+addedOn+')',
       buttons: [
         {
           text: ' एडिट',
@@ -176,19 +208,73 @@ export class HomePage {
         }
       ]
     });
-    actionSheet.present();
+    actionSheet.present();}
+
+
+   else  if(this.languageSelected == 1){
+    let actionSheet = this.actionsheetCtrl.create({
+      // title: itemName +' - '+' ('+addedOn+')',
+      buttons: [
+        {
+          text: 'Edit',
+          icon: !this.platform.is('ios') ? 'create' : null,
+          handler: () => {
+          
+             this.navCtrl.push(Edit, {'id': ID}, {animate: true, direction: 'forward'});
+
+          }
+        },
+        {
+          text: 'Delete',
+          role: 'destructive',
+          icon: !this.platform.is('ios') ? 'trash' : null,
+          handler: () => {
+             window.localStorage.removeItem(ID);
+
+             let toast = this.toastCtrl.create({
+              message: 'Deleted',
+              duration: 2000
+            });
+            toast.present();
+
+            this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel', // will always sort to be on the bottom
+          icon: !this.platform.is('ios') ? 'close' : null,
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    actionSheet.present();}
   }
 
   loadProfile(){
     this.navCtrl.push(ProfilePage);
+
+
+
+
   }
 
   loadAddIncome(){
   	this.navCtrl.push(AddIncomePage);
   }
 
+
+  
+
   loadIncomeReport(){
     this.navCtrl.push(IncomeReportPage);
+
+
+    
+
+
   }
 
   loadExpenseReport(){

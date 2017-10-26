@@ -1,6 +1,6 @@
 <ion-header >
   <ion-navbar color="danger"  class="ios-header">
-    <ion-title class="ios-header-text">आजको आम्दानि विवरण</ion-title>
+    <ion-title class="ios-header-text">{{'TODAY_INCOME_REPORT' | translate}}</ion-title>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -12,12 +12,22 @@
   <div style="overflow-y: scroll; height: 185px;">
     <ion-list *ngFor="let info of incomes">
       <ion-item-sliding>
-        <ion-item>
+        <ion-item  *ngIf=languageEnglish>
+          <ion-thumbnail item-start>
+            <img src="assets/icon/{{info.category_name}}.png">
+          </ion-thumbnail>
+          <h2 style="color: #3567ac"><strong>{{info.category_name}}</strong></h2>
+          <h4>{{'RUPEES' | translate}}{{info.amount}}</h4>
+          <p>{{info.date}}</p>
+          <p>{{info.note}}</p>
+        </ion-item>
+
+         <ion-item  *ngIf=languageNepali>
           <ion-thumbnail item-start>
             <img src="assets/icon/{{info.category_name}}.png">
           </ion-thumbnail>
           <h2 style="color: #3567ac"><strong>{{info.category_name_nepali}}</strong></h2>
-          <h4>रु {{info.amount}}</h4>
+          <h4>{{'RUPEES' | translate}}{{info.amount}}</h4>
           <p>{{info.date}}</p>
           <p>{{info.note}}</p>
         </ion-item>
@@ -34,5 +44,6 @@
       </ion-item-sliding>
     </ion-list>
   </div>
-  <p align="center" *ngIf="incomeSum" class="grayBackgroundWithPaddings">जम्मा आम्दानि: रु {{incomeSum}}</p>
+  <p align="center" *ngIf="incomeSum" class="grayBackgroundWithPaddings">
+   {{'TOTAL_INCOME_AMOUNT' | translate}} {{incomeSum}}</p>
 </ion-content>
