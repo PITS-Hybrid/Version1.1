@@ -10,21 +10,65 @@
   	
  
   <ion-item>
-    <ion-label color="primary" floating>{{'AMOUNT' | translate}}</ion-label>
+    <ion-label  floating>{{'AMOUNT' | translate}}</ion-label>
     <ion-input type="number" id="amount" [(ngModel)]="myAmount" ></ion-input>
   </ion-item>
 
+<div *ngIf= "calendarSelected == 'AD'">
   <ion-item>
-  <ion-label color="primary" floating>{{'DATE' | translate}}</ion-label>
+  <ion-label  floating>{{'DATE' | translate}}</ion-label>
   <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  ></ion-datetime>
 </ion-item>
+</div>
+<div *ngIf= "calendarSelected == 'BS'"  style="padding-left: 16px;">
+ <ion-label style="color: #5ec0db;" stacked>{{'DATE' | translate}}</ion-label>
+   <ion-row >
+              <ion-col col-4>
+                  <ion-select #year interface="popover" (ionChange)="yearChanged()">
+                      <ion-option selected disabled>Year</ion-option>
+                      <ion-option [value]="year" *ngFor="let year of nep_year">{{year}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-5>
+                  <ion-select #month interface="popover" (ionChange)="monthChanged()">
+                      <ion-option selected disabled>Month</ion-option>
+                      <ion-option *ngFor="let month of total_month">{{month}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-3>
+                  <ion-select #day interface="popover">
+                      <ion-option selected disabled>Day</ion-option>
+                      <ion-option [value]="d" *ngFor="let d of days">{{d}}</ion-option>
+                  </ion-select>
+              </ion-col>
+          </ion-row>
+</div>
 
   <ion-item>
-    <ion-label color="primary" floating>{{'NOTE' | translate}}</ion-label>
+    <ion-label  floating>{{'NOTE' | translate}}</ion-label>
     <ion-input type="text" id="note" [(ngModel)]="myNote"></ion-input>
   </ion-item>
+
+  <ion-item>
+     <ion-label  >{{'REPEAT' | translate}}</ion-label>
+       <ion-toggle  (ionChange)="notifyStatus($event)" 
+     color="royal" [checked]="isToggled" ></ion-toggle>
+   </ion-item>
+
+   <ion-item>
+  <ion-label  floating>{{'END_DATE' | translate}}</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="endDate"  #enddate></ion-datetime>
+</ion-item>
+
+<br>
+
+
+
   
-    <button ion-button full (click)="addExpense()">{{'SAVE' | translate}}</button>
+   <ion-row>
+<button ion-button  block  class="saveButton" (click)="addExpense()">
+{{'SAVE' | translate}}</button>
+</ion-row>
     
  
 </ion-content>

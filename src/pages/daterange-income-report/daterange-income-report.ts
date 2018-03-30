@@ -3,7 +3,7 @@ import { HomePage } from '../home/home';
 import { Edit } from '../edit/edit';
 import { NavController, NavParams, ToastController, ModalController, IonicPage } from 'ionic-angular';
 import { Chart } from 'chart.js';
-
+declare var require: any;
 /**
  * Generated class for the DaterangeIncomeReportPage page.
  *
@@ -39,12 +39,22 @@ export class DaterangeIncomeReportPage {
   languageSelected;
    languageEnglish;
   languageNepali;
+  userInfo;
+  adbs;
+  calendarSelected;
+  nepStartDate;
+  nepEndDate;
 
  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+this.adbs = require("ad-bs-converter");
 
   	this.myStartDate = navParams.get("startDateValue");
   	this.myEndDate = navParams.get("endDateValue");
-    this.languageSelected=localStorage.getItem('LV');
+    this.nepStartDate = navParams.get("nepStartDate");
+     this.nepEndDate = navParams.get("nepEndDate");
+     
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo'));
+     this.languageSelected=this.userInfo.language;
  if(this.languageSelected == 1){
     this.languageEnglish=this.languageSelected;
   }
@@ -52,11 +62,39 @@ export class DaterangeIncomeReportPage {
  else if(this.languageSelected == 2){
     this.languageNepali=this.languageSelected;
   }
-   
 
+  if(this.userInfo.calendar == "AD"){
+       this.calendarSelected = "AD";
+     }
+     else if(this.userInfo.calendar == "BS"){
+       this.calendarSelected = "BS";
+     }
+   
+ var numberOfIncomeAndExpense = 0;
     if(localStorage.length>1){
-      for (var i = 0; i < localStorage.length; i++){
+        
+      for(var i=0; i<= numberOfIncomeAndExpense ; i++){
         var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+        if(singleTransaction !=undefined){
+
+          if(singleTransaction.type == "Income" || singleTransaction.type == "Expense" 
+               || singleTransaction.type == "LoanGiven" || singleTransaction.type == "LoanTaken"
+               || singleTransaction.type == "Saving" || singleTransaction.type =="userInfo"
+               || singleTransaction.type =="NewCategoryIncome" || singleTransaction.type =="NewCategoryExpense"
+               || singleTransaction.type == "Saving Goal" || singleTransaction.type == "Saving For Goal" ){
+            numberOfIncomeAndExpense++;
+        }
+
+
+      }
+    }
+
+      for (var i = 0; i <= numberOfIncomeAndExpense; i++){
+      var singleTransaction = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      if(singleTransaction !=null){
+
+
          if(singleTransaction.date != undefined){
         var transactionDate = singleTransaction.date;
       
@@ -87,12 +125,14 @@ export class DaterangeIncomeReportPage {
     }
 
     else  if(this.languageSelected == 2){
-      this.message = 'कुल आम्दानि संख्या:' + this.incomeIndex;
+      this.message = 'कुल आम्दानि संख्या : ' + this.incomeIndex;
     }
 
   }
 
   }
+
+}
 
 
 
@@ -135,10 +175,28 @@ else if(this.languageSelected == 2){
         this.incomeTitle.push(this.incomes[i].category_name);
       }
        else if(this.languageSelected == 2){
-        this.incomeTitle.push(this.incomes[i].category_name_nepali);
+        if(this.incomes[i].icon != undefined){
+          this.incomeTitle.push(this.incomes[i].category_name);
+        }
+        else{
+          this.incomeTitle.push(this.incomes[i].category_name_nepali);
+        }
       }
         this.incomeRupeesAmount.push(this.incomes[i].amount);
       }
+    }
+
+     var hash = Object.create(null),
+    i = 0;
+    while (i < this.incomeTitle.length) {
+      if (this.incomeTitle[i] in hash) {
+        this.incomeRupeesAmount[hash[this.incomeTitle[i]]] = (+this.incomeRupeesAmount[hash[this.incomeTitle[i]]] + +this.incomeRupeesAmount[i]).toString();
+        this.incomeTitle.splice(i, 1);
+        this.incomeRupeesAmount.splice(i, 1);
+        continue;
+      }
+      hash[this.incomeTitle[i]] = i;
+      i++;
     }
     
 

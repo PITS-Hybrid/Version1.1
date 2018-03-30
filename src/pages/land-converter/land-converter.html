@@ -1,0 +1,153 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title>{{'LAND_CONVERTER' | translate}}</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="typeOfConverter">
+            <ion-segment-button value="basic">
+                {{'LAND_BASIC' | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="standard">
+                {{'LAND_STANDARD' | translate}}
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content [ngSwitch]="typeOfConverter">
+    <div *ngSwitchCase="'basic'" padding>
+        <ion-grid fixed class="landConverter">
+            <ion-row>
+                <ion-col>
+                    <ion-label style="text-align: left; padding: 0 8px;">{{'INPUT_UNIT' | translate}}</ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-label style="text-align: left; padding: 0 8px;">{{'OUTPUT_UNIT' | translate}}</ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-list>
+                        <ion-select id="inputUnit1" interface="popover" [(ngModel)]="inputUnit1" name="inputUnit1" *ngIf="localStorageLanguageSelected == 'English'">
+                            <ion-option value="squareMeter">{{'SQUARE_METER' | translate}}</ion-option>
+                            <ion-option value="squareFeet">{{'SQUARE_FEET' | translate}}</ion-option>
+                            <ion-option value="ropani">{{'ROPANI' | translate}}</ion-option>
+                            <ion-option value="aana">{{'AANA' | translate}}</ion-option>
+                            <ion-option value="paisa">{{'PAISA' | translate}}</ion-option>
+                            <ion-option value="daam">{{'DAAM' | translate}}</ion-option>
+                            <ion-option value="bigha">{{'BIGHA' | translate}}</ion-option>
+                            <ion-option value="katha">{{'KATHA' | translate}}</ion-option>
+                            <ion-option value="dhur">{{'DHUR' | translate}}</ion-option>
+                        </ion-select>
+                    </ion-list>
+                </ion-col>
+                <ion-col col-6>
+                    <ion-select id="outputUnit1" interface="popover" [(ngModel)]="outputUnit1" name="outputUnit1" *ngIf="localStorageLanguageSelected == 'English'">
+                        <ion-option value="squareMeter">{{'SQUARE_METER' | translate}}</ion-option>
+                        <ion-option value="squareFeet">{{'SQUARE_FEET' | translate}}</ion-option>
+                        <ion-option value="ropani">{{'ROPANI' | translate}}</ion-option>
+                        <ion-option value="aana">{{'AANA' | translate}}</ion-option>
+                        <ion-option value="paisa">{{'PAISA' | translate}}</ion-option>
+                        <ion-option value="daam">{{'DAAM' | translate}}</ion-option>
+                        <ion-option value="bigha">{{'BIGHA' | translate}}</ion-option>
+                        <ion-option value="katha">{{'KATHA' | translate}}</ion-option>
+                        <ion-option value="dhur">{{'DHUR' | translate}}</ion-option>
+                    </ion-select>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-input type="number" [(ngModel)]="unit" id="unit"  required (ionChange)="convertUnit(unit, inputUnit1, outputUnit1)"></ion-input>
+                </ion-col>
+                <ion-col col-6>
+                    <ion-input class="landConverter" disabled [(ngModel)]="finalOutput" style="color :#fff;"
+                     placeholder={{tempConvertedLand}}></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+      
+        <ion-grid fixed id="priceCalculator" style="display: none;" class="landConverter">
+            <ion-row>
+                <ion-col class="text-capitalize" col-6>
+                    <strong>{{'ENTERPER' | translate}}</strong> {{iUnit}} {{'PRICE' | translate}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col >
+                    <p>{{'RUPEES' | translate}}<ion-input type="number" id="perUnitPrice" #perUnitPrice required (ionChange)="worthCalculator(perUnitPrice.value)"></ion-input></p>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="this.worth">
+                <ion-col class="text-capitalize" col-6>
+                    <strong>Output Amount</strong>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="this.worth">
+                <ion-col class="pretty">
+                    <div *ngIf="this.worth" class="pretty">
+                        <p>{{'RUPEES' | translate}} {{worth}}</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div *ngSwitchCase="'standard'" padding>
+        <ion-grid fixed class="landConverter">
+            <div *ngIf="message">
+                <p align="center">{{message}}</p>
+            </div>
+            <ion-row>
+                <ion-col>
+                    <h2>{{'TYPE_OF_UNIT' | translate}}</h2>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-select id="typeOfUnit1" [(ngModel)]="typeOfUnit1" name="typeOfUnit1" interface="popover">
+                        <ion-option value="Ropani">{{'ROPANI' | translate}}</ion-option>
+                        <ion-option value="Bigha">{{'BIGHA' | translate}}</ion-option>
+                    </ion-select>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <table>
+                        <tr>
+                            <td align="center">
+                                <ion-input type="number" id="first" #first></ion-input>
+                            </td>
+                            <td align="center"><strong> - </strong></td>
+                            <td>
+                                <ion-input type="number" id="second" #second></ion-input>
+                            </td>
+                            <td align="center"><strong> - </strong></td>
+                            <td>
+                                <ion-input type="number" id="third" #third></ion-input>
+                            </td>
+                            <td align="center"><strong> - </strong></td>
+                            <td>
+                                <ion-input type="number" id="four" #four></ion-input>
+                            </td>
+                        </tr>
+                    </table>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-row>
+            <button ion-button block class="saveButton" style="margin-top: 0px; margin-bottom: 15px;" (click)="validator(typeOfUnit1,first.value, second.value, third.value, four.value)">{{'CONVERT' | translate}}</button>
+        </ion-row>
+        <div>
+        </div>
+        <ion-grid fixed class="landConverter" style="padding:20px;" id="outputDiv" *ngIf="totalSqft">
+            <ion-row>
+                <ion-col col-6>
+                    <p align="center" style="margin-bottom: 10px;">{{totalSqft}} </p>
+                    <p align="center">{{'SQUARE_FEET' | translate}}</p>
+                </ion-col>
+                <ion-col col-6>
+                    <p align="center" style="margin-bottom: 10px;">{{totalSqMeter}}</p>
+                    <p align="center"> {{'SQUARE_METER' | translate}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

@@ -1,26 +1,75 @@
 <ion-header >
-
   <ion-navbar color="danger">
-    <ion-title>हाम्रो बारेमा</ion-title>
+    <div *ngIf="languageSelected =='nepali'"> 
+      <ion-title>हाम्रो बारेमा</ion-title>
+    </div>
+    <div *ngIf="languageSelected =='english'"> 
+      <ion-title>About Us </ion-title>
+    </div>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
 
 </ion-header>
+<ion-content padding style="color:#7b7b7b;font-weight: 500">
+  <div *ngIf="languageSelected =='nepali'"> 
+   <p align="center" style="color: #5ec0db"><b>पैसा म्यानेजर प्रो</b></p>
+    <p align="center">नेपालीका लागि नेपाली भाषा प्रयोग गरी आफ्नो आम्दानी तथा खर्च विवरणको हिसाब राखी उनिहरुमा बचतको बानि बसाल्न यो एपको प्रयोग गर्न सकिन्छ। यो नितान्त सामाजिक अभियान वित्तिय साक्षरता लाई ध्यानमा राखी फिनलिट नेपाल र कृनोभा प्रा. लि. को सहकार्यमा सम्भव भएको हो। 
+    </p>
+    <hr>
+    <p align="center" >
+     <strong style="color: #5ec0db">समुह सदस्य</strong>
+     <br>
+     आशिष चौलागाईं 
+     <br>
+     प्रकाश कोइराला (फिनलिट नेपाल)
+     <br>
+     महेश चन्द्र घिमिरे (कृनोभा प्रा. लि.)
+   </p>
+   <p align="center">
+    <strong style="color: #5ec0db" >डेभलपमेन्टका सदस्य
+    </strong>
+    <br>
+    करुणा सागर होडा श्रेष्ठ
+    <br>
+    समिरण के.सी.
+  </p>
+  <br>
+  <p align="center"><strong style="color: #5ec0db">Version</strong><br>
+  Paisa Manager Pro</p>
+  <br>
+  <p align="center" style="font-size: 6px;  font-weight: 300;">
+  Special thanks to Freepik from flaticon (CC 3.0 BY) for the icons used. </p>
+</div>
 
-
-<ion-content padding>
-<p align="center"style="color: #3567ac"><b>PERSONAL INCOME TRACKER</b></p>
-<p align="center">Cras interdum, ante at tempor faucibus, quam felis vestibulum elit, id mollis metus quam vel mi. Aenean convallis vitae nisi nec imperdiet. In elementum, sapien a ultrices placerat, magna elit hendrerit ex, non euismod magna ante vitae nisi. Nam sed lorem id turpis suscipit consectetur. Nullam ut arcu enim. Ut feugiat nulla in molestie porttitor. Donec dapibus a risus non imperdiet. Nulla tincidunt scelerisque sodales.</p>
-<hr>
-<p align="center"> &#169; Relrix Technology -  {{year}}</p>
-<p align="center">
-	<strong>Team</strong><br>
-	Aashish Chaulagain<br>
-	Karuna Sagar Hoda Shrestha<br>
-	Samiran K.C.<br>
-	Amaya Pradhan
-</p>
-
+<div *ngIf="languageSelected =='english'"> 
+  <p align="center" style="color: #5ec0db"><b>Paisa Manager Pro</b></p>
+  <p align="center"> We are team of youth from various background and skill set work together for a common purpose- to make significant change in life of others. Paisa Manager is also such an idea that came out in one informal discussion session. As we sat and dug deep, we saw potential in this idea - to make significant change in financial habit of individual. To make this reality we- FinLit (financial literacy initiator) and Krennova (an IT company), all lead by youth, worked together as team to make it happen. 
+  </p>
+  <hr>
+  <p align="center" >
+    <strong style="color: #5ec0db">Our Team</strong>
+    <br>
+    Ashish Chaulagin 
+    <br>
+    Prakash Koirala - Director FinLit
+    <br>
+    Mahesh C. Ghimire - Co-founder Krennova Pvt. Ltd.
+  </p>
+  <br>
+  <p align="center">
+    <strong style="color: #5ec0db">Development Team</strong>
+    <br>
+    Karuna Sagar Hoda Shrestha
+    <br>
+    Samiran K.C.
+  </p>
+  <br>
+  <p align="center"><strong style="color: #5ec0db">Version</strong><br>
+  Paisa Manager Pro</p>
+  <br>
+  <p align="center" style="font-size: 6px;  font-weight: 300;">
+  Special thanks to Freepik from flaticon (CC 3.0 BY) for the icons used. </p>
+</div>
 </ion-content>

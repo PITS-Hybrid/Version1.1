@@ -5,7 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
+import { SignInPage } from '../pages/sign-in/sign-in';
+import { SignUpPage } from '../pages/sign-up/sign-up'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -41,50 +42,77 @@ import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpModule, Http } from '@angular/http';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+
+import { Network } from '@ionic-native/network';
+
+import { LoanReportPage } from '../pages/loan-report/loan-report';
+import { AddLoanPage } from '../pages/add-loan/add-loan';
+import { SavingReportPage } from '../pages/saving-report/saving-report';
+import { AddSavingPage } from '../pages/add-saving/add-saving';
 
 
+import { LoanDescriptionPage } from '../pages/loan-description/loan-description';
+import { AddCategoryPage } from '../pages/add-category/add-category';
+import { AddSavingGoalPage } from '../pages/add-saving-goal/add-saving-goal';
+import { SavingGoalDetailPage } from '../pages/saving-goal-detail/saving-goal-detail';
+import { LandConverterPage } from '../pages/land-converter/land-converter';
+import { CurrencyPage } from '../pages/currency/currency';
 
 
-
+declare var require : any;
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    ListPage,
-    AddIncomePage,
-    AddExpensePage,
-    IncomeReportPage,
-    ExpenseReportPage,
-    AboutUsPage,
-    ProfilePage,
-    MoreReportIncomePage,
-    MonthWiseIncomeReport,
-    MonthwiseExpenseReportPage,
-    Edit
-    ,AddIncomeDemoPage,
-    AddExpenseDemoPage,
-    PopoverIncomePage,
-    PopoverIncomeMonthPage,
-    PopoverIncomeYearPage,
-    PopoverExpensePage,
-    PopoverExpenseMonthPage,
-    PopoverExpenseYearPage,
-    DailyIncomeReportPage,
-    DailyExpenseReportPage,
-    YearlyIncomeReportPage,
-    YearlyExpenseReportPage,
-    DaterangeIncomePage,
-    DaterangeIncomeReportPage,
-    DaterangeExpensePage,
-    DaterangeExpenseReportPage
-    
+  MyApp,
+  HomePage,
+  ListPage,
+  AddIncomePage,
+  AddExpensePage,
+  IncomeReportPage,
+  ExpenseReportPage,
+  AboutUsPage,
+  ProfilePage,
+  MoreReportIncomePage,
+  MonthWiseIncomeReport,
+  MonthwiseExpenseReportPage,
+  Edit
+  ,AddIncomeDemoPage,
+  AddExpenseDemoPage,
+  PopoverIncomePage,
+  PopoverIncomeMonthPage,
+  PopoverIncomeYearPage,
+  PopoverExpensePage,
+  PopoverExpenseMonthPage,
+  PopoverExpenseYearPage,
+  DailyIncomeReportPage,
+  DailyExpenseReportPage,
+  YearlyIncomeReportPage,
+  YearlyExpenseReportPage,
+  DaterangeIncomePage,
+  DaterangeIncomeReportPage,
+  DaterangeExpensePage,
+  DaterangeExpenseReportPage,
+  SignInPage,
+  SignUpPage,
+  LoanReportPage,
+  AddLoanPage,
+  SavingReportPage,
+  AddSavingPage,
+  LoanDescriptionPage,
+  AddCategoryPage,
+  AddSavingGoalPage,
+  SavingGoalDetailPage,
+   LandConverterPage,
+  CurrencyPage
+
 
   ],
   imports: [
-    BrowserModule,
-     HttpModule,
-    IonicModule.forRoot(MyApp),
-      TranslateModule.forRoot({
+  
+  BrowserModule,
+  HttpModule,
+  IonicModule.forRoot(MyApp),
+  TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
@@ -94,40 +122,54 @@ import { HttpModule, Http } from '@angular/http';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage,
-    AddIncomePage,
-    IncomeReportPage,
-    ExpenseReportPage,
-    AddExpensePage,
-    AboutUsPage,
-    ProfilePage,
-    MoreReportIncomePage,
-    MonthWiseIncomeReport,
-    MonthwiseExpenseReportPage,
-    Edit
-    ,AddIncomeDemoPage,
-   AddExpenseDemoPage,
-   PopoverIncomePage,
-   PopoverIncomeMonthPage,
-   PopoverIncomeYearPage,
-    PopoverExpensePage,
-    PopoverExpenseMonthPage,
-    PopoverExpenseYearPage,
-DailyIncomeReportPage,
-DailyExpenseReportPage,
-YearlyIncomeReportPage,
-YearlyExpenseReportPage,
-DaterangeIncomePage,
-DaterangeIncomeReportPage,
-DaterangeExpensePage,
-DaterangeExpenseReportPage
+  MyApp,
+  HomePage,
+  ListPage,
+  AddIncomePage,
+  IncomeReportPage,
+  ExpenseReportPage,
+  AddExpensePage,
+  AboutUsPage,
+  ProfilePage,
+  MoreReportIncomePage,
+  MonthWiseIncomeReport,
+  MonthwiseExpenseReportPage,
+  Edit,
+  AddIncomeDemoPage,
+  AddExpenseDemoPage,
+  PopoverIncomePage,
+  PopoverIncomeMonthPage,
+  PopoverIncomeYearPage,
+  PopoverExpensePage,
+  PopoverExpenseMonthPage,
+  PopoverExpenseYearPage,
+  DailyIncomeReportPage,
+  DailyExpenseReportPage,
+  YearlyIncomeReportPage,
+  YearlyExpenseReportPage,
+  DaterangeIncomePage,
+  DaterangeIncomeReportPage,
+  DaterangeExpensePage,
+  DaterangeExpenseReportPage,
+  SignInPage,
+  SignUpPage,
+  LoanReportPage,
+  AddLoanPage,
+  SavingReportPage,
+  AddSavingPage,
+  LoanDescriptionPage,
+  AddCategoryPage,
+  AddSavingGoalPage,
+  SavingGoalDetailPage,
+   LandConverterPage,
+  CurrencyPage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  StatusBar,
+  SplashScreen,
+  {provide: ErrorHandler, useClass: IonicErrorHandler},
+  AuthServiceProvider,
+  Network
   ]
 })
 export class AppModule {}

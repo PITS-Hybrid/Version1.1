@@ -3,18 +3,72 @@
     <ion-title>
      {{'PROFILE' | translate}} 
     </ion-title>
+
+     <ion-buttons end>
+      <button ion-button (click)="logOut()">
+      {{'BUTTON_SIGN_OUT' | translate}} 
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
+
 </ion-header>
 <ion-content padding>
-	<p align="center">{{ 'TO_CLEAR_RECORDS' | translate }}</p>
-  <button ion-button full color="danger" (click)="clearAll()"> 
-   {{'CLEARALLRECORD' | translate}}
-   </button>
+	
 
-  <ion-label>  {{ 'CHANGE_LANGUAGE' | translate }}</ion-label>
+<!--   <ion-list-header>  {{ 'CHANGE_LANGUAGE' | translate }}</ion-list-header>
   <button ion-item  (click)="languageOption(1)"> {{ "ENGLISH" | translate }}</button>
       <button ion-item  (click)="languageOption(2)">{{ "NEPALI" | translate }}</button>
-<!-- <p *ngFor="let info of incomes">{{info|json}}</p> -->
-<!-- <p *ngFor="let infoincome of incomeJSON">{{infoincome.type}}-{{infoincome.amount}}</p>
+ -->
+  
+
+<ion-item>
+<ion-label  stacked>{{ 'CHANGE_LANGUAGE' | translate }}</ion-label>
+         <ion-select #language interface="popover" placeholder={{placeholderLanguage}}>
+          <ion-option value="English">{{ "ENGLISH" | translate }}</ion-option>
+          <ion-option value="Nepali">{{ "NEPALI" | translate }}</ion-option>
+        
+        </ion-select>
+   </ion-item>
+
+<br>
+<br>
+
+<!--  <ion-list-header>  {{ 'CLEAR_ALL' | translate }}</ion-list-header>
+<p align="center">{{ 'TO_CLEAR_RECORDS' | translate }}</p>
+  <button ion-button full color="danger" (click)="clearAll()"> 
+   {{'CLEARALLRECORD' | translate}}
+   </button> -->
+
+
+<ion-item>
+<ion-label  stacked>{{'TYPE_OF_USER' | translate}}</ion-label>
+         <ion-select #typeofuser interface="popover" placeholder={{placeholderUserType}}>
+          <ion-option value="Student">{{'USER_TYPE_STUDENT' | translate}}</ion-option>
+          <ion-option value="Professional">{{'USER_TYPE_PROFESSIONAL' | translate}}</ion-option>
+          <ion-option value="Housewife">{{'USER_TYPE_HOUSEWIFE' | translate}}</ion-option>
+        </ion-select>
+   </ion-item>
+
+   <ion-item>
+<ion-label  stacked>Calendar Type</ion-label>
+         <ion-select #calendar interface="popover" placeholder={{placeholderCalendar}}>
+          <ion-option value="AD">AD</ion-option>
+          <ion-option value="BS">BS</ion-option>
+        
+        </ion-select>
+   </ion-item>
+
+
+<ion-row>
+<button ion-button  block  class="saveButton" (click)="saveSettings()">
+       {{'SAVE_SETTINGS' |translate}}</button>
+</ion-row>
+
+
+ 
+<!-- <p *ngFor="let info of incomes">{{info|json}}</p>
+<p *ngFor="let infoincome of incomeJSON">{{infoincome.type}}-{{infoincome.amount}}</p>
 <p *ngFor="let infoexpense of expenseJSON">{{infoexpense.type}}</p> -->
+
 </ion-content>

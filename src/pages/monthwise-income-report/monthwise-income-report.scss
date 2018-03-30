@@ -1,8 +1,115 @@
 monthwise-income-report {
-		.grayBackgroundWithPaddings{
-		background-color: #85bb65;
-		color: #FFFFFF;
-		padding: 15px;
-		statusbarPadding: true
-	}
+ .toolbar-background {
+        background-color: #5ec0db;
+        border-color: #5ec0db;
+    }
+
+    .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+        border-width: 0;
+    }
+
+    .toolbar-title {
+        color: #fff;
+        font-weight: 400;
+    }
+
+    .icon {
+        color: #fff;
+    }
+
+
+
+    .total {
+        margin: 30px 30px;
+    }
+
+    .data {
+        margin-bottom: 30px;
+    }
+
+    .dashboard {
+        text-align: center;
+        background-color: #5ec0db;
+    }
+
+    .dashboard h2 {
+        color: #fff;
+        font-weight: 400;
+    }
+
+    .item-ios.item-block .item-inner {
+        border-bottom: 0;
+    }
+
+    .list{
+    	padding:0;
+    }
+
+    .segment{
+    	padding:0;
+    }
+
+    .segments{
+    	background-color:#5ec0db;
+    }
+
+    .segment-button{
+    	border:0 !important;
+    	color: #fff !important;
+    }
+
+    .segment-ios .segment-button.segment-activated {
+    background-color: #4e90ad;
+}
+
+.date{
+    font-size:14px;
+    color:#7b7b7b;
+}
+
+.list-ios{
+    margin:0;
+}
+
+.income-report h3{
+    font-weight: 400; 
+    color: #7b7b7b; 
+    font-size: 12px;
+
+}
+
+.income-report h2{
+    color: #7b7b7b;
+}
+
+.barGraph{
+    margin-bottom:25px;
+}
+
+.circleImg{
+    background:#5ec0db;
+    height:56px;
+    border-radius:3px;
+}
+
+.item-ios{
+    padding-left:0px;
+}
+
+.label-ios {
+    margin: 11px 8px 11px 8px;
+}
+
+.item-ios.item-block .item-inner {
+    padding-right: 0;
+}
+
+.grayBackgroundWithPaddings {
+    background-color: #5ec0db;
+    color: #FFFFFF;
+    font-size:16px;
+    border-radius:3px;
+    padding: 10px;
+}
+	
 }

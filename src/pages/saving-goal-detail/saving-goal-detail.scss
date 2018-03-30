@@ -1,0 +1,58 @@
+saving-goal-detail-page {
+	.detailGoalInfo{
+		background-color:#5ec0db;
+		color:#fff;
+	}
+
+	.card-ios p{
+		color:#fff!important;
+	}
+
+	.tabs{
+		background-color:#5ec0db;
+	}
+
+	.recommended{
+		background-color:#58d1f3;
+		border-radius:3px;
+		padding:8px;
+		margin-top:15px;
+	}
+
+	.recommended h2{
+		font-size:14px;
+		letter-spacing:0.5px;
+		border-bottom:1px solid #fff;
+		padding:10px 0;
+		margin-bottom:10px;
+		text-align:center;
+	}
+
+	table{
+		width:100%;
+		text-align:center;
+	}
+
+	table th{
+		font-size:14px;
+		font-weight:400px;
+	}
+
+	table tbody td {
+		padding-top:20px;
+	}
+
+	.date h2{
+		font-size:14px;
+		margin-bottom:10px;
+	}
+
+	.label-ios {
+    margin: 6px 8px 6px 0;
+}
+.card-md h2,
+.card-md p {
+    color: #fff !important;
+}
+   
+}

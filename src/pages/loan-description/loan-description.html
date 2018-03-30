@@ -1,0 +1,57 @@
+<!--
+  Generated template for the LoanDescriptionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{'LOAN_REPORT' | translate}}
+        </ion-title>
+        
+        <ion-buttons end>
+            <button ion-button (click)="edit()">
+                {{'BUTTON_EDIT' | translate}}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="desc">
+        <ion-card padding style="background-color: #5ec0db;">
+            <p style="color :white; font-size: 18px;" *ngIf="loanStatusPlaceholder == 'Paid' ">{{'STATUS' | translate}}: {{'PAID' | translate}}</p>
+            <p style="color :white; font-size: 18px;" *ngIf="loanStatusPlaceholder == 'Unpaid' ">{{'STATUS' | translate}}: {{'UNPAID' | translate}}</p>
+            <ion-toggle class="toggle" (ionChange)="notifyStatus($event)" color="royal" [checked]="isToggled"></ion-toggle>
+            <hr style="background-color: white;">
+            <div class="name">
+                <h1><strong>{{loanNameOfPerson}}</strong></h1>
+                <p><strong style="font-size: 22px;">{{'RUPEES' | translate}}:  {{loanAmount}}</strong></p>
+            </div>
+             <ion-row class="dates">
+                            <ion-col col-6 class="start-date">
+                                <h2>{{'START_DATE' | translate}}: </h2>
+                                 <p><ion-icon name="calendar"></ion-icon> {{loanStartDate}}</p>
+                            </ion-col>
+                            <ion-col col-6 class="end-date">
+                                <h2>{{'END_DATE' | translate}}:</h2> 
+                                  <p><ion-icon name="calendar"></ion-icon> {{loanEndDate}}</p>
+                            </ion-col>
+                        </ion-row>
+            <div class="note">
+                <h2><strong>{{'NOTE' | translate}}:</strong></h2>
+                <p style="color:#fff;"> {{loanNote}}</p>
+            </div>
+        </ion-card>
+        <ion-card padding style="background : #5ec0db ;">
+            <div class="amount">
+                <ul>
+                    <li><strong>{{'INTEREST_RATE' | translate}}: </strong> {{loanInterestRate}}%</li>
+                    <li><strong>{{'TOTAL_INTEREST' | translate}}: </strong>{{'RUPEES' | translate}} {{loanTotalInterest}}</li>
+                    <li><strong>{{'MONTHLY_PAYMENT' | translate}}: </strong>{{'RUPEES' | translate}} {{loanMonthlyPayment}}</li>
+                    <li><strong>{{'TOTAL_PAYMENT' | translate}}: </strong>{{'RUPEES' | translate}} {{loanTotalPayment}}</li>
+                </ul>
+            </div>
+        </ion-card>
+    </div>
+</ion-content>

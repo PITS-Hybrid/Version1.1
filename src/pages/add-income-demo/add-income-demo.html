@@ -1,31 +1,61 @@
 <ion-header>
-  <ion-navbar color="danger">
-    <ion-title>
-    {{'INCOME_TITLE' | translate}} - {{catParam}}</ion-title>
-    
-  
-  </ion-navbar>
+    <ion-navbar color="danger">
+        <ion-title>
+            {{'INCOME_TITLE' | translate}} - {{catParam}}</ion-title>
+    </ion-navbar>
 </ion-header>
 <ion-content>
+    <div class="transactionDetail">
+      <ion-item>
+          <ion-label style="color: #5ec0db;" floating>{{'AMOUNT' | translate}}</ion-label>
+          <ion-input type="number" #amt></ion-input>
+      </ion-item>
+      <div *ngIf="calendarSelected == 'AD'">
+          <ion-item>
+              <ion-label style="color: #5ec0db;" floating>{{'DATE' | translate}}</ion-label>
+              <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate" #date></ion-datetime>
+          </ion-item>
+      </div>
+      <div *ngIf="calendarSelected == 'BS'" style="padding-left: 16px;">
+          <ion-label style="color: #5ec0db;" stacked>{{'DATE' | translate}}</ion-label>
+          <ion-row style="margin-bottom: 20px;">
+              <ion-col col-4>
+                  <ion-select #year interface="popover" (ionChange)="yearChanged()">
+                      <ion-option selected disabled>Year</ion-option>
+                      <ion-option [value]="year" *ngFor="let year of nep_year">{{year}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-5>
+                  <ion-select #month interface="popover" (ionChange)="monthChanged()">
+                      <ion-option selected disabled>Month</ion-option>
+                      <ion-option *ngFor="let month of total_month">{{month}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-3>
+                  <ion-select #day interface="popover">
+                      <ion-option selected disabled>Day</ion-option>
+                      <ion-option [value]="d" *ngFor="let d of days">{{d}}</ion-option>
+                  </ion-select>
+              </ion-col>
+          </ion-row>
+      </div>
+    </div>    
 
-  	
- 
-  <ion-item>
-    <ion-label color="primary" floating>{{'AMOUNT' | translate}}</ion-label>
-    <ion-input type="number"  #amt></ion-input>
-  </ion-item>
-
-  <ion-item>
-  <ion-label color="primary" floating>{{'DATE' | translate}}</ion-label>
-  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  #date></ion-datetime>
-</ion-item>
-
-  <ion-item>
-    <ion-label color="primary" floating>{{'NOTE' | translate}}</ion-label>
-    <ion-input type="text" #note></ion-input>
-  </ion-item>
-  
-    <button ion-button full (click)="addIncome()">{{'SAVE' | translate}}</button>
-    
- 
+    <ion-item>
+        <ion-label style="color: #5ec0db;">{{'REPEAT' | translate}}</ion-label>
+        <ion-toggle (ionChange)="notifyStatus($event)" color="royal" [checked]="isToggled"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label style="color: #5ec0db;" floating>{{'END_DATE' | translate}}</ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="endDate" #enddate></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label style="color: #5ec0db;" floating>{{'NOTE' | translate}}</ion-label>
+        <ion-input type="text" #note></ion-input>
+    </ion-item>
+    <br>
+    <ion-row>
+        <button  ion-button block  (click)="addIncome()" class="saveButton">
+            {{'SAVE' | translate}}</button>
+          </ion-row>
 </ion-content>

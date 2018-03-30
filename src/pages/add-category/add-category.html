@@ -1,0 +1,251 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title>
+            {{'CATEGORY' | translate}}</ion-title>
+            <ion-buttons end>
+            <button ion-button (click)="addCategory()">
+                 {{'SAVE' | translate}}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+      
+</ion-header>
+<ion-content>
+    <ion-item>
+        <ion-label  floating>{{'NAME_OF_CATEGORY' | translate}}</ion-label>
+        <ion-input type="text" #name></ion-input>
+    </ion-item>
+    <div *ngIf="forExpense == true">
+        <ion-item>
+            <ion-label  stacked>{{'EXPENSE_TYPE' | translate}}</ion-label>
+            <ion-select #expensetype interface="popover">
+                <ion-option value="Daily">{{'DAILY' | translate}}</ion-option>
+                <ion-option value="Monthly">{{'MONTHLY' | translate}}</ion-option>
+                <ion-option value="Yearly">{{'YEARLY' | translate}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+    <ion-list inset radio-group>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    
+                    <ion-icon name="plane" color="primary" (click)="Category('plane')" tappable></ion-icon>
+                    <input type="radio" value="plane" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="restaurant" color="primary" (click)="Category('restaurant')" tappable></ion-icon>
+                    <input type="radio" value="restaurant" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="school" color="primary" (click)="Category('school')"></ion-icon>
+                    <input type="radio" value="school" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="radio" color="primary" tappable></ion-icon>
+                    <input type="radio" value="radio" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="trash" color="primary" tappable></ion-icon>
+                    <input type="radio" value="trash" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="watch" color="primary"></ion-icon>
+                    <input type="radio" value="watch" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="beer" color="primary" tappable></ion-icon>
+                    <input type="radio" value="beer" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="basket" color="primary" tappable></ion-icon>
+                    <input type="radio" value="basket" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="briefcase" color="primary"></ion-icon>
+                    <input type="radio" value="briefcase" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="bicycle" color="primary" tappable></ion-icon>
+                    <input type="radio" value="bicycle" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="book" color="primary" tappable></ion-icon>
+                    <input type="radio" value="book" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="brush" color="primary"></ion-icon>
+                     <input type="radio" value="brush" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="build" color="primary" tappable></ion-icon>
+                    <input type="radio" value="build" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="bulb" color="primary" tappable></ion-icon>
+                    <input type="radio" value="bulb" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="cafe" color="primary"></ion-icon>
+                     <input type="radio" value="cafe" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="camera" color="primary" tappable></ion-icon>
+                    <input type="radio" value="camera" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="car" color="primary" tappable></ion-icon>
+                    <input type="radio" value="car" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="card" color="primary"></ion-icon>
+                     <input type="radio" value="card" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="cart" color="primary" tappable></ion-icon>
+                     <input type="radio" value="cart" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="cash" color="primary" tappable></ion-icon>
+                      <input type="radio" value="cash" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="desktop" color="primary"></ion-icon>
+                     <input type="radio" value="desktop" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="egg" color="primary" tappable></ion-icon>
+                    <input type="radio" value="egg" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="film" color="primary" tappable></ion-icon>
+                     <input type="radio" value="film" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="flame" color="primary"></ion-icon>
+                     <input type="radio" value="flame" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="water" color="primary" tappable></ion-icon>
+                    <input type="radio" value="water" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="football" color="primary" tappable></ion-icon>
+                     <input type="radio" value="football" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+            <ion-col col-4>
+                <ion-card>
+                    <ion-icon name="game-controller-b" color="primary"></ion-icon>
+                    <input type="radio" value="game-controller-b" [(ngModel)]="category" />
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+    <!-- <ion-list inset radio-group [(ngModel)]="category" >
+
+<ion-row>
+      <ion-col col-3>
+        
+        
+          <ion-item>
+    <ion-radio  value="logo-apple" >
+    <ion-icon ios="logo-apple" md="logo-android" color="primary"></ion-icon>
+      </ion-radio>
+    </ion-item>
+  
+  
+</ion-col >
+<ion-col col-3>
+        <ion-card>
+          <ion-item>
+          <ion-radio value="restaurant" >
+    <ion-icon  name="restaurant" color="primary"></ion-icon>
+  </ion-radio>
+ </ion-item>
+    </ion-card>
+
+</ion-col >
+<ion-col col-3>
+        <ion-card>
+          <ion-radio value="school" >
+    <ion-icon  name="school" color="primary"></ion-icon>
+  </ion-radio>
+    </ion-card>
+</ion-col >
+  </ion-row>
+
+
+</ion-list>
+ -->
+    <!-- <ion-row>
+        <button ion-button block style="margin-top: 15px;margin-left: 4%;margin-right: 4%;" (click)="addCategory()">
+            {{'SAVE' | translate}}</button>
+    </ion-row> -->
+</ion-content>

@@ -1,133 +1,181 @@
 <ion-header>
-  <ion-navbar color="danger">
-    <ion-title align="center">
-     
-   {{'MONTHLYREPORT' | translate}} - {{monthName}}
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="loadProfile()">
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
-     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title align="center">
+            {{'REPORT' | translate}} - {{monthName}}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="loadProfile()">
+                <ion-icon name="contact"></ion-icon>
+            </button>
+        </ion-buttons>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
 </ion-header>
-<ion-content class="background">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card class="red" (click)="loadIncomeReport()" padding>
-          <h2 align="center" style="color: #FFFFFF"><strong>{{'INCOME' | translate}}</strong></h2>
-          <h2 align="center" style="color: #FFFFFF">{{'RUPEES' | translate}} {{incomeSum || 0}}</h2>
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card class="redDark" (click)="loadExpenseReport()" padding>
-          <h2 align="center" style="color: #FFFFFF"><strong>{{'EXPENSE' | translate}} </strong></h2>
-          <h2 align="center" style="color: #FFFFFF">{{'RUPEES' | translate}} {{expenseSum || 0}}</h2>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-card class="blue" padding>
-          <h2 align="center" style="color: #FFFFFF"><strong>{{'TOTAL' | translate}}</strong></h2>
-          <h2 align="center" style="color: #FFFFFF">{{'RUPEES' | translate}} {{incomeSum - expenseSum || 0}}</h2>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <!--<ion-card padding>
+<ion-content>
+    <ion-grid class="dashboard">
+        <ion-row class="total">
+            <ion-col>
+                <h2 style="font-size: 16px;"><strong>{{'TOTAL' | translate}}</strong></h2>
+                <h2>{{'RUPEES' | translate}} <span style="font-family: kalimati">{{balance || 0}}</span></h2>
+            </ion-col>
+        </ion-row>
+        <ion-row class="data">
+            <ion-col col-6 (click)="loadIncomeReport()" tappable>
+                <h2 style="font-size: 16px;"><strong>{{'INCOME' | translate}}</strong></h2>
+                <h2>{{'RUPEES' | translate}} {{incomeSum || 0}}</h2>
+            </ion-col>
+            <ion-col col-6 (click)="loadExpenseReport()" tappable>
+                <h2 style="font-size: 16px;"><strong>{{'EXPENSE' | translate}} </strong></h2>
+                <h2>{{'RUPEES' | translate}} {{expenseSum || 0}}</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row class="data">
+            <ion-col col-6 (click)="loadLoanReport()" tappable>
+                <h2 style="font-size: 16px;"><strong>{{'LOAN' | translate}}</strong></h2>
+                <h2>{{'RUPEES' | translate}} {{loanBalance || 0}}</h2>
+            </ion-col>
+            <ion-col col-6 (click)="loadSavingReport()" tappable>
+                <h2 style="font-size: 16px;"><strong>{{'SAVING' | translate}} </strong></h2>
+                <h2>{{'RUPEES' | translate}} {{savingSum || 0}}</h2>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!--<ion-card padding>
     <ion-card-header class="text-center">
       <strong style="color: #3567ac; font-size: 20px">ग्राफिकल प्रतिनिधित्व</strong>
    </ion-card-header>
     <canvas #doughnutCanvas></canvas>
- </ion-card>-->
- 
-  <ion-card>
-    <ion-segment [(ngModel)]="incomeexpense" padding>
-      <ion-segment-button value="income">
-     {{'INCOME' | translate}}
-      </ion-segment-button>
-      <ion-segment-button value="expense">
-       {{'EXPENSE' | translate}} 
-      </ion-segment-button>
+</ion-card>-->
+<ion-grid class="list">
+    <ion-segment [(ngModel)]="incomeexpense" class="segments">
+        <ion-segment-button class="segment-button" value="income">
+            {{'INCOME' | translate}}
+        </ion-segment-button>
+        <ion-segment-button class="segment-button" value="expense">
+            {{'EXPENSE' | translate}}
+        </ion-segment-button>
     </ion-segment>
     <div [ngSwitch]="incomeexpense">
-      <ion-list *ngSwitchCase="'income'">
-       
-
-        <ion-item *ngIf=languageEnglish>
-        <ion-item *ngFor="let info of incomes" (click)=itemClicked(info.category_name_nepali,info.amount,info.date,info.ID)>
-          <ion-thumbnail item-start>
-            <img src="assets/icon/{{info.category_name}}.png">
-          </ion-thumbnail>
-          <h2 style="color: #3567ac"><strong>{{info.category_name}}</strong></h2>
-          <h3 style="color: #3567ac">{{'RUPEES' | translate}} {{info.amount}}</h3>
-        </ion-item>
-      </ion-item>
-     
-
- <ion-item *ngIf=languageNepali>
-        <ion-item *ngFor="let info of incomes" (click)=itemClicked(info.category_name_nepali,info.amount,info.date,info.ID)>
-          <ion-thumbnail item-start>
-            <img src="assets/icon/{{info.category_name}}.png">
-          </ion-thumbnail>
-          <h2 style="color: #3567ac"><strong>{{info.category_name_nepali}}</strong></h2>
-          <h3 style="color: #3567ac">{{'RUPEES' | translate}} {{info.amount}}</h3>
-        </ion-item>
-      </ion-item>
-      </ion-list>
-
-
-      <ion-list *ngSwitchCase="'expense'">
-      
-        
-<ion-item *ngIf=languageEnglish>
-    <ion-item *ngFor="let info of expenses" (click)=itemClicked(info.category_name_nepali,info.amount,info.date,info.ID)>
-
-          <ion-thumbnail item-start>
-            <img src="assets/icon/{{info.category_name}}.png">
-          </ion-thumbnail>
-          <h2 style="color: #3567ac"><strong>{{info.category_name}}</strong></h2>
-
-          <h3 style="color: #3567ac">{{'RUPEES' | translate}} {{info.amount}}</h3>
-        </ion-item>
-</ion-item>
-
-
-<ion-item *ngIf=languageNepali>
-    <ion-item *ngFor="let info of expenses" (click)=itemClicked(info.category_name_nepali,info.amount,info.date,info.ID)>
-          <ion-thumbnail item-start>
-            <img src="assets/icon/{{info.category_name}}.png">
-          </ion-thumbnail>
-          <h2 style="color: #3567ac"><strong>{{info.category_name_nepali}}</strong></h2>
-
-          <h3 style="color: #3567ac">{{'RUPEES' | translate}} {{info.amount}}</h3>
-        </ion-item>
-</ion-item>
-
-      </ion-list>
-      
-    </div>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <h3> {{'SUGGESTION' | translate}} - pits@email.com</h3>
-    </ion-card-header>
-  </ion-card>
-  <ion-fab bottom right>
-    <button ion-fab><strong>+</strong></button>
-    <ion-fab-list side="top" >
-      
-      <button ion-fab mini style="background: #85bb65; color: #FFFFFF;"  (click)="loadAddIncome()">
-       {{'INCOME' | translate}}</button>
+        <ion-list *ngSwitchCase="'income'">
+            <ion-item *ngFor="let info of incomes">
+                <ion-item-sliding>
+                    <ion-item *ngIf=languageEnglish>
+                        <ion-row>
+                            <ion-col col-2 class="circleImg">
+                                <ion-icon style="font-size: 45px;display: block;text-align: center;width: 70%;margin: 0 auto;" name={{info.icon}} color="primary" *ngIf="info.icon != ''"></ion-icon>
+                                     <img src="assets/icon/{{info.category_name}}.png" *ngIf="info.icon == undefined">
+                            </ion-col>
+                            <ion-col col-8 style="padding-left: 15px;">
+                                <h2 style="color: #7b7b7b" class="capitalize"><strong>{{info.category_name}}</strong></h2>
+                                <div class="date" *ngIf="calendarSelected == 'AD'">{{info.date}}</div>
+                                <div class="date" *ngIf="calendarSelected == 'BS'">{{info.nepali_date}}</div>
+                                <h3 style="font-weight: 200; font-size: 12px;">{{info.note}}</h3>
+                            </ion-col>
+                            <ion-col col-2>
+                                <strong style="color: #2ecc71; float: right;">{{'RUPEES' | translate}} {{info.amount}}</strong>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item *ngIf=languageNepali>
+                        <ion-row>
+                            <ion-col col-2 class="circleImg">
+                                <ion-icon style="font-size: 45px;display: block;text-align: center;width: 70%;margin: 0 auto;" name={{info.icon}} color="primary" *ngIf="info.icon != ''">               
+                                </ion-icon>
+                                <img src="assets/icon/{{info.category_name}}.png" *ngIf="info.icon == undefined">
+                            </ion-col>
+                            <ion-col col-8 style="padding-left: 15px;">
+                                <h2 *ngIf="info.icon != undefined" style="color: #7b7b7b"><strong>{{info.category_name }}</strong></h2>
+                                <h2 style="color: #7b7b7b" *ngIf="info.icon == undefined"><strong>{{info.category_name_nepali}}</strong></h2>
+                                <div class="date" *ngIf="calendarSelected == 'AD'">{{info.date}}</div>
+                                <div class="date" *ngIf="calendarSelected == 'BS'">{{info.nepali_date}}</div>
+                                <h3 style="font-weight: 200; font-size: 12px;">{{info.note}}</h3>
+                            </ion-col>
+                            <ion-col col-2>
+                                <strong style="color: #2ecc71; float: right;">{{'RUPEES' | translate}} {{info.amount}}</strong>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-options side="right">
+                        <button ion-button color="success" (click)="editItem(info.ID)">
+                            <ion-icon name="open"></ion-icon>
+                            {{'BUTTON_EDIT' | translate}}
+                        </button>
+                        <button ion-button color="danger" (click)="deleteItem(info.ID)">
+                            <ion-icon name="trash"></ion-icon>
+                            {{'BUTTON_DELETE' | translate}}
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'expense'">
+            <ion-item *ngFor="let info of expenses">
+                <ion-item-sliding>
+                    <ion-item *ngIf=languageEnglish>
+                        <ion-row>
+                            <ion-col col-2 class="circleImg">
+                               <ion-icon style="font-size: 45px;display: block;text-align: center;width: 70%;margin: 0 auto;" name={{info.icon}} color="primary" *ngIf="info.icon != ''">
+                                   
+                               </ion-icon>
+                               <img src="assets/icon/{{info.category_name}}.png" *ngIf="info.icon == undefined">
+                           </ion-col>
+                           <ion-col col-8 style="padding-left: 15px;">
+                            <h2 style="color: #7b7b7b" class="capitalize"><strong>{{info.category_name}}</strong></h2>
+                            <div class="date" *ngIf="calendarSelected == 'AD'">{{info.date}}</div>
+                            <div class="date" *ngIf="calendarSelected == 'BS'">{{info.nepali_date}}</div>
+                            <h3 style="font-weight: 200; font-size: 12px;">{{info.note}}</h3>
+                        </ion-col>
+                        <ion-col col-2>
+                            <strong style="color: #e74c3c; float: right;">{{'RUPEES' | translate}} {{info.amount}}</strong>
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+                <ion-item *ngIf=languageNepali>
+                    <ion-row>
+                        <ion-col col-2 class="circleImg">
+                            <ion-icon style="font-size: 45px;display: block;text-align: center;width: 70%;margin: 0 auto;" name={{info.icon}} color="primary" *ngIf="info.icon != ''"></ion-icon>
+                            <img src="assets/icon/{{info.category_name}}.png" *ngIf="info.icon == undefined">
+                        </ion-col>
+                        <ion-col col-8 style="padding-left: 15px;">
+                          <h2 *ngIf="info.icon != undefined" style="color: #7b7b7b"><strong>{{info.category_name }}</strong></h2>
+                          <h2 style="color: #7b7b7b" *ngIf="info.icon == undefined"><strong>{{info.category_name_nepali}}</strong></h2>
+                          <div class="date" *ngIf="calendarSelected == 'AD'">{{info.date}}</div>
+                          <div class="date" *ngIf="calendarSelected == 'BS'">{{info.nepali_date}}</div>
+                          <h3 style="font-weight: 400; font-size: 12px;">{{info.note}}</h3>
+                      </ion-col>
+                      <ion-col col-2>
+                        <strong style="color: #e74c3c; float: right;">{{'RUPEES' | translate}} {{info.amount}}</strong>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="success" (click)="editItem(info.ID)">
+                    <ion-icon name="open"></ion-icon>
+                    {{'BUTTON_EDIT' | translate}}
+                </button>
+                <button ion-button color="danger" (click)="deleteItem(info.ID)">
+                    <ion-icon name="trash"></ion-icon>
+                    {{'BUTTON_DELETE' | translate}}
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-item>
+</ion-list>
+</div>
+</ion-grid>
+<!-- <p align="center" class="grayBackgroundWithPaddings">{{message}}</p> -->
+<ion-fab bottom center>
+    <button ion-fab style="background: #5ec0db; ">
+        <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="right">
+        <button ion-fab mini (click)="loadAddIncome()" style="background: #2ecc71; color:#fff;">
+        {{'INCOME' | translate}}</button>
     </ion-fab-list>
     <ion-fab-list side="left">
-      <button ion-fab mini color="dark"  (click)="loadAddExpense()">{{'EXPENSE' | translate}} </button>
+        <button ion-fab mini color="dark" (click)="loadAddExpense()" style="background: #e74c3c; color:#fff;">{{'EXPENSE' | translate}}</button>
     </ion-fab-list>
-  </ion-fab>
+</ion-fab>
 </ion-content>

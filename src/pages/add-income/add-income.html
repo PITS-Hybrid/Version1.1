@@ -1,128 +1,364 @@
 <ion-header>
-  <ion-navbar color="danger">
+  <ion-navbar >
     <ion-title>
-        {{'NEW_INCOME' | translate}}
+      {{'NEW_INCOME' | translate}}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addCategory()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content class="background">
-  <ion-grid>
-  <ion-row >
-    <ion-col  col-4  (click)="incomeCategory('Salary', 'तलब')">
-      <ion-card >
-        <ion-card-header hcolor="danger" align="center" >{{'INCOME_CATEGORY_SALARY' | translate}}
-        </ion-card-header>
-        <img src="assets/icon/Salary.png" class="img" >
+
+<ion-content>
+  <div class="income">
+    <h2>{{'RUPEES' | translate}} {{incomeSum || 0}}</h2>
+    <h2>{{'INCOME' | translate}}</h2>
+  </div>
+  <div *ngIf="userTypeSelected =='Student'">
+    <ion-grid fixed>
+      <ion-card (click)="incomeCategory('Pocket Money', 'पाकेट खर्च(प्राप्त)')" tappable>
+        <ion-row responsive-sm class="category">
+          <ion-col col-2>
+            <img src="assets/icon/Pocket Money.png">
+          </ion-col>
+          <ion-col col-8>
+            <p>
+              {{'INCOME_CATEGORY_POCKETMONEY' | translate}}
+            </p>
+          </ion-col>
+          <ion-col col-2>
+            <ion-icon class="add-circle" name="add-circle"></ion-icon>
+          </ion-col>
+        </ion-row>
       </ion-card>
+
+
+      <ion-card (click)="incomeCategory('Gift', 'उपहार')" tappable>
+        <ion-row responsive-sm class="category">
+          <ion-col col-2>
+           <img src="assets/icon/Gift.png">
+         </ion-col>
+         <ion-col col-8>
+          <p>
+            {{'INCOME_CATEGORY_GIFT' | translate}}
+          </p>
+        </ion-col>
+        <ion-col col-2>
+          <ion-icon class="add-circle" name="add-circle"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card (click)="incomeCategory('Loan', 'ऋण')" tappable>     
+     <ion-row responsive-sm class="category">
+      <ion-col col-2>
+        <img src="assets/icon/Interest.png">
+      </ion-col>
+      <ion-col col-8>
+       <p>
+        {{'INCOME_CATEGORY_LOAN' | translate}}
+      </p>
     </ion-col>
-    <ion-col col-4  (click)="incomeCategory('Allowance/Bonus', 'भत्ता/बोनस')">
-      <ion-card>
-        <ion-card-header color="danger" align="center" >{{'INCOME_CATEGORY_ALLOWANCEBONUS' | translate}} 
-        </ion-card-header>
-        <img src="assets/icon/Allowance.png" class="img" width-33> 
-      </ion-card>
-    </ion-col>
-    
-    <ion-col col-4   (click)="incomeCategory('Wages', 'ज्याला')">
-      <ion-card>
-        <ion-card-header color="danger" align="center" width-33>
-          {{'INCOME_CATEGORY_WAGES' | translate}}  
-        </ion-card-header>
-        <img src="assets/icon/Wages.png" class="img" width-33 >
-      </ion-card>
+    <ion-col col-2>
+      <ion-icon  class="add-circle" name="add-circle"></ion-icon>
     </ion-col>
   </ion-row>
+</ion-card>     
+
+<ion-card (click)="incomeCategory('Interest', 'ब्याज')" tappable>
+ <ion-row responsive-sm class="category">
+  <ion-col col-2>
+    <img src="assets/icon/Interest.png">
+  </ion-col>
+  <ion-col col-8>
+   <p>
+    {{'INCOME_CATEGORY_INTEREST' | translate}}
+  </p>
+</ion-col>
+<ion-col col-2>
+  <ion-icon class="add-circle" name="add-circle"></ion-icon>
+</ion-col>
+</ion-row>
+</ion-card>
+
+<ion-card (click)="incomeCategory('Salary', 'तलब')" tappable>
+ <ion-row responsive-sm class="category">
+   <ion-col col-2>
+    <img src="assets/icon/Salary.png">
+  </ion-col>
+  <ion-col col-8>
+   <p>
+    {{'INCOME_CATEGORY_SALARY' | translate}}
+  </p>
+</ion-col>
+<ion-col col-2>
+  <ion-icon class="add-circle" name="add-circle"></ion-icon>
+</ion-col>
+</ion-row>
+</ion-card>
+
+<ion-card (click)="incomeCategory('Others', 'अन्य')" tappable>
+ <ion-row responsive-sm class="category">
+  <ion-col col-2>
+   <img src="assets/icon/Others.png">
+ </ion-col>
+ <ion-col col-8>
+   <p>
+    {{'INCOME_CATEGORY_OTHERS' | translate}}
+  </p>
+</ion-col>
+<ion-col col-2>
+  <ion-icon class="add-circle" name="add-circle"></ion-icon>
+</ion-col>
+</ion-row>
+</ion-card>
+
+<div *ngFor="let info of newcategoryincome" >
+<ion-card (click)="customisedIncomeCategory(info.nameofcategory, info.icon)" (press)="itemPressed(info)" tappable>
+  <ion-row responsive-sm class="category">
+
+    <ion-col  col-2>
+     <ion-icon  name={{info.icon}} style="color:#fff; font-size: 40px;display: block;text-align: center;">   
+     </ion-icon>
+   </ion-col>
+   <ion-col col-8>
+     <p>
+      {{info.nameofcategory}}
+    </p>
+  </ion-col>
+  <ion-col col-2>
+    <ion-icon class="add-circle" name="add-circle"></ion-icon>
+  </ion-col>
+</ion-row>
+</ion-card>
+</div>
+
+</ion-grid>
+</div>
+<div *ngIf="userTypeSelected =='Professional'">
+  <ion-row>
+    <ion-col col-4>
+      <ion-card (click)="incomeCategory('Salary', 'तलब')" tappable>
+       <p>
+        {{'INCOME_CATEGORY_SALARY' | translate}}
+      </p>
+      <img src="assets/icon/Salary.png">
+    </ion-card>
+  </ion-col>
+  <ion-col col-4>
+    <ion-card (click)="incomeCategory('Allowance and Bonus', 'भत्ता/बोनस')" tappable>
+     <p>
+      {{'INCOME_CATEGORY_ALLOWANCEBONUS' | translate}}
+    </p>
+    <img src="assets/icon/Allowance and Bonus.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4>
+  <ion-card (click)="incomeCategory('Sales', 'बिक्री')" tappable>
+   <p>
+    {{'INCOME_CATEGORY_SALES' | translate}}
+  </p>
+  <img src="assets/icon/Sales.png">
+</ion-card>
+</ion-col>
+</ion-row>
+<ion-row>
+  <ion-col col-4>
+    <ion-card (click)="incomeCategory('Commission', 'कमिसन')" tappable>
+     <p>
+      {{'INCOME_CATEGORY_COMMISSION' | translate}}
+    </p>
+    <img src="assets/icon/Commission.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4>
+  <ion-card (click)="incomeCategory('Interest', 'ब्याज')" tappable>
+   <p>
+    {{'INCOME_CATEGORY_INTEREST' | translate}}
+  </p>
+  <img src="assets/icon/Interest.png">
+</ion-card>
+</ion-col>
+<ion-col col-4>
+  <ion-card (click)="incomeCategory('Others', 'अन्य')" tappable>
+   <p>
+    {{'INCOME_CATEGORY_OTHERS' | translate}}
+  </p>
+  <img src="assets/icon/Others.png">
+</ion-card>
+</ion-col>
+</ion-row>
+<ion-row>
+  <ion-col col-4 *ngFor="let info of newcategoryincome">
+    <ion-card (click)="customisedIncomeCategory(info.nameofcategory, info.icon)" (press)="itemPressed(info)">
+      <p>
+        {{info.nameofcategory}}
+      </p>
+      <ion-icon style="font-size: 55px;display: block;text-align: center;" name={{info.icon}} color="primary"></ion-icon>
+    </ion-card>
+  </ion-col>
+</ion-row>
+</div>
+<div *ngIf="userTypeSelected =='Housewife'">
+  <ion-row>
+    <ion-col col-4>
+      <ion-card (click)="incomeCategory('Household', 'घरखर्च')" tappable>
+       <p>
+        {{'INCOME_CATEGORY_HOUSEHOLD' | translate}}
+      </p>
+      <img src="assets/icon/Household.png">
+    </ion-card>
+  </ion-col>
+  <ion-col col-4>
+    <ion-card (click)="incomeCategory('Rent', 'भाडा')" tappable>
+     <p>
+      {{'INCOME_CATEGORY_RENT' | translate}}
+    </p>
+    <img src="assets/icon/Rent.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4>
+  <ion-card (click)="incomeCategory('Sales', 'बिक्री')" tappable>
+   <p>
+    {{'INCOME_CATEGORY_SALES' | translate}}
+  </p>
+  <img src="assets/icon/Sales.png">
+</ion-card>
+</ion-col>
+</ion-row>
+<ion-row>
+  <ion-col col-4>
+    <ion-card (click)="incomeCategory('Gift', 'उपहार')" tappable>
+     <p>
+      {{'INCOME_CATEGORY_GIFT' | translate}}
+    </p>
+    <img src="assets/icon/Gift.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4>
+  <ion-card (click)="incomeCategory('Others', 'अन्य')" tappable>
+   <p>
+    {{'INCOME_CATEGORY_OTHERS' | translate}}
+  </p>
+  <img src="assets/icon/Others.png">
+</ion-card>
+</ion-col>
+<ion-col col-4 *ngFor="let info of newcategoryincome">
+  <ion-card (click)="customisedIncomeCategory(info.nameofcategory, info.icon)" (press)="itemPressed(info)">
+   <p>
+    {{info.nameofcategory}}
+  </p>
+  <ion-icon style="font-size: 55px;display: block;text-align: center;" name={{info.icon}} color="primary"></ion-icon>
+</ion-card>
+</ion-col>
+</ion-row>
+</div>
+<div hidden>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 (click)="incomeCategory('Salary', 'तलब')" tappable>
+        <ion-card>
+         <p>{{'INCOME_CATEGORY_SALARY' | translate}}
+         </p>
+         <img src="assets/icon/Salary.png" class="img">
+       </ion-card>
+     </ion-col>
+     <ion-col col-4 (click)="incomeCategory('Allowance and Bonus', 'भत्ता/बोनस')">
+      <ion-card>
+       <p>{{'INCOME_CATEGORY_ALLOWANCEBONUS' | translate}}
+       </p>
+       <img src="assets/icon/Allowance and Bonus.png" class="img" width-33>
+     </ion-card>
+   </ion-col>
+   <ion-col col-4 (click)="incomeCategory('Wages', 'ज्याला')">
+    <ion-card>
+      <p>
+        {{'INCOME_CATEGORY_WAGES' | translate}}
+      </p>
+      <img src="assets/icon/Wages.png" class="img" width-33>
+    </ion-card>
+  </ion-col>
+</ion-row>
 </ion-grid>
 <ion-grid>
   <ion-row>
     <ion-col col-4 (click)="incomeCategory('Household', 'घर खर्च')">
       <ion-card>
-        <ion-card-header color="danger" align="center">
-         {{'INCOME_CATEGORY_HOUSEHOLD' | translate}}  
-        </ion-card-header>
-        <img src="assets/icon/Household.png">
-      </ion-card>
-    </ion-col>
-
-    <ion-col  col-4 (click)="incomeCategory('Rent', 'भाडा')">
-      <ion-card>
-        <ion-card-header color="danger" align="center">
-           {{'INCOME_CATEGORY_RENT' | translate}}  
-        </ion-card-header>
-        <img src="assets/icon/Rent.png">
-      </ion-card>
-    </ion-col>
-    <ion-col  col-4 (click)="incomeCategory('Sales', 'बिक्री')">
-      <ion-card>
-        <ion-card-header color="danger" align="center">
-          {{'INCOME_CATEGORY_SALES' | translate}}  
-        </ion-card-header>
-        <img src="assets/icon/Sales.png">
-      </ion-card>
-    </ion-col>
-    
-  </ion-row>
+       <p>
+        {{'INCOME_CATEGORY_HOUSEHOLD' | translate}}
+      </p>
+      <img src="assets/icon/Household.png">
+    </ion-card>
+  </ion-col>
+  <ion-col col-4 (click)="incomeCategory('Rent', 'भाडा')">
+    <ion-card>
+     <p>
+      {{'INCOME_CATEGORY_RENT' | translate}}
+    </p>
+    <img src="assets/icon/Rent.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4 (click)="incomeCategory('Sales', 'बिक्री')">
+  <ion-card>
+   <p>
+    {{'INCOME_CATEGORY_SALES' | translate}}
+  </p>
+  <img src="assets/icon/Sales.png">
+</ion-card>
+</ion-col>
+</ion-row>
 </ion-grid>
-
 <ion-grid>
   <ion-row>
-
-<ion-col col-4 (click)="incomeCategory('Commission', 'कमिसन')">
+    <ion-col col-4 (click)="incomeCategory('Commission', 'कमिसन')">
       <ion-card>
-        <ion-card-header color="danger" align="center">
-          {{'INCOME_CATEGORY_COMMISSION' | translate}}  
-        </ion-card-header>
-        <img src="assets/icon/Commission.png">
-      </ion-card>
-    </ion-col>
-
+       <p>
+        {{'INCOME_CATEGORY_COMMISSION' | translate}}
+      </p>
+      <img src="assets/icon/Commission.png">
+    </ion-card>
+  </ion-col>
   <ion-col col-4 (click)="incomeCategory('Interest', 'ब्याज')">
-      <ion-card>
-        <ion-card-header color="danger" align="center">
-            {{'INCOME_CATEGORY_INTEREST' | translate}} 
-        </ion-card-header>
-        <img src="assets/icon/Interest.png">
-      </ion-card>
-    </ion-col>
-    <ion-col col-4 (click)="incomeCategory('Pocket Money', 'पाकेट खर्च(प्राप्त)')">
-      <ion-card>
-        <ion-card-header color="danger" align="center">
-          {{'INCOME_CATEGORY_POCKETMONEY' | translate}} 
-        </ion-card-header>
-        <img src="assets/icon/Pocket Money.png">
-      </ion-card>
-    </ion-col>
-    
-  </ion-row>
+    <ion-card>
+     <p>
+      {{'INCOME_CATEGORY_INTEREST' | translate}}
+    </p>
+    <img src="assets/icon/Interest.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4 (click)="incomeCategory('Pocket Money', 'पाकेट खर्च(प्राप्त)')">
+  <ion-card>
+   <p>
+    {{'INCOME_CATEGORY_POCKETMONEY' | translate}}
+  </p>
+  <img src="assets/icon/Pocket Money.png">
+</ion-card>
+</ion-col>
+</ion-row>
 </ion-grid>
-
 <ion-grid>
   <ion-row>
-
-
-
-<ion-col col-4 (click)="incomeCategory('Gift', 'उपहार')">
+    <ion-col col-4 (click)="incomeCategory('Gift', 'उपहार')">
       <ion-card>
-        <ion-card-header color="danger" align="center">
-            {{'INCOME_CATEGORY_GIFT' | translate}} 
-        </ion-card-header>
-        <img src="assets/icon/Gift.png">
-      </ion-card>
-    </ion-col>
-
-
-    
-
-    <ion-col col-4 (click)="incomeCategory('Others', 'अन्य')">
-      <ion-card>
-        <ion-card-header color="danger" align="center">
-           {{'INCOME_CATEGORY_OTHERS' | translate}} 
-        </ion-card-header>
-        <img src="assets/icon/Others.png">
-      </ion-card>
-    </ion-col>
-    
-    <ion-col col-4></ion-col>
-  </ion-row>
+       <p>
+        {{'INCOME_CATEGORY_GIFT' | translate}}
+      </p>
+      <img src="assets/icon/Gift.png">
+    </ion-card>
+  </ion-col>
+  <ion-col col-4 (click)="incomeCategory('Others', 'अन्य')">
+    <ion-card>
+     <p>
+      {{'INCOME_CATEGORY_OTHERS' | translate}}
+    </p>
+    <img src="assets/icon/Others.png">
+  </ion-card>
+</ion-col>
+<ion-col col-4>
+</ion-col>
+</ion-row>
 </ion-grid>
+</div>
 </ion-content>

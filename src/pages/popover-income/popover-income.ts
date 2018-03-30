@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController, AlertController, ToastController } from 'ionic-angular';
 import { MonthWiseIncomeReport } from '../monthwise-income-report/monthwise-income-report';
 import { DailyIncomeReportPage } from '../daily-income-report/daily-income-report';
 import { YearlyIncomeReportPage } from '../yearly-income-report/yearly-income-report';
 import { DaterangeIncomePage } from '../daterange-income/daterange-income';
+import { App } from 'ionic-angular';
 
 
 
@@ -18,35 +19,36 @@ export class PopoverIncomePage {
   
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
+     public alertCtrl: AlertController, public toastCtrl: ToastController,  public appCtrl: App) {
 
 
   }
 
- //  monthName(monthValue){
-	// this.navCtrl.push(MonthWiseIncomeReport, {'monthName': monthValue}, {animate: true, direction: 'forward'})
- //   console.log(this.os);
- //  }
 
 
   monthly(){
-  this.navCtrl.push(MonthWiseIncomeReport);
+    this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(MonthWiseIncomeReport);
   }
+
+
   daily(){
-    this.navCtrl.push(DailyIncomeReportPage);
+    this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(DailyIncomeReportPage);
   }
   
-  // public yearWise(event){
-  //   this.navCtrl.push(YearlyIncomeReportPage, {'yearName': this.yearName}, {animate: true, direction: 'forward'})
-  // }
+ 
 
   yearly(){
-    this.navCtrl.push(YearlyIncomeReportPage);
+   this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(YearlyIncomeReportPage);
   }
 
 
   daterange(){
-    this.navCtrl.push(DaterangeIncomePage);
+ this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(DaterangeIncomePage);
   }
 
   close() {

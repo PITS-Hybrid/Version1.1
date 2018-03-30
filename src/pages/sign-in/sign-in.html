@@ -1,0 +1,68 @@
+<ion-content class="login-content" padding>
+
+	<ion-label class="heading"> {{'PAISA_MANAGER' | translate}} </ion-label>
+ <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="assets/icon/logo.png"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <form class="loginfield">
+    <ion-row>
+      <ion-col>
+        
+        
+        <ion-item class="loginfield">
+          <ion-label  stacked style="color : #5ebedc;">{{'EMAIL_CONTACT_NUMBER' | translate}}</ion-label>
+          <ion-input type="text"  name="email" required 
+          [(ngModel)]="username" ></ion-input>
+        </ion-item>
+        
+        <ion-item class="loginfield">
+         <ion-label  stacked style="color : #5ebedc;">{{'PASSWORD' | translate}}</ion-label>
+         <ion-input type="password" name="password" [(ngModel)]="password" ></ion-input>
+       </ion-item>
+
+       
+      
+      
+    </ion-col>
+  </ion-row>
+  
+  <ion-row>
+    <ion-col class="signup-col">
+      <button ion-button full (click)="signIn()" class="submit-btn">{{'SIGN_IN' | translate}}</button>
+
+
+      <button ion-button class="createnewac-btn" block clear (click)="createAccount()">
+      {{'CREATE_NEW_ACCOUNT' | translate}}</button>
+
+      <button ion-button class="createnewac-btn" block clear (click)="howItWorks()">
+      {{'LEARN_HOW_THE_APP_WORKS' | translate}}</button>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+   
+   <ion-col col-6>
+    <button ion-button  class="register-btn"  block clear (click)="languageOption(1)"> {{ "ENGLISH" | translate }}
+    </button>
+  
+    <!--  <button ion-button   (click)="changeToEnglish()">English</button> -->
+
+   </ion-col >
+   <ion-col col-6>
+  <!--   <button ion-button  (click)="changeToNepali()">Nepali</button></ion-col> -->
+        <button ion-button class="register-btn" block clear (click)="languageOption(2)">{{ "NEPALI" | translate }}
+        </button>
+      </ion-col>
+  </ion-row>
+  
+</form>
+
+
+
+</ion-content>

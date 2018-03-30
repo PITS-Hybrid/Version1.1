@@ -5,4 +5,37 @@ page-add-income-demo {
 		color: #FFFFFF;
 	}
 
+	
+	.select-ios {
+    padding: 0;
+}
+
+.select-ios .select-icon {
+    position: relative;
+    width: 17px;
+    height: 18px;
+}
+
+
+ion-input,
+ion-datetime,
+ion-option{
+	font-size:16px;
+    color:#7b7b7b;
+}
+
+.transactionDetail{
+	margin-bottom:25px;
+}
+
+.item-block{
+	padding-right:16px;
+}
+
+ion-select {
+    max-width: 90%;
+    color: #7b7b7b;
+    font-weight: 500;
+}
+
 }

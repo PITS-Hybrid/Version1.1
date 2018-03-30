@@ -1,16 +1,39 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" >
   <ion-header>
-    <ion-toolbar color="danger">
-      <ion-title>{{'PAISA_MANAGER' | translate}}</ion-title>
+    <ion-toolbar >
+      <ion-title >{{'PAISA_MANAGER' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content style="background-color: #F8F8F8">
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+
+ <ion-list class="sideBarMenu" >
+      <button menuClose ion-item   (click)="openIncomeReportPage()" >
+        {{'INCOME_REPORT' | translate}}
       </button>
-    </ion-list>
+      <button menuClose ion-item  (click)="openExpenseReportPage()">
+        {{'EXPENSE_REPORT' | translate}}
+      </button>
+      <button menuClose ion-item  (click)="openLandConverterPage()">
+        {{'LAND_CONVERTER' | translate}}
+      </button>
+      <button menuClose ion-item  (click)="openForexPage()">
+        {{'FOREX' | translate}}
+      </button>
+      <button menuClose ion-item  (click)="openAboutUsPage()">
+        {{'ABOUT_US' | translate}}
+      </button>
+ </ion-list>
+     
+    <div class="contact">
+        
+<p style="color:#7b7b7b;"><ion-icon name="mail" style="vertical-align: middle;color:#7b7b7b;"></ion-icon> hello@paisamanager.com</p>
+   
+</div>
+   
+
+
+
   </ion-content>
 
 </ion-menu>

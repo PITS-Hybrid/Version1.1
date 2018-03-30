@@ -1,0 +1,171 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'SAVING_REPORT' | translate}} </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-grid fixed class="savingHead">
+        <div>
+            <div *ngIf="segmentSelected == 'misc'">
+                <ion-row class="info">
+                    <ion-col>
+                        <p align="center">{{'RUPEES' | translate}} {{savingSum || 0}}</p>
+                        <p align="center">{{'TOTAL_MISCELLANEOUS_SAVINGS' | translate}}</p>
+                    </ion-col>
+                    <ion-col>
+                        <p align="center">{{'RUPEES' | translate}} {{previousMonthsaving || 0}}</p>
+                        <p align="center">{{'PAST_MONTH_CARRYOVER' | translate}}</p>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <div *ngIf="segmentSelected == 'savinggoals'">
+                <div *ngIf="savingGoalsLength; else noSavingGoals" class="goalInfo">
+                    <p align="center" style="color: #fff; padding: 10px;" *ngIf="localStorageLanguageSelected =='english'">
+                    You have {{savingGoalsLength}} Saving Goal/s pending.</p>
+                    <p align="center" style="color: #fff; padding: 10px;" *ngIf="localStorageLanguageSelected =='nepali'">
+                    तपाईँ सँग {{savingGoalsLength}} बचत लक्ष्य पेन्डिङ</p>
+                </div>
+                <ng-template #noSavingGoals>
+                    <p style="padding: 10%;">
+                        You currently don't have any saving goals. Please add one by clicking on the plus sign and choosing goal.
+                    </p>
+                </ng-template>
+            </div>
+            <ion-toolbar no-border-bottom>
+                <ion-segment [(ngModel)]="savingSwitch" (ionChange)="segmentChanged($event)">
+                    <ion-segment-button value="miscSaving">
+                        {{'MISCELLANEOUS_SAVINGS' | translate}}
+                    </ion-segment-button>
+                    <ion-segment-button value="savinggoals">
+                        {{'SAVING_GOALS' | translate}}
+                    </ion-segment-button>
+                    <ion-segment-button value="accomplishments">
+                        {{'ACCOMPLISHMENTS' | translate}}
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-toolbar>
+        </div>
+    </ion-grid>
+    <ion-grid fixed class="savingDetails">
+        <div [ngSwitch]="savingSwitch">
+            <ion-list *ngSwitchCase="'miscSaving'">
+                <div *ngFor="let info of saving">
+                    <ion-list>
+                        <ion-item-sliding>
+                            <ion-item *ngIf="localStorageLanguageSelected =='english'">
+                                <ion-row class="saving">
+                                    <ion-col col-6>
+                                        <h2>{{info.institute}}</h2>
+                                        <h3>{{info.income_source}}</h3>
+                                        <div class="date" *ngIf="calendarSelected == 'AD'">{{info.date}}</div>
+                                        <div class="date" *ngIf="calendarSelected == 'BS'">{{info.nepali_date}}</div>
+                                    </ion-col>
+                                    <ion-col col-6>
+                                        <p> {{'RUPEES' | translate}} {{info.amount}}</p>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-item>
+                            <ion-item *ngIf="localStorageLanguageSelected =='nepali'">
+                                <ion-row class="saving">
+                                    <ion-col col-6>
+                                        <h2> {{info.institute}}</h2>
+                                        <h3>{{info.income_source}}</h3>
+                                        <div class="date" *ngIf="calendarSelected == 'AD'">{{info.date}}</div>
+                                        <div class="date" *ngIf="calendarSelected == 'BS'">{{info.nepali_date}}</div>
+                                    </ion-col>
+                                    <ion-col col-6>
+                                        <p> {{'RUPEES' | translate}} {{info.amount}}</p>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-item>
+                            <ion-item-options side="right">
+                                <button ion-button color="success" (click)="editItem(info.ID)">
+                                    <ion-icon name="open"></ion-icon>
+                                    {{'BUTTON_EDIT' | translate}}
+                                </button>
+                                <button ion-button color="danger" (click)="deleteItem(info.ID)">
+                                    <ion-icon name="trash"></ion-icon>
+                                    {{'BUTTON_DELETE' | translate}}
+                                </button>
+                            </ion-item-options>
+                        </ion-item-sliding>
+                    </ion-list>
+                </div>
+            </ion-list>
+            <ion-list *ngSwitchCase="'savinggoals'">
+                <ion-card class="savingGoal" *ngFor="let savingGoal of savingGoals" (click)="detail(savingGoal.ID)" padding>
+                    <ion-row class="savingFor">
+                        <ion-col>
+                            <h2><strong>{{savingGoal.goalTitle}}</strong></h2>
+                            <p *ngIf="localStorageLanguageSelected =='english'">
+                        {{'RUPEES' | translate}} {{savingGoal.amount}} in {{savingGoal.remaining}} Days 
+                    </p> 
+                       <p *ngIf="localStorageLanguageSelected =='nepali'">
+                    {{'RUPEES' | translate}} {{savingGoal.amount}} - {{savingGoal.remaining}} दिनमा
+                </p>
+                               
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <p><strong>{{'RUPEES' | translate}} {{savingGoal.remainingAmount || savingGoal.amount}}<br></strong>
+                        <strong *ngIf="localStorageLanguageSelected =='english'">remaining</strong>
+                        <strong *ngIf="localStorageLanguageSelected =='nepali'">बाँकी</strong>
+                    </p>
+                        </ion-col>
+                        <ion-col>
+                            <p align="right"><strong>{{savingGoal.remainingFromToday}}</strong>
+                             <strong *ngIf="localStorageLanguageSelected =='english'">Days
+                                <br>remaining</strong>
+                             <strong *ngIf="localStorageLanguageSelected =='nepali'">दिन 
+                                <br>बाँकी</strong>
+                           </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <progress style="background-color: white; height: 5px; width: 100%;" value="{{savingGoal.paidPercentage}}" max="100"></progress>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+            </ion-list>
+            <ion-list *ngSwitchCase="'accomplishments'">
+                <ion-card class="savingGoal" *ngFor="let savingGoal of accomplishedSavingGoals" (click)="detail(savingGoal.ID)" padding>
+                    <ion-row class="savingFor">
+                        <ion-col>
+                            <h2><strong>{{savingGoal.goalTitle}}</strong></h2>
+                            <p>{{'RUPEES' | translate}} {{savingGoal.amount}} in {{savingGoal.remaining}} Days</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <p><strong>{{'RUPEES' | translate}} {{savingGoal.remainingAmount || savingGoal.amount}}<br>remaining</strong></p>
+                        </ion-col>
+                        <ion-col>
+                            <p align="right"><strong>{{savingGoal.remainingFromToday}} Days<br>remaining</strong></p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <progress style="background-color: white; height: 5px; width: 100%;" value="{{savingGoal.paidPercentage}}" max="100"></progress>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+            </ion-list>
+        </div>
+    </ion-grid>
+    <!-- <p align="center" class="grayBackgroundWithPaddings">ADVERTISEMENT</p> -->
+    <ion-fab bottom center>
+        <button ion-fab style="background: #5ec0db; ">
+            <ion-icon name="add"></ion-icon>
+        </button>
+        <ion-fab-list side="right">
+            <button ion-fab mini style="background: #2ecc71; color:#fff;" (click)="addSaving()">
+                {{'SAVING' | translate}}</button>
+        </ion-fab-list>
+        <ion-fab-list side="left">
+            <button ion-fab mini color="dark" (click)="addGoal()" style="background: #2ecc71; color:#fff;">
+                {{'GOAL' | translate}} </button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

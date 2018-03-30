@@ -1,0 +1,117 @@
+page-saving-report {
+.grayBackgroundWithPaddings{
+background-color: #85bb65;
+color: #FFFFFF;
+padding: 15px;
+}
+
+.card-wrapper{
+
+padding:10px;
+
+margin-bottom: 15px;
+background-color: #67a94b;
+color: #ffffff;
+}
+
+.savingHead{
+    background-color:#5ec0db;
+    text-align:center;
+    color:#fff;
+  }
+
+.scroll-content {
+    padding: 0px !important; 
+}
+
+  .savingHead p{
+  	font-weight:400;
+  }
+
+  .savingDetails{
+    padding:16px;
+  }
+
+  .info{
+  	padding:10% 0;
+  }
+
+    .goalInfo{
+    padding:10% 0;
+  }
+
+  .goalInfo p{
+    font-size:18px;
+  }
+
+  .info p:nth-child(odd){
+  	font-size:30px;
+  }
+
+  .saving{
+    background-color:#5ec0db;
+    padding:10px 5px;
+    border-radius:2px;
+    color:#fff;
+  }
+  
+  .item-ios{
+    padding-left:0px;
+  }
+
+  .label-ios {
+    margin:0;
+}
+
+.item-ios.item-block .item-inner {
+    padding-right: 0px; 
+}
+
+.list-ios {
+    margin-bottom: 12px;
+}
+
+.saving p{
+  font-size:18px;
+  padding:8px 0px;
+  text-align:center;
+  color:#fff;
+  border-radius:3px;
+  background-color:#58d1f3;
+}
+.date{
+    font-size:14px;
+    color:#fff;
+}
+
+
+.saving h2,
+.saving h3{
+  text-transform:capitalize;
+  font-weight:400;
+}
+
+.savingGoal{
+  background-color:#5ec0db;
+  color:#fff;
+}
+
+.savingGoal p{
+  color:#fff;
+}
+
+.savingFor{
+  text-align:center;
+  border-bottom:1px solid #fff;
+}
+
+.label-md {
+    margin: 0; 
+}
+
+.card-md h2,
+.card-md p {
+    color: #fff !important;
+}
+
+}

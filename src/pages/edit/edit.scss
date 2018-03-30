@@ -3,4 +3,15 @@ edit{
 		background-color: #428bca;
 		color: #FFFFFF;
 	}
+	.label-md-primary, .item-input .label-md-primary, .item-select .label-md-primary, .item-datetime .label-md-primary {
+    color: #5ec0db;
+    font-weight: 500;
+}
+.text-input[disabled] {
+    opacity: .9;
+}
+.text-input-md {
+    color: #7b7b7b;
+    font-weight:500;
+}
 }

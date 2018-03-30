@@ -1,0 +1,95 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{savingGoal.goalTitle}} - Saving Goal
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div *ngIf="savingForGoalTitlesLength == '0'">
+        <p style="background: #5ec0db; color: #fff; padding: 10%; font-size: 18px;">No conrtibuting savings till now</p>
+    </div>
+    <div *ngIf="savingForGoalTitlesLength != '0'">
+        <canvas #barCanvas></canvas>
+        <br>
+    </div>
+    <div class="tabs">
+        <ion-segment [(ngModel)]="savingGoalSwitch">
+            <ion-segment-button value="summary">
+                Summary
+            </ion-segment-button>
+            <ion-segment-button value="savinggoals">
+                Contributing Savings
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <div [ngSwitch]="savingGoalSwitch">
+        <ion-list *ngSwitchCase="'summary'">
+            <ion-card padding class="detailGoalInfo">
+                <ion-row>
+                    <ion-col>
+                        <p>Saving Target - Rs. {{savingGoal.amount}} in {{savingGoal.remaining}} Day/s</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <p>Actual Saved - Rs. {{contributingSavingSum}} in {{savingGoal.remaining - remainingDays}} Day/s
+                            <br>
+                            <br>
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="date">
+                    <ion-col col-6>
+                        <h2>Start Date</h2>
+                        <p *ngIf="calendarSelected == 'AD'">
+                            <ion-icon name="calendar"></ion-icon> {{savingGoal.startDateEng}}</p>
+                    <p *ngIf="calendarSelected == 'BS'">
+                        <ion-icon name="calendar"></ion-icon> {{savingGoal.startDateNep}}</p>                 
+                    </ion-col>
+                    <ion-col col-6>
+                        <h2>End Date</h2>
+                        <p *ngIf="calendarSelected == 'AD'">
+                            <ion-icon name="calendar"></ion-icon> {{savingGoal.endDateEng}}</p>
+                    <p *ngIf="calendarSelected == 'BS'">
+                        <ion-icon name="calendar"></ion-icon> {{savingGoal.endDateNep}}</p>
+                    </ion-col>
+                </ion-row>
+                <div class="recommended">
+                    <h2>Recommended Saving Schedule</h2>
+                    <table>
+                        <thead>
+                            <th>Daily</th>
+                            <th>Weekly</th>
+                            <th>Monthly</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rs. {{daily}}</td>
+                                <td>Rs. {{weekly}}</td>
+                                <td>Rs. {{monthly}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ion-card>
+        </ion-list>
+        <ion-list *ngSwitchCase="'savinggoals'">
+            <ion-card *ngFor="let contributing of savingForGoal">
+                <ion-list>
+                    <ion-item style="background-color: #5ec0db;">
+                        <ion-row style="color:#fff;">
+                            <ion-col col-6>
+                                <h2 style="color:#fff; margin-bottom: 3px;"><strong>{{contributing.institute}}</strong></h2>
+                            </ion-col>
+                            <ion-col col-6>
+                                <p style="background-color: #58d1f3; border-radius: 3px; color: white; font-size: 18px;
+             padding: 5px; width: 100%; text-align: center;"> {{'RUPEES' | translate}} {{contributing.amount}}</p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </ion-list>
+            </ion-card>
+        </ion-list>
+    </div>
+</ion-content>

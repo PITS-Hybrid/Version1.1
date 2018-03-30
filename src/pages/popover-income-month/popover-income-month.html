@@ -1,6 +1,8 @@
 <ion-list>
 	
+         
 	 <ion-list-header>{{'MONTH_WISE' | translate}}</ion-list-header>
+     <div *ngIf= "calendarSelected == 'AD'">
       <button ion-item  (click)="monthName(1)">January</button>
       <button ion-item  (click)="monthName(2)">Febraury</button>
       <button ion-item  (click)="monthName(3)">March</button>
@@ -12,5 +14,20 @@
       <button ion-item  (click)="monthName(9)">September</button>
       <button ion-item  (click)="monthName(10)">October</button>
       <button ion-item  (click)="monthName(11)">November</button>
-      <button ion-item  (click)="monthName(12)">December</button>
+      </div>
+
+      <div *ngIf= "calendarSelected == 'BS'">
+        <button ion-item  (click)="monthName(1)">Baisakh</button>
+      <button ion-item  (click)="monthName(2)">Jestha</button>
+      <button ion-item  (click)="monthName(3)">Ashadh</button>
+      <button ion-item  (click)="monthName(4)">Shrawan</button>
+      <button ion-item  (click)="monthName(5)">Bhadra</button>
+      <button ion-item  (click)="monthName(6)">Ashwin</button>
+      <button ion-item  (click)="monthName(7)">Kartik</button>
+      <button ion-item  (click)="monthName(8)">Mangsir</button>
+      <button ion-item  (click)="monthName(9)">Poush</button>
+      <button ion-item  (click)="monthName(10)">Magh</button>
+      <button ion-item  (click)="monthName(11)">Falgun</button>     
+      <button ion-item  (click)="monthName(12)">Chaitra</button>
+      </div>
 </ion-list>

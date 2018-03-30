@@ -1,34 +1,34 @@
 page-add-income {
-    img {
-    	position: relative;
-        max-width: 50%;
-        margin: auto;
-        margin-bottom: 10px;
-    }
-
-
-    card-background-page {
-
-  ion-card {
-    position: relative;
-    text-align: center;
+  .category{
+    background-color: #5ec0db;
   }
 
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
+  .category p{
+    font-size:18px;
+    padding:10px 5px;
+    color:#fff;
   }
 
-  .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
+  .category img{
+    width:70%;
+    margin-top:7px;
   }
-}
+
+  .add-circle{
+    color:#fff;
+    font-size:35px;
+    margin-top:7px;
+
+  }
+
+  .income{
+    background-color:#5ec0db;
+    text-align:center;
+    color:#fff;
+    padding:15% 0;
+  }
+
+  .card-ios{
+    margin-top:0px;
+  }
 }

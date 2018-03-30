@@ -6,4 +6,41 @@ page-add-expense-demo {
 		background-color: #428bca;
 		color: #FFFFFF;
 	}
+
+	
+	.select-ios {
+    padding: 0;
+}
+
+.select-ios .select-icon {
+    position: relative;
+    width: 17px;
+    height: 18px;
+}
+
+
+ion-input,
+ion-datetime,
+ion-option,
+ion-label{
+	font-size:16px;
+    color:#5ec0db;
+}
+
+.transactionDetail{
+	margin-bottom:25px;
+}
+
+.item-block{
+	padding-right:16px;
+}
+
+ion-select {
+    max-width: 90%;
+    color: #7b7b7b;
+    font-weight: 500;
+}
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #5ec0db; 
+}
 }

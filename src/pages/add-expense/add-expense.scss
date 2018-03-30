@@ -1,12 +1,30 @@
 page-add-expense {
-    img {
-        max-width: 50%;
-        margin: auto;
-        margin-bottom: 10px;
-    }
+   .category{
+    background-color: #5ec0db;
+  }
 
-    .addButton{
-		background-color: #428bca;
-		color: #FFFFFF;
-	}
+  .category p{
+    font-size:18px;
+    padding:10px 5px;
+    color:#fff;
+  }
+
+  .category img{
+    width:70%;
+    margin-top:7px;
+  }
+
+  .add-circle{
+    color:#fff;
+    font-size:35px;
+    margin-top:7px;
+
+  }
+
+  .expense{
+    background-color:#5ec0db;
+    text-align:center;
+    color:#fff;
+    padding:15% 0;
+  }
 }

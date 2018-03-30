@@ -1,0 +1,127 @@
+page-loan-report {
+
+    li {
+        list-style-type: none;
+    }
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .title h2 {
+        font-size: 18px;
+    }
+    .title h4 {
+        font-size: 18px;
+        text-align: right;
+    }
+
+    .date ul li {
+        float: left;
+        font-size: 14px;
+        padding-right: 20px;
+    }
+
+    .interestlist {
+        float: right;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .interestlist ul li {
+        padding-bottom: 10px;
+    }
+
+
+    .status {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        background-color: #94bc63;
+        padding: 3px 10px;
+        color: #fff;
+    }
+
+    .title h1 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .start-date {
+
+        font-size: 12px;
+        display: inline-block;
+        text-align: left;
+    }
+
+
+    .end-date {
+
+        font-size: 12px;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .amount {
+        display: inline-block;
+
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .interest {
+        display: inline-block;
+
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .start-date h2,
+    .end-date h2{
+    	margin-bottom:5px;
+    }
+
+    .dates{
+    	margin-bottom:10px;
+    }
+
+    .dates p{
+        font-size:14px;
+        color:#fff !important;
+    }
+
+    .grayBackgroundWithPaddings {
+        background-color: #85bb65;
+        color: #FFFFFF;
+        padding: 15px;
+    }
+
+    .item-block{
+    	background-color:#5ec0db;
+    	color:#fff;
+    }
+
+    .title{
+    	text-transform:Capitalize;
+    }
+
+    .interest h2,
+    .amount h3,
+    .start-date h2,
+    .end-date h2{
+        font-size:16px;
+    }
+    .interest h3,
+    .amount h3,
+    .start-date p,
+    .end-date p{
+        font-size:14px;
+    }
+
+    .card-md h1,
+    .card-md h2,
+    .card-md h3,
+    .card-md p {
+    color: #fff;
+}
+}

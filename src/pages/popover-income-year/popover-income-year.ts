@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ViewController  } from 'ionic-angular';
 import { YearlyIncomeReportPage } from '../yearly-income-report/yearly-income-report';
 
 /**
@@ -14,10 +14,19 @@ import { YearlyIncomeReportPage } from '../yearly-income-report/yearly-income-re
   templateUrl: 'popover-income-year.html',
 })
 export class PopoverIncomeYearPage {
+userInfo;
+calendarSelected;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public viewCtrl: ViewController, public appCtrl: App) {
+   this.userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+  if(this.userInfo.calendar == "AD"){
+     this.calendarSelected = "AD";
+   }
+    else if(this.userInfo.calendar == "BS"){
+     this.calendarSelected = "BS";
+   }
+ 
   }
 
   ionViewDidLoad() {
@@ -27,7 +36,8 @@ export class PopoverIncomeYearPage {
 
 
 yearName(yearID){
-    this.navCtrl.push(YearlyIncomeReportPage,
+    this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(YearlyIncomeReportPage,
       {'yearName' : yearID})
 
     

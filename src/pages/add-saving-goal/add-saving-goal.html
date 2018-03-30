@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-navbar >
+    <ion-title>
+      Saving Goal
+    </ion-title>
+
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	
+	<ion-item>
+    <ion-label  floating style="color: #5ec0db;font-weight: 500;">{{'Goal Title' | translate}}</ion-label>
+    <ion-input type="text" #savingGoalTitle></ion-input>
+  </ion-item>
+
+	<ion-item>
+    <ion-label  floating style="color: #5ec0db;font-weight: 500;">{{'AMOUNT' | translate}}</ion-label>
+    <ion-input type="number"  #amt></ion-input>
+  </ion-item>
+
+
+<div *ngIf= "calendarSelected == 'AD'">
+  <ion-item>
+	  <ion-label  floating style="color: #5ec0db;font-weight: 500;">{{'Start Date' | translate}}</ion-label>
+	  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  #startDate></ion-datetime>
+	</ion-item>
+
+	<ion-item>
+	  <ion-label  floating style="color: #5ec0db;font-weight: 500;">{{'End Date' | translate}}</ion-label>
+	  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate2"  #endDate></ion-datetime>
+	</ion-item>
+</div>
+
+<div *ngIf= "calendarSelected == 'BS'" style="padding-left: 16px;">
+   <ion-label  stacked style="color: #5ec0db;font-weight: 500;">{{'Start Date' | translate}}</ion-label>
+<ion-row>
+<ion-col col-4>
+                  <ion-select #startyear interface="popover" style="max-width: 90%;">
+                      <ion-option selected disabled style="color:#7b7b7b;">Year</ion-option>
+                      <ion-option [value]="year" *ngFor="let year of nep_year">{{year}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-5>
+                  <ion-select #startmonth interface="popover"   (ionChange)="startMonthChanged()" style="max-width: 90%;" >
+                      <ion-option selected disabled style="color:#7b7b7b;">Month</ion-option>
+                      <ion-option *ngFor="let month of total_month">{{month}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-3>
+                  <ion-select #startday interface="popover" style="max-width: 90%;">
+                      <ion-option selected disabled style="color:#7b7b7b;">Day</ion-option>
+                      <ion-option [value]="d" *ngFor="let d of startdays">{{d}}</ion-option>
+                  </ion-select>
+              </ion-col>
+  </ion-row>
+
+<ion-label stacked style="color: #5ec0db;font-weight: 500;">{{'End Date' | translate}}</ion-label>
+  <ion-row>
+
+<ion-col col-4>
+                  <ion-select #endyear interface="popover" style="max-width: 90%;">
+                      <ion-option selected disabled style="color:#7b7b7b;">Year</ion-option>
+                      <ion-option [value]="year" *ngFor="let year of nep_year">{{year}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-5>
+                  <ion-select #endmonth interface="popover"   (ionChange)="endMonthChanged()" style="max-width: 90%;">
+                      <ion-option selected disabled style="color:#7b7b7b;">Month</ion-option>
+                      <ion-option *ngFor="let month of total_month">{{month}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-3>
+                  <ion-select #endday interface="popover"  style="max-width: 90%;" >
+                      <ion-option selected disabled style="color:#7b7b7b;">Day</ion-option>
+                      <ion-option [value]="d" *ngFor="let d of enddays">{{d}}</ion-option>
+                  </ion-select>
+              </ion-col>
+  </ion-row>
+</div>
+
+
+  <ion-item>
+    <ion-label  floating style="color: #5ec0db;font-weight: 500;">{{'NOTE' | translate}}</ion-label>
+    <ion-input type="text" #note></ion-input>
+  </ion-item>
+
+
+  
+  
+  <ion-row>
+	<button ion-button  block  class="saveButton" (click)="addGoal()">
+{{'SAVE' | translate}}</button>
+</ion-row>
+
+</ion-content>

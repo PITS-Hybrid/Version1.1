@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController, AlertController, ToastController, App } from 'ionic-angular';
 import { MonthwiseExpenseReportPage } from '../monthwise-expense-report/monthwise-expense-report';
 import { DailyExpenseReportPage } from '../daily-expense-report/daily-expense-report';
 import { YearlyExpenseReportPage } from '../yearly-expense-report/yearly-expense-report';
@@ -19,25 +19,40 @@ import { DaterangeExpensePage } from '../daterange-expense/daterange-expense';
 })
 export class PopoverExpensePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public alertCtrl: AlertController, public toastCtrl: ToastController, public appCtrl: App, public viewCtrl: ViewController) {
+ 
   }
 
 
   
   daily(){
-    this.navCtrl.push(DailyExpenseReportPage);
+    this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(DailyExpenseReportPage);
   }
   
   monthly(){
-  this.navCtrl.push(MonthwiseExpenseReportPage);
+  this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(MonthwiseExpenseReportPage);
   }
  
   yearly(){
-    this.navCtrl.push(YearlyExpenseReportPage)
+    this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(YearlyExpenseReportPage)
   }
 
-  daterange(){
-    this.navCtrl.push(DaterangeExpensePage);
+   daterange(){
+   this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(DaterangeExpensePage)
+
+    
+
+
+    
+
+
+
   }
+
 
 }

@@ -1,25 +1,78 @@
 
 
 <ion-header>
-  <ion-navbar color="danger" class="ios-header">
-    <ion-title class="ios-header-text">{{'INCOME_REPORT_DATE_WISE' | translate}}</ion-title>
+	<ion-navbar color="danger" class="ios-header">
+		<ion-title class="ios-header-text">{{'INCOME_REPORT_DATE_WISE' | translate}}</ion-title>
 
-  
-  </ion-navbar>
+
+	</ion-navbar>
 </ion-header>
 <ion-content padding>
-<ion-item>
-  <ion-label color="primary" floating> {{'START_DATE' | translate}}</ion-label>
-  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myStartDate"  #startdate></ion-datetime>
+
+	<div *ngIf= "calendarSelected == 'AD'">
+		<ion-item>
+		
+		<ion-label color="primary" floating> {{'START_DATE' | translate}}</ion-label>
+		<ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myStartDate"  #startdate></ion-datetime>
+	
+	</ion-item>
+	<ion-item>
+	
+		<ion-label color="primary" floating>{{'END_DATE' | translate}}</ion-label>
+		<ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myEndDate"  #enddate></ion-datetime>
+
 </ion-item>
+	</div>
 
+	
+	<ion-row *ngIf= "calendarSelected == 'BS'">
+		<ion-col>
+			<ion-label  stacked>Year</ion-label>
+			<ion-select #startyear interface="popover" >
+				<ion-option [value]="year"    *ngFor="let year of nep_year">{{year}}</ion-option>
+			</ion-select>
+		</ion-col>
+		<ion-col>
+			<ion-label  stacked>month</ion-label>
+			<ion-select #startmonth interface="popover"   (ionChange)="startMonthChanged()" >
+				<ion-option *ngFor="let month of total_month">{{month}}</ion-option>     
+			</ion-select>
+		</ion-col>
+		<ion-col>
+			<ion-label  stacked>day</ion-label>
+			<ion-select #startday interface="popover"   >
+				<ion-option [value]="d" *ngFor="let d of startdays">{{d}}</ion-option>
 
-<ion-item>
-  <ion-label color="primary" floating>{{'END_DATE' | translate}}</ion-label>
-  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myEndDate"  #enddate></ion-datetime>
-</ion-item>
+			</ion-select>
+		</ion-col>
+	</ion-row>
+	<ion-row *ngIf= "calendarSelected == 'BS'">
+		<ion-col>
+			<ion-label  stacked>Year</ion-label>
+			<ion-select #endyear interface="popover" >
+				<ion-option [value]="year"    *ngFor="let year of nep_year">{{year}}</ion-option>
+			</ion-select>
+		</ion-col>
+		<ion-col>
+			<ion-label  stacked>month</ion-label>
+			<ion-select #endmonth interface="popover"   (ionChange)="endMonthChanged()" >
+				<ion-option *ngFor="let month of total_month">{{month}}</ion-option>     
+			</ion-select>
+		</ion-col>
+		<ion-col>
+			<ion-label  stacked>day</ion-label>
+			<ion-select #endday interface="popover"   >
+				<ion-option [value]="d" *ngFor="let d of enddays">{{d}}</ion-option>
+			</ion-select>
+		</ion-col>
+	</ion-row>
+	
+	
 
-  <button ion-button full (click)="setRange()">{{'SELECT' | translate}}</button>
+	<ion-row>
+		<button ion-button block  class="saveButton" (click)="setRange()">{{'SELECT' | translate}}</button>
+	</ion-row>
+
 
 
 

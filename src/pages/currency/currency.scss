@@ -1,0 +1,97 @@
+page-currency {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: none;
+    }
+    /* Zebra striping */
+    tr:nth-of-type(odd) {
+        //background: #eee; 
+    }
+    th {
+        background: #5ec0db;
+        color: #fff;
+        text-align: center;
+        border: none;
+    }
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    td,
+    th {
+        border: none;
+        padding: 10px 2px;
+    }
+    .list-ios {
+        margin: -1px 0 10px;
+    }
+    .label-ios {
+        margin: 0;
+    }
+    .currency .text-input {
+        background-color: transparent;
+        margin: 0;
+        padding: 12px;
+        opacity: 1;
+        border-radius: 3px;
+        border-bottom:3px solid #fff;
+        text-align:right;
+        font-size:17px;
+    }
+    .flag-icon {
+        margin-right: 10px;
+    }
+
+    .currencyConverter {
+        background-color: #5ec0db;
+        color: #fff;
+    }
+
+    .select-ios {
+    	max-width:95%;
+    	padding:0px 8px;
+    }
+
+    .select-ios .select-placeholder {
+    color: #fff;
+}
+ .text-input-ios {
+    background-color: transparent!important; 
+    margin: 0;
+    padding: 0px 0px  12px 0px!important;
+    font-size: 22px;
+    text-align: right;
+    border-bottom: 2px solid #fff;
+    border-radius: 0!important;
+    font-size:20px!important;
+}
+
+.select-ios .select-icon .select-icon-inner {
+    color: #fff;
+}
+
+ion-select {
+    max-width: 90%;
+}
+
+.label-md{
+    margin-bottom:0;
+}
+
+.select-md .select-icon .select-icon-inner {
+
+    color: #fff;
+}
+
+.select-md{
+    padding:0 8px;
+}
+
+.list-md{
+    margin:0;
+}
+
+
+}

@@ -1,0 +1,87 @@
+<!--
+  Generated template for the AddLoanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      {{'SAVING' | translate}}
+    </ion-title>
+</ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+<ion-item>
+        <ion-label style="color: #7b7b7b;" >Saving Goal</ion-label>
+        <ion-select [(ngModel)]="savingPurpose" interface="popover" style="color: #5ec0db!important;">
+            <ion-option value="Misc. Saving" selected >Miscellaneous Saving</ion-option>
+            <ion-option *ngFor="let savingGoal of savingGoals" value="{{savingGoal.goalTitle}}" >{{savingGoal.goalTitle}}</ion-option>
+        </ion-select>
+    </ion-item>
+    
+<ion-item>
+    <ion-label  floating>{{'AMOUNT' | translate}}</ion-label>
+    <ion-input type="number"  #amt></ion-input>
+  </ion-item>
+
+<div *ngIf= "calendarSelected == 'AD'">
+  <ion-item>
+  <ion-label  floating>{{'DATE' | translate}}</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"  #date></ion-datetime>
+</ion-item>
+</div>
+
+<div *ngIf= "calendarSelected == 'BS'" style="padding-left: 16px;">
+
+  <ion-label style="color: #5ec0db;" stacked>{{'DATE' | translate}}</ion-label>
+          <ion-row style="margin-bottom: 20px;">
+              <ion-col col-4>
+                  <ion-select #year interface="popover" (ionChange)="yearChanged()">
+                      <ion-option selected disabled>Year</ion-option>
+                      <ion-option [value]="year" *ngFor="let year of nep_year">{{year}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-5>
+                  <ion-select #month interface="popover" (ionChange)="monthChanged()">
+                      <ion-option selected disabled>Month</ion-option>
+                      <ion-option *ngFor="let month of total_month">{{month}}</ion-option>
+                  </ion-select>
+              </ion-col>
+              <ion-col col-3>
+                  <ion-select #day interface="popover">
+                      <ion-option selected disabled>Day</ion-option>
+                      <ion-option [value]="d" *ngFor="let d of days">{{d}}</ion-option>
+                  </ion-select>
+              </ion-col>
+          </ion-row>
+      </div>
+
+
+<ion-item>
+    <ion-label  floating>{{'SAVING_INSTITUTE' | translate}}</ion-label>
+    <ion-input type="text" #savinginstitute></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label  floating>{{'INCOME_SOURCE' | translate}}</ion-label>
+    <ion-input type="text" #incomesource></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label  floating>{{'NOTE' | translate}}</ion-label>
+    <ion-input type="text" #note></ion-input>
+  </ion-item>
+
+  
+  
+    <ion-row>
+<button ion-button  block  class="saveButton" (click)="addSaving()">
+{{'SAVE' | translate}}</button>
+</ion-row>
+
+</ion-content>

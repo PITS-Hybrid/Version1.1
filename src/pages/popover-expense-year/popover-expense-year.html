@@ -1,7 +1,6 @@
 <ion-list >
       <ion-list-header>{{'YEAR_WISE' | translate}}</ion-list-header>  
-      <button ion-item  (click)="yearName('2020')">2020</button>
-      <button ion-item  (click)="yearName('2019')">2019</button>
+       <div *ngIf= "calendarSelected == 'AD'">
       <button ion-item  (click)="yearName('2018')">2018</button>
       <button ion-item  (click)="yearName('2017')">2017</button>
       <button ion-item  (click)="yearName('2016')">2016</button>
@@ -11,4 +10,15 @@
       <button ion-item  (click)="yearName('2012')">2012</button>
       <button ion-item  (click)="yearName('2011')">2011</button>
       <button ion-item  (click)="yearName('2010')">2010</button>
+      </div>
+       <div *ngIf= "calendarSelected == 'BS'">
+      <button ion-item  (click)="yearName('2077')">2077</button>
+      <button ion-item  (click)="yearName('2076')">2076</button>
+      <button ion-item  (click)="yearName('2075')">2075</button>
+      <button ion-item  (click)="yearName('2074')">2074</button>
+      <button ion-item  (click)="yearName('2073')">2073</button>
+      <button ion-item  (click)="yearName('2072')">2072</button>
+      <button ion-item  (click)="yearName('2071')">2071</button>
+      <button ion-item  (click)="yearName('2070')">2070</button>
+      </div>
     </ion-list>

@@ -1,0 +1,47 @@
+page-add-saving {
+.addButton{
+		background-color: #428bca;
+		color: #FFFFFF;
+	}
+
+	
+	.select-ios {
+    padding: 0;
+}
+
+.select-ios .select-icon {
+    position: relative;
+    width: 17px;
+    height: 18px;
+}
+
+
+ion-input,
+ion-datetime,
+ion-option{
+	font-size:16px;
+    color:#7b7b7b;
+}
+
+.transactionDetail{
+	margin-bottom:25px;
+}
+
+.item-block{
+	padding-right:16px;
+}
+
+ion-select {
+    max-width: 90%;
+    color: #5ec0db;
+    font-weight: 500;
+}
+ 
+
+ ion-label{
+ 	color : #5ec0db;
+ }
+ .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #5ec0db;
+}
+}

@@ -1,6 +1,10 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title>{{categorySelected}} - {{item.date}}</ion-title>
+    <ion-title >
+      <div *ngIf="item.type == 'Income' || item.type == 'Expense'">{{categorySelected}} - {{item.date}}</div> 
+      <div *ngIf="item.type == 'Saving'">{{item.institute}} - {{item.date}}</div> 
+      <div *ngIf="item.type == 'LoanGiven' || item.type == 'LoanTaken'">{{item.startdate}} - {{item.enddate}} </div>
+    </ion-title>
     <ion-buttons end>
       <button ion-button (click)="deleteItem(item.ID)">
         <ion-icon name="trash"></ion-icon>
@@ -14,14 +18,82 @@
   <input type="hidden" id="category_name_nepali" [value]=item.category_name_nepali #category_name_nepali>
   <input type="hidden" id="type" [value]=item.type #type>
   <ion-input type="hidden" id="dateAdded" [value]=item.date #dateAdded></ion-input>
-  <ion-item>
+
+ <ion-item>
     <ion-label color="primary" fixed>{{ 'AMOUNT' | translate}}</ion-label>
-    <ion-input type="number" id="amount" [value]=item.amount #amount></ion-input>
+    <ion-input type="number" id="amount" [value]=item.amount #amount (ionChange)="amountChange()"></ion-input>
   </ion-item>
+
+
+ 
+
+<div *ngIf="typeSelected =='loan'">
+   
+<ion-item>
+    <ion-label color="primary" fixed>{{'INTEREST_RATE' | translate}}</ion-label>
+    <ion-input type="number" [value]=item.interest #interest (ionChange)="calculate()"></ion-input>
+  </ion-item>
+
+<ion-item >
+    <ion-label color="primary" fixed>{{'MONTHLY_PAYMENT' | translate}}</ion-label>
+    <ion-input type="number"  [value]=item.monthlypayment   #monthlypayment disabled></ion-input>
+  </ion-item>
+
+<ion-item>
+    <ion-label color="primary" fixed>{{'TOTAL_PAYMENT' | translate}}</ion-label>
+    <ion-input type="number"  placeholder={{item.totalpayment}} #totalpayment  disabled></ion-input>
+  </ion-item>
+
+<ion-item >
+    <ion-label color="primary" fixed>{{'TOTAL_INTEREST' | translate}}</ion-label>
+    <ion-input type="number"  placeholder={{item.totalinterest}} #totalinterest disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" fixed>{{'NAME' | translate}}</ion-label>
+    <ion-input type="text" [value]=item.nameofperson #nameofperson></ion-input>
+  </ion-item>
+
+</div>
+
+<div *ngIf="typeSelected =='saving'">
+
+<ion-item>
+    <ion-label color="primary" fixed>{{ 'SAVING_INSTITUTE' | translate}}</ion-label>
+    <ion-input type="text"    [value]=item.institute #savinginstitute></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label color="primary" fixed>{{ 'INCOME_SOURCE' | translate}}</ion-label>
+    <ion-input type="text"  [value]=item.income_source #incomesource></ion-input>
+  </ion-item>
+  
+  </div>
+
+
   <ion-item>
     <ion-label color="primary" fixed>{{ 'NOTE' | translate}}</ion-label>
     <ion-input type="text" id="note" [value]=item.note #note></ion-input>
   </ion-item>
-  <button ion-button full (click)="edit(id.value ,dateAdded.value, amount.value, category_name.value, category_name_nepali.value, type.value, note.value)" class="updateButton" >{{ 'BUTTON_EDIT' | translate}}</button>
-  
+
+<div *ngIf="item.status != undefined">
+   <div *ngIf="item.type == 'Income' || item.type == 'Expense'">
+  <ion-item>
+     <ion-label color="primary" >{{'REPEAT' | translate}}</ion-label>
+       <ion-toggle  (ionChange)="notifyStatus($event)" 
+     color="royal" [checked]="isToggled" ></ion-toggle>
+   </ion-item>
+
+   <ion-item>
+  <ion-label color="primary" fixed>{{'END_DATE' | translate}}</ion-label>
+   <ion-input [value]=item.enddate disabled ></ion-input>
+</ion-item>
+
+ </div>
+</div>
+
+<ion-row>
+  <button ion-button full (click)="edit(id.value ,dateAdded.value, amount.value, category_name.value, category_name_nepali.value, type.value, note.value)" class="saveButton" >{{ 'BUTTON_EDIT' | translate}}</button>
+  </ion-row>
 </ion-content>

@@ -1,0 +1,231 @@
+<!--
+  Generated template for the MyProjectsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title>{{'LOAN_REPORT' | translate}}</ion-title>
+    </ion-navbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="loan">
+            <ion-segment-button value="loangiven">
+                {{'LOAN_GIVEN' | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="loantaken">
+                {{'LOAN_TAKEN' | translate}}
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding class="card-layout">
+    <div [ngSwitch]="loan">
+        <ion-list *ngSwitchCase="'loangiven'">
+            <ion-card *ngFor="let info of loansGiven;  let idx = index ; let loanIndex of loansGivenIndexChecked">
+                <ion-item-sliding>
+                    <ion-item *ngIf=languageEnglish (click)="loanInformation(info)">
+                        <ion-row>
+                            <ion-col>
+                                <h1 class="title">{{info.nameofperson}}</h1>
+                            </ion-col>
+                            <ion-col>
+                                <div *ngIf="info.status == true">
+                                    <p class="status">{{'PAID' | translate}}</p>
+                                </div>
+                                <div *ngIf="info.status == false">
+                                    <p class="status">{{'UNPAID' | translate}}</p>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+              
+                        <ion-row class="dates">
+                            <ion-col col-6 class="start-date">
+                                <h2>{{'START_DATE' | translate}}: </h2>
+                                 <p *ngIf="calendarSelected == 'AD'"><ion-icon name="calendar">
+                                     {{info.startdate}}
+                                 </ion-icon> </p>
+                                 <p *ngIf="calendarSelected == 'BS'"><ion-icon name="calendar">
+                                     {{info.nepali_startdate}}
+                                 </ion-icon> </p>
+                            </ion-col>
+                            <ion-col col-6 class="end-date">
+                                <h2>{{'END_DATE' | translate}}:</h2> 
+                                  <p *ngIf="calendarSelected == 'AD'"><ion-icon name="calendar">
+                                     {{info.enddate}}
+                                 </ion-icon> </p>
+                                 <p *ngIf="calendarSelected == 'BS'"><ion-icon name="calendar">
+                                     {{info.nepali_enddate}}
+                                 </ion-icon> </p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6 class="interest">
+                                <h2>{{'INTEREST_RATE' | translate}}:</h2> 
+                                <h3>{{info.interest}}%</h3>
+                            </ion-col>
+                            <ion-col  col-6  class="amount">
+                                <h2>{{'TOTAL_PAYMENT' | translate}}: </h2>
+                                <h3>{{'RUPEES' | translate}} {{info.totalpayment}}</h3>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item *ngIf=languageNepali (click)="loanInformation(info)">
+                        <ion-row>
+                            <ion-col>
+                                <h1 class="title">{{info.nameofperson}}</h1>
+                            </ion-col>
+                            <ion-col>
+                                <div *ngIf="info.status == true">
+                                    <p class="status">{{'PAID' | translate}}</p>
+                                </div>
+                                <div *ngIf="info.status == false">
+                                    <p class="status">{{'UNPAID' | translate}}</p>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                       <ion-row class="dates">
+                            <ion-col col-6 class="start-date">
+                                <h2>{{'START_DATE' | translate}}: </h2>
+                                  <p *ngIf="calendarSelected == 'AD'"><ion-icon name="calendar">
+                                     {{info.startdate}}
+                                 </ion-icon> </p>
+                                 <p *ngIf="calendarSelected == 'BS'"><ion-icon name="calendar">
+                                     {{info.nepali_startdate}}
+                                 </ion-icon> </p>
+                            </ion-col>
+                            <ion-col col-6 class="end-date">
+                                <h2>{{'END_DATE' | translate}}:</h2> 
+                                   <p *ngIf="calendarSelected == 'AD'"><ion-icon name="calendar">
+                                     {{info.startdate}}
+                                 </ion-icon> </p>
+                                 <p *ngIf="calendarSelected == 'BS'"><ion-icon name="calendar">
+                                     {{info.nepali_enddate}}
+                                 </ion-icon> </p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6 class="interest">
+                                <h2>{{'INTEREST_RATE' | translate}}:</h2> 
+                                <h3>{{info.interest}}%</h3>
+                            </ion-col>
+                            <ion-col  col-6  class="amount">
+                                <h2>{{'TOTAL_PAYMENT' | translate}}: </h2>
+                                <h3>{{'RUPEES' | translate}} {{info.totalpayment}}</h3>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-options side="right">
+                        <button ion-button color="success" (click)="editItem(info.ID)">
+                            <ion-icon name="open"></ion-icon>
+                            {{'BUTTON_EDIT' | translate}}
+                        </button>
+                        <button ion-button color="danger" (click)="deleteItem(info.ID)">
+                            <ion-icon name="trash"></ion-icon>
+                            {{'BUTTON_DELETE' | translate}}
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-card>
+        </ion-list>
+        <ion-list *ngSwitchCase="'loantaken'">
+            <ion-card *ngFor="let info of loansTaken">
+                <ion-item-sliding>
+                    <ion-item *ngIf=languageEnglish (click)="loanInformation(info)">
+                        <ion-row>
+                            <ion-col>
+                                <h1 class="title">{{info.nameofperson}}</h1>
+                            </ion-col>
+                            <ion-col>
+                                <div *ngIf="info.status == true">
+                                    <p class="status">{{'PAID' | translate}}</p>
+                                </div>
+                                <div *ngIf="info.status == false">
+                                    <p class="status">{{'UNPAID' | translate}}</p>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="dates">
+                            <ion-col col-6 class="start-date">
+                                <h2>{{'START_DATE' | translate}}: </h2>
+                                 <p><ion-icon name="calendar"></ion-icon> {{info.startdate}}</p>
+                            </ion-col>
+                            <ion-col col-6 class="end-date">
+                                <h2>{{'END_DATE' | translate}}:</h2> 
+                                  <p><ion-icon name="calendar"></ion-icon> {{info.enddate}}</p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6 class="interest">
+                                <h2>{{'INTEREST_RATE' | translate}}:</h2> 
+                                <h3>{{info.interest}}%</h3>
+                            </ion-col>
+                            <ion-col  col-6  class="amount">
+                                <h2>{{'TOTAL_PAYMENT' | translate}}: </h2>
+                                <h3>{{'RUPEES' | translate}} {{info.totalpayment}}</h3>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item *ngIf=languageNepali (click)="loanInformation(info)">
+                        <ion-row>
+                            <ion-col>
+                                <h1 class="title">{{info.nameofperson}}</h1>
+                            </ion-col>
+                            <ion-col>
+                                <div *ngIf="info.status == true">
+                                    <p class="status">{{'PAID' | translate}}</p>
+                                </div>
+                                <div *ngIf="info.status == false">
+                                    <p class="status">{{'UNPAID' | translate}}</p>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="dates">
+                            <ion-col col-6 class="start-date">
+                                <h2>{{'START_DATE' | translate}}: </h2>
+                                 <p> <ion-icon name="calendar"></ion-icon> {{info.startdate}}</p>
+                            </ion-col>
+                            <ion-col col-6 class="end-date">
+                                <h2>{{'END_DATE' | translate}}:</h2> 
+                                  <p><ion-icon name="calendar"></ion-icon> {{info.enddate}}</p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6 class="interest">
+                                <h2>{{'INTEREST_RATE' | translate}}:</h2> 
+                                <h3>{{info.interest}}%</h3>
+                            </ion-col>
+                            <ion-col  col-6  class="amount">
+                                <h2>{{'TOTAL_PAYMENT' | translate}}: </h2>
+                                <h3>{{'RUPEES' | translate}} {{info.totalpayment}}</h3>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-options side="right">
+                        <button ion-button color="success" (click)="editItem(info.ID)">
+                            <ion-icon name="open"></ion-icon>
+                            {{'BUTTON_EDIT' | translate}}
+                        </button>
+                        <button ion-button color="danger" (click)="deleteItem(info.ID)">
+                            <ion-icon name="trash"></ion-icon>
+                            {{'BUTTON_DELETE' | translate}}
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-card>
+        </ion-list>
+    </div>
+    <ion-fab bottom center>
+        <button ion-fab style="background: #5ec0db; ">
+            <ion-icon name="add"></ion-icon>
+        </button>
+        <ion-fab-list side="right">
+            <button ion-fab mini style="background: #2ecc71; color:#fff;" (click)="loanGiven()">
+                {{'GIVEN' | translate}}
+            </button>
+        </ion-fab-list>
+        <ion-fab-list side="left">
+            <button ion-fab mini color="dark" (click)="loanTaken()" style="background: #2ecc71; color:#fff;">{{'TAKEN' | translate}}</button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

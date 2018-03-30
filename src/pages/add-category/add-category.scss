@@ -1,0 +1,35 @@
+page-add-category {
+
+    ion-icon {
+        font-size: 50px;
+    }
+
+    ion-row {
+
+        flex-wrap: wrap;
+    }
+
+    ion-col {
+        flex: 0 0 25%;
+        max-width: 25%;
+        text-align: center;
+        padding: 10px 5px;
+    }
+
+    .ion-item {
+        height: 10px;
+        width: 10px;
+        background-color: #ff3b30;
+    }
+
+    .card-ios{
+      background-color:#5ec0db;
+    }
+    .card-md{
+        background-color:#5ec0db;
+    }
+    ion-title,
+    ion-label {
+        color:#5ec0db;
+    }
+}

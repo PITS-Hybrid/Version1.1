@@ -1,0 +1,74 @@
+<ion-content class="login-content" padding>
+
+	<ion-label class="heading"> {{'PAISA_MANAGER' | translate}} </ion-label>
+ 
+
+  <form class="loginfield">
+    <ion-row>
+      <ion-col>
+        
+          
+          <ion-item class="loginfield">
+            <ion-label  floating>{{'EMAIL_ADDRESS' | translate}} </ion-label>
+            <ion-input type="text"  name="email" required [(ngModel)]="email"  (change)="checkEmail(email)">   
+            </ion-input>
+          </ion-item>
+            <ion-item class="loginfield">
+              <ion-label  floating>{{'CONTACT_NUMBER' | translate}} </ion-label>
+            <ion-input  type="tel"  maxlength="10"  name="contactnumber" [(ngModel)]="phone"  
+            (change)="checkContactNumber(phone)"></ion-input>
+          </ion-item>
+          
+          <ion-item class="loginfield">
+             <ion-label  floating>{{'PASSWORD' | translate}}</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="password" ></ion-input>
+          </ion-item>
+
+          
+
+          <ion-item class="loginfield">
+         <ion-label  floating>{{'TYPE_OF_USER' | translate}}</ion-label>
+         <ion-select #typeofuser interface="popover">
+          <ion-option value="Student">{{'USER_TYPE_STUDENT' | translate}}</ion-option>
+          <ion-option value="Professional">{{'USER_TYPE_PROFESSIONAL' | translate}}</ion-option>
+          <ion-option value="Housewife">{{'USER_TYPE_HOUSEWIFE' | translate}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+
+       <ion-item class="loginfield">
+         <ion-label  floating>{{'LANGUAGE' | translate}}</ion-label>
+         <ion-select #language interface="popover">
+          <ion-option value="English">{{ "ENGLISH" | translate }}</ion-option>
+          <ion-option value="Nepali">Nepali</ion-option>
+        </ion-select>
+      </ion-item>
+  
+
+
+        
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col class="signup-col">
+         <ion-label class="subheading">{{'BY_SIGNING_UP' | translate}} <a>{{'TERMS_OF_SERVICE' | translate}}</a>
+         </ion-label>
+        <button ion-button full (click)="signUp()" class="submit-btn">{{'SIGN_UP' | translate}}</button>
+
+ <ion-label class="subheading">{{'ALREADY_A_MEMBER' | translate}}</ion-label> 
+ <div class="subheading" >
+ <button ion-button  full (click)="signIn()" class="submit-btn">{{'SIGN_IN' | translate}}</button>
+</div>
+        
+      </ion-col>
+    </ion-row>
+
+   
+    
+  </form>
+
+  
+
+</ion-content>

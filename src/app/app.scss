@@ -1,3 +1,8 @@
+h1,h2,h3,h4,h5,h6,p{
+    margin:0;
+}
+
+
 .background{
     background-color: #F8F8F8;
 }
@@ -38,15 +43,110 @@
     color: #ffffff;
 }
 
-.platform-ios .ios-header {
-  height:calc(56px + 20px);
-  min-height:calc(56px + 20px);
-  padding-top:20px;
+
+.redDark-saving{
+    background-color: #7dca5c
+    ;
+    color: #ffffff;
+}
+
+.red-loan{
+    background-color: #FF0F08;
+    color: #ffffff;
 }
 
 
-.platform-ios .ios-header-text {
-  
 
-  padding-top:18px;
+
+
+.capitalize {
+ text-transform: capitalize;
 }
+
+.toolbar-background {
+    background-color: #5ec0db !important;
+    border-color: #5ec0db !important;
+}
+
+.toolbar-title{
+    color:#fff;
+}
+
+
+.menu.menu-left{
+    width: calc(100% - 100px) !important;
+}
+.menu-open .menu-content{
+    transform: translate3d(calc(100% - 100px), 0px, 0px) !important;
+}
+
+.contact{
+    position:absolute;
+    bottom:10px;
+    left:0;
+    right:0;
+    margin:0 auto;
+    text-align:center;
+}
+
+@font-face {
+ font-family: kalimati;
+ src: url(assets/fonts/Kalimati.ttf);
+}
+
+.saveButton{
+   background-color: #5ec0db;
+    margin-top: 15px;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+.back-button-text{
+    color:#fff;
+}
+.segment{
+        padding:0;
+    }
+
+    .segments{
+        background-color:#5ec0db;
+    }
+
+    .segment-button{
+        border:0 !important;
+        color: #fff !important;
+    }
+
+    .segment-ios .segment-button.segment-activated {
+    background-color: #4e90ad;
+}
+.icon {
+        color: #fff;
+    }
+    .toolbar-title {
+        color: #fff;
+        font-weight: 400;
+    }
+    .sideBarMenu button{
+        color: #7b7b7b;
+    font-weight: 500;
+    }
+   .success{
+    background-color:#3498db;
+   }
+   .danger{
+     background-color:#e74c3c;
+   }
+
+   .text-input::-moz-placeholder {
+  color: white;
+}
+
+.text-input:-ms-input-placeholder {
+  color: white;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: white;
+}
+

@@ -25199,6 +25199,10 @@ ion-navbar.toolbar {
   }
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
 .background {
   background-color: #F8F8F8;
 }
@@ -25236,25 +25240,180 @@ ion-navbar.toolbar {
   color: #ffffff;
 }
 
-.platform-ios .ios-header {
-  height: calc(56px + 20px);
-  min-height: calc(56px + 20px);
-  padding-top: 20px;
+.redDark-saving {
+  background-color: #7dca5c;
+  color: #ffffff;
 }
 
-.platform-ios .ios-header-text {
-  padding-top: 18px;
+.red-loan {
+  background-color: #FF0F08;
+  color: #ffffff;
 }
 
-page-add-expense img {
-  max-width: 50%;
-  margin: auto;
-  margin-bottom: 10px;
+.capitalize {
+  text-transform: capitalize;
 }
 
-page-add-expense .addButton {
-  background-color: #428bca;
-  color: #FFFFFF;
+.toolbar-background {
+  background-color: #5ec0db !important;
+  border-color: #5ec0db !important;
+}
+
+.toolbar-title {
+  color: #fff;
+}
+
+.menu.menu-left {
+  width: calc(100% - 100px) !important;
+}
+
+.menu-open .menu-content {
+  -webkit-transform: translate3d(calc(100% - 100px), 0px, 0px) !important;
+  transform: translate3d(calc(100% - 100px), 0px, 0px) !important;
+}
+
+.contact {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@font-face {
+  font-family: kalimati;
+  src: url(assets/fonts/Kalimati.ttf);
+}
+
+.saveButton {
+  background-color: #5ec0db;
+  margin-top: 15px;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.back-button-text {
+  color: #fff;
+}
+
+.segment {
+  padding: 0;
+}
+
+.segments {
+  background-color: #5ec0db;
+}
+
+.segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+.segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+.icon {
+  color: #fff;
+}
+
+.toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+.sideBarMenu button {
+  color: #7b7b7b;
+  font-weight: 500;
+}
+
+.success {
+  background-color: #3498db;
+}
+
+.danger {
+  background-color: #e74c3c;
+}
+
+.text-input::-moz-placeholder {
+  color: white;
+}
+
+.text-input:-ms-input-placeholder {
+  color: white;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: white;
+}
+
+page-add-category ion-icon {
+  font-size: 50px;
+}
+
+page-add-category ion-row {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+page-add-category ion-col {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+page-add-category .ion-item {
+  height: 10px;
+  width: 10px;
+  background-color: #ff3b30;
+}
+
+page-add-category .card-ios {
+  background-color: #5ec0db;
+}
+
+page-add-category .card-md {
+  background-color: #5ec0db;
+}
+
+page-add-category ion-title,
+page-add-category ion-label {
+  color: #5ec0db;
+}
+
+page-add-expense .category {
+  background-color: #5ec0db;
+}
+
+page-add-expense .category p {
+  font-size: 18px;
+  padding: 10px 5px;
+  color: #fff;
+}
+
+page-add-expense .category img {
+  width: 70%;
+  margin-top: 7px;
+}
+
+page-add-expense .add-circle {
+  color: #fff;
+  font-size: 35px;
+  margin-top: 7px;
+}
+
+page-add-expense .expense {
+  background-color: #5ec0db;
+  text-align: center;
+  color: #fff;
+  padding: 15% 0;
 }
 
 page-add-expense-demo .addButton {
@@ -25262,33 +25421,72 @@ page-add-expense-demo .addButton {
   color: #FFFFFF;
 }
 
-page-add-income img {
-  position: relative;
-  max-width: 50%;
-  margin: auto;
-  margin-bottom: 10px;
+page-add-expense-demo .select-ios {
+  padding: 0;
 }
 
-page-add-income card-background-page ion-card {
+page-add-expense-demo .select-ios .select-icon {
   position: relative;
+  width: 17px;
+  height: 18px;
+}
+
+page-add-expense-demo ion-input,
+page-add-expense-demo ion-datetime,
+page-add-expense-demo ion-option,
+page-add-expense-demo ion-label {
+  font-size: 16px;
+  color: #5ec0db;
+}
+
+page-add-expense-demo .transactionDetail {
+  margin-bottom: 25px;
+}
+
+page-add-expense-demo .item-block {
+  padding-right: 16px;
+}
+
+page-add-expense-demo ion-select {
+  max-width: 90%;
+  color: #7b7b7b;
+  font-weight: 500;
+}
+
+page-add-expense-demo .item-input .label-md, page-add-expense-demo .item-select .label-md, page-add-expense-demo .item-datetime .label-md {
+  color: #5ec0db;
+}
+
+page-add-income .category {
+  background-color: #5ec0db;
+}
+
+page-add-income .category p {
+  font-size: 18px;
+  padding: 10px 5px;
+  color: #fff;
+}
+
+page-add-income .category img {
+  width: 70%;
+  margin-top: 7px;
+}
+
+page-add-income .add-circle {
+  color: #fff;
+  font-size: 35px;
+  margin-top: 7px;
+}
+
+page-add-income .income {
+  background-color: #5ec0db;
   text-align: center;
+  color: #fff;
+  padding: 15% 0;
 }
 
-page-add-income card-background-page .card-title {
-  position: absolute;
-  top: 36%;
-  font-size: 2.0em;
-  width: 100%;
-  font-weight: bold;
-  color: #fff;
-}
-
-page-add-income card-background-page .card-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 52%;
-  width: 100%;
-  color: #fff;
+page-add-income .card-ios {
+  margin-top: 0px;
 }
 
 page-add-income-demo .addButton {
@@ -25296,23 +25494,573 @@ page-add-income-demo .addButton {
   color: #FFFFFF;
 }
 
+page-add-income-demo .select-ios {
+  padding: 0;
+}
+
+page-add-income-demo .select-ios .select-icon {
+  position: relative;
+  width: 17px;
+  height: 18px;
+}
+
+page-add-income-demo ion-input,
+page-add-income-demo ion-datetime,
+page-add-income-demo ion-option {
+  font-size: 16px;
+  color: #7b7b7b;
+}
+
+page-add-income-demo .transactionDetail {
+  margin-bottom: 25px;
+}
+
+page-add-income-demo .item-block {
+  padding-right: 16px;
+}
+
+page-add-income-demo ion-select {
+  max-width: 90%;
+  color: #7b7b7b;
+  font-weight: 500;
+}
+
+page-add-loan ion-select {
+  max-width: 90%;
+}
+
+page-add-loan ion-select {
+  color: #5ec0db;
+}
+
+page-add-loan ion-label {
+  color: #5ec0db;
+}
+
+page-add-loan .item-input .label-md, page-add-loan .item-select .label-md, page-add-loan .item-datetime .label-md {
+  color: #5ec0db;
+}
+
+page-add-saving .addButton {
+  background-color: #428bca;
+  color: #FFFFFF;
+}
+
+page-add-saving .select-ios {
+  padding: 0;
+}
+
+page-add-saving .select-ios .select-icon {
+  position: relative;
+  width: 17px;
+  height: 18px;
+}
+
+page-add-saving ion-input,
+page-add-saving ion-datetime,
+page-add-saving ion-option {
+  font-size: 16px;
+  color: #7b7b7b;
+}
+
+page-add-saving .transactionDetail {
+  margin-bottom: 25px;
+}
+
+page-add-saving .item-block {
+  padding-right: 16px;
+}
+
+page-add-saving ion-select {
+  max-width: 90%;
+  color: #5ec0db;
+  font-weight: 500;
+}
+
+page-add-saving ion-label {
+  color: #5ec0db;
+}
+
+page-add-saving .item-input .label-md, page-add-saving .item-select .label-md, page-add-saving .item-datetime .label-md {
+  color: #5ec0db;
+}
+
+page-add-saving .addButton {
+  background-color: #428bca;
+  color: #FFFFFF;
+}
+
+page-add-saving .select-ios {
+  padding: 0;
+}
+
+page-add-saving .select-ios .select-icon {
+  position: relative;
+  width: 17px;
+  height: 18px;
+}
+
+page-add-saving .transactionDetail {
+  margin-bottom: 25px;
+}
+
+page-add-saving .item-block {
+  padding-right: 16px;
+}
+
+page-add-saving ion-select {
+  max-width: 90%;
+  color: #5ec0db;
+  font-weight: 500;
+}
+
+page-add-saving ion-label {
+  color: #5ec0db;
+}
+
+page-add-saving .item-input .label-md, page-add-saving .item-select .label-md, page-add-saving .item-datetime .label-md {
+  color: #5ec0db;
+}
+
+page-currency {
+  /* Zebra striping */
+}
+
+page-currency table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+page-currency th {
+  background: #5ec0db;
+  color: #fff;
+  text-align: center;
+  border: none;
+}
+
+page-currency tr {
+  border-bottom: 1px solid #ddd;
+}
+
+page-currency td,
+page-currency th {
+  border: none;
+  padding: 10px 2px;
+}
+
+page-currency .list-ios {
+  margin: -1px 0 10px;
+}
+
+page-currency .label-ios {
+  margin: 0;
+}
+
+page-currency .currency .text-input {
+  background-color: transparent;
+  margin: 0;
+  padding: 12px;
+  opacity: 1;
+  border-radius: 3px;
+  border-bottom: 3px solid #fff;
+  text-align: right;
+  font-size: 17px;
+}
+
+page-currency .flag-icon {
+  margin-right: 10px;
+}
+
+page-currency .currencyConverter {
+  background-color: #5ec0db;
+  color: #fff;
+}
+
+page-currency .select-ios {
+  max-width: 95%;
+  padding: 0px 8px;
+}
+
+page-currency .select-ios .select-placeholder {
+  color: #fff;
+}
+
+page-currency .text-input-ios {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0px 0px 12px 0px !important;
+  font-size: 22px;
+  text-align: right;
+  border-bottom: 2px solid #fff;
+  border-radius: 0 !important;
+  font-size: 20px !important;
+}
+
+page-currency .select-ios .select-icon .select-icon-inner {
+  color: #fff;
+}
+
+page-currency ion-select {
+  max-width: 90%;
+}
+
+page-currency .label-md {
+  margin-bottom: 0;
+}
+
+page-currency .select-md .select-icon .select-icon-inner {
+  color: #fff;
+}
+
+page-currency .select-md {
+  padding: 0 8px;
+}
+
+page-currency .list-md {
+  margin: 0;
+}
+
 page-daily-expense-report .grayBackgroundWithPaddings {
-  background-color: #ff3b30;
+  background-color: #e74c3c;
   color: #FFFFFF;
   padding: 15px;
+}
+
+page-daily-expense-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-daily-expense-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-daily-expense-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daily-expense-report .icon {
+  color: #fff;
+}
+
+page-daily-expense-report .total {
+  margin: 30px 30px;
+}
+
+page-daily-expense-report .data {
+  margin-bottom: 30px;
+}
+
+page-daily-expense-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-daily-expense-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daily-expense-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-daily-expense-report .list {
+  padding: 0;
+}
+
+page-daily-expense-report .segment {
+  padding: 0;
+}
+
+page-daily-expense-report .segments {
+  background-color: #5ec0db;
+}
+
+page-daily-expense-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-daily-expense-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-daily-expense-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-daily-expense-report .list-ios {
+  margin: 0;
+}
+
+page-daily-expense-report .expense-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-daily-expense-report .expense-report h2 {
+  color: #7b7b7b;
+}
+
+page-daily-expense-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-daily-expense-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-daily-expense-report .item-ios {
+  padding-left: 0px;
+}
+
+page-daily-expense-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-daily-expense-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-daily-expense-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 page-daily-income-report .grayBackgroundWithPaddings {
-  background-color: #85bb65;
+  background-color: #5ec0db;
   color: #FFFFFF;
-  padding: 15px;
-  statusbarPadding: true;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+page-daily-income-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-daily-income-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-daily-income-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daily-income-report .icon {
+  color: #fff;
+}
+
+page-daily-income-report .total {
+  margin: 30px 30px;
+}
+
+page-daily-income-report .data {
+  margin-bottom: 30px;
+}
+
+page-daily-income-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-daily-income-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daily-income-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-daily-income-report .list {
+  padding: 0;
+}
+
+page-daily-income-report .segment {
+  padding: 0;
+}
+
+page-daily-income-report .segments {
+  background-color: #5ec0db;
+}
+
+page-daily-income-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-daily-income-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-daily-income-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-daily-income-report .list-ios {
+  margin: 0;
+}
+
+page-daily-income-report .income-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-daily-income-report .income-report h2 {
+  color: #7b7b7b;
+}
+
+page-daily-income-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-daily-income-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-daily-income-report .item-ios {
+  padding-left: 0px;
+}
+
+page-daily-income-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-daily-income-report .item-ios.item-block .item-inner {
+  padding-right: 0;
 }
 
 page-daterange-expense-report .grayBackgroundWithPaddings {
-  background-color: #ff3b30;
+  background-color: #e74c3c;
   color: #FFFFFF;
   padding: 15px;
+}
+
+page-daterange-expense-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-daterange-expense-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-daterange-expense-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daterange-expense-report .icon {
+  color: #fff;
+}
+
+page-daterange-expense-report .total {
+  margin: 30px 30px;
+}
+
+page-daterange-expense-report .data {
+  margin-bottom: 30px;
+}
+
+page-daterange-expense-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-daterange-expense-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daterange-expense-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-daterange-expense-report .list {
+  padding: 0;
+}
+
+page-daterange-expense-report .segment {
+  padding: 0;
+}
+
+page-daterange-expense-report .segments {
+  background-color: #5ec0db;
+}
+
+page-daterange-expense-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-daterange-expense-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-daterange-expense-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-daterange-expense-report .list-ios {
+  margin: 0;
+}
+
+page-daterange-expense-report .expense-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-daterange-expense-report .expense-report h2 {
+  color: #7b7b7b;
+}
+
+page-daterange-expense-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-daterange-expense-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-daterange-expense-report .item-ios {
+  padding-left: 0px;
+}
+
+page-daterange-expense-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-daterange-expense-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-daterange-expense-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 page-daterange-income .grayBackgroundWithPaddings {
@@ -25322,11 +26070,114 @@ page-daterange-income .grayBackgroundWithPaddings {
   statusbarPadding: true;
 }
 
+page-daterange-income-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-daterange-income-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-daterange-income-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daterange-income-report .icon {
+  color: #fff;
+}
+
+page-daterange-income-report .total {
+  margin: 30px 30px;
+}
+
+page-daterange-income-report .data {
+  margin-bottom: 30px;
+}
+
+page-daterange-income-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-daterange-income-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-daterange-income-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-daterange-income-report .list {
+  padding: 0;
+}
+
+page-daterange-income-report .segment {
+  padding: 0;
+}
+
+page-daterange-income-report .segments {
+  background-color: #5ec0db;
+}
+
+page-daterange-income-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-daterange-income-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-daterange-income-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-daterange-income-report .list-ios {
+  margin: 0;
+}
+
+page-daterange-income-report .income-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-daterange-income-report .income-report h2 {
+  color: #7b7b7b;
+}
+
+page-daterange-income-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-daterange-income-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-daterange-income-report .item-ios {
+  padding-left: 0px;
+}
+
+page-daterange-income-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-daterange-income-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
 page-daterange-income-report .grayBackgroundWithPaddings {
-  background-color: #85bb65;
+  background-color: #5ec0db;
   color: #FFFFFF;
-  padding: 15px;
-  statusbarPadding: true;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 edit .updateButton {
@@ -25334,40 +26185,1462 @@ edit .updateButton {
   color: #FFFFFF;
 }
 
+edit .label-md-primary, edit .item-input .label-md-primary, edit .item-select .label-md-primary, edit .item-datetime .label-md-primary {
+  color: #5ec0db;
+  font-weight: 500;
+}
+
+edit .text-input[disabled] {
+  opacity: .9;
+}
+
+edit .text-input-md {
+  color: #7b7b7b;
+  font-weight: 500;
+}
+
 page-expense-report .grayBackgroundWithPaddings {
-  background-color: #ff3b30;
+  background-color: #e74c3c;
   color: #FFFFFF;
   padding: 15px;
+}
+
+page-expense-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-expense-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-expense-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-expense-report .icon {
+  color: #fff;
+}
+
+page-expense-report .total {
+  margin: 30px 30px;
+}
+
+page-expense-report .data {
+  margin-bottom: 30px;
+}
+
+page-expense-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-expense-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-expense-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-expense-report .list {
+  padding: 0;
+}
+
+page-expense-report .segment {
+  padding: 0;
+}
+
+page-expense-report .segments {
+  background-color: #5ec0db;
+}
+
+page-expense-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-expense-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-expense-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-expense-report .list-ios {
+  margin: 0;
+}
+
+page-expense-report .expense-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-expense-report .expense-report h2 {
+  color: #7b7b7b;
+}
+
+page-expense-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-expense-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-expense-report .item-ios {
+  padding-left: 0px;
+}
+
+page-expense-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-expense-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-expense-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+page-home .ion-title {
+  text-overflow: unset;
+  white-space: unset;
+}
+
+page-home .grayBackgroundWithPaddings {
+  background-color: #85bb65;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+page-home .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-home .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-home .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-home .icon {
+  color: #fff;
+}
+
+page-home .total {
+  margin: 30px 30px;
+}
+
+page-home .data {
+  margin-bottom: 30px;
+}
+
+page-home .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-home .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-home .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-home .list {
+  padding: 0;
+}
+
+page-home .segment {
+  padding: 0;
+}
+
+page-home .segments {
+  background-color: #5ec0db;
+}
+
+page-home .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-home .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-home .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-home .circleImg {
+  background: #5ec0db;
+  border-radius: 3px;
+  text-align: center;
+}
+
+page-home .item-ios {
+  padding-left: 0px;
+}
+
+page-home .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-home .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-home .list-md .item-block .item-inner {
+  border-bottom: none;
+}
+
+page-income-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-income-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-income-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-income-report .icon {
+  color: #fff;
+}
+
+page-income-report .total {
+  margin: 30px 30px;
+}
+
+page-income-report .data {
+  margin-bottom: 30px;
+}
+
+page-income-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-income-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-income-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-income-report .list {
+  padding: 0;
+}
+
+page-income-report .segment {
+  padding: 0;
+}
+
+page-income-report .segments {
+  background-color: #5ec0db;
+}
+
+page-income-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-income-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-income-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-income-report .list-ios {
+  margin: 0;
+}
+
+page-income-report .income-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-income-report .income-report h2 {
+  color: #7b7b7b;
+}
+
+page-income-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-income-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-income-report .item-ios {
+  padding-left: 0px;
+}
+
+page-income-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-income-report .item-ios.item-block .item-inner {
+  padding-right: 0;
 }
 
 page-income-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+page-land-converter .pretty {
+  font-size: 16px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+page-land-converter .text-capitalize {
+  text-transform: capitalize;
+}
+
+page-land-converter .select-ios {
+  max-width: 95%;
+  padding: 0px 8px;
+}
+
+page-land-converter .select-ios .select-placeholder {
+  color: #fff;
+}
+
+page-land-converter .text-input-ios {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0px 0px 12px 0px !important;
+  font-size: 22px;
+  text-align: right;
+  border-bottom: 2px solid #fff;
+  border-radius: 0 !important;
+  font-size: 20px !important;
+}
+
+page-land-converter .select-ios .select-icon .select-icon-inner {
+  color: #fff;
+}
+
+page-land-converter .landConverter {
+  background-color: #5ec0db;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+page-land-converter .landConverter h2 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+page-land-converter .text-input[disabled] {
+  opacity: 1;
+}
+
+page-land-converter .list-ios {
+  margin: -1px 0 10px;
+}
+
+page-land-converter .select-ios {
+  max-width: 95%;
+  padding: 0px 8px;
+}
+
+page-land-converter .select-ios .select-placeholder {
+  color: #fff;
+}
+
+page-land-converter .text-input-ios {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0px 0px 12px 0px !important;
+  font-size: 22px;
+  text-align: right;
+  border-bottom: 2px solid #fff;
+  border-radius: 0 !important;
+  font-size: 20px !important;
+}
+
+page-land-converter .select-ios .select-icon .select-icon-inner {
+  color: #fff;
+}
+
+page-land-converter ion-select {
+  max-width: 90%;
+}
+
+page-land-converter .label-md {
+  margin-bottom: 0;
+}
+
+page-land-converter .select-md .select-icon .select-icon-inner {
+  color: #fff;
+}
+
+page-land-converter .select-md {
+  padding: 0 8px;
+}
+
+page-land-converter .list-md {
+  margin: 0;
+}
+
+page-land-converter .text-input {
+  background-color: transparent;
+  margin: 0;
+  padding: 12px;
+  opacity: 1;
+  border-radius: 3px;
+  border-bottom: 3px solid #fff;
+  text-align: right;
+  font-size: 18px;
+}
+
+page-loan-description p, page-loan-description h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+page-loan-description .desc {
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+page-loan-description .status {
+  text-transform: uppercase;
+  background-color: #67a94b;
+  color: #ffffff;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+page-loan-description .status p {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 10px 0;
+}
+
+page-loan-description .name {
+  padding: 10px 0;
+  color: #fff;
+}
+
+page-loan-description .name h1 {
+  font-size: 25px;
+  display: inline-block;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+page-loan-description .name p {
+  display: inline-block;
+  float: right;
+  color: #fff;
+}
+
+page-loan-description .date {
+  padding: 10px 0;
+}
+
+page-loan-description .start-date,
+page-loan-description .end-date {
+  display: inline-block;
+  color: #fff;
+}
+
+page-loan-description .end-date {
+  float: right;
+}
+
+page-loan-description .note {
+  padding: 10px 0;
+}
+
+page-loan-description .note h2 {
+  color: #fff;
+  font-size: 14px;
+}
+
+page-loan-description .amount ul {
+  padding-left: 0;
+}
+
+page-loan-description .amount ul li {
+  text-align: right;
+  padding: 5px 0;
+  border-bottom: 1px dashed #fff;
+  font-size: 16px;
+  color: #fff;
+  list-style-type: none;
+}
+
+page-loan-description .amount ul li:last-child {
+  border: none;
+}
+
+page-loan-description .toggle {
+  position: absolute;
+  top: 35px;
+  right: 37px;
+}
+
+page-loan-description .dates p {
+  font-size: 16px;
+  color: #fff !important;
+}
+
+page-loan-description .toggle-ios.toggle-checked .toggle-icon {
+  background-color: #4e90ad;
+}
+
+page-loan-description .card-md h2 {
+  color: #fff;
+}
+
+page-loan-report li {
+  list-style-type: none;
+}
+
+page-loan-report ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+page-loan-report .title h2 {
+  font-size: 18px;
+}
+
+page-loan-report .title h4 {
+  font-size: 18px;
+  text-align: right;
+}
+
+page-loan-report .date ul li {
+  float: left;
+  font-size: 14px;
+  padding-right: 20px;
+}
+
+page-loan-report .interestlist {
+  float: right;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+page-loan-report .interestlist ul li {
+  padding-bottom: 10px;
+}
+
+page-loan-report .status {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  background-color: #94bc63;
+  padding: 3px 10px;
+  color: #fff;
+}
+
+page-loan-report .title h1 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+page-loan-report .start-date {
+  font-size: 12px;
+  display: inline-block;
+  text-align: left;
+}
+
+page-loan-report .end-date {
+  font-size: 12px;
+  display: inline-block;
+  text-align: left;
+}
+
+page-loan-report .amount {
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+}
+
+page-loan-report .interest {
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+}
+
+page-loan-report .start-date h2,
+page-loan-report .end-date h2 {
+  margin-bottom: 5px;
+}
+
+page-loan-report .dates {
+  margin-bottom: 10px;
+}
+
+page-loan-report .dates p {
+  font-size: 14px;
+  color: #fff !important;
+}
+
+page-loan-report .grayBackgroundWithPaddings {
   background-color: #85bb65;
   color: #FFFFFF;
   padding: 15px;
+}
+
+page-loan-report .item-block {
+  background-color: #5ec0db;
+  color: #fff;
+}
+
+page-loan-report .title {
+  text-transform: Capitalize;
+}
+
+page-loan-report .interest h2,
+page-loan-report .amount h3,
+page-loan-report .start-date h2,
+page-loan-report .end-date h2 {
+  font-size: 16px;
+}
+
+page-loan-report .interest h3,
+page-loan-report .amount h3,
+page-loan-report .start-date p,
+page-loan-report .end-date p {
+  font-size: 14px;
+}
+
+page-loan-report .card-md h1,
+page-loan-report .card-md h2,
+page-loan-report .card-md h3,
+page-loan-report .card-md p {
+  color: #fff;
 }
 
 page-monthwise-expense-report .grayBackgroundWithPaddings {
-  background-color: #ff3b30;
+  background-color: #e74c3c;
   color: #FFFFFF;
   padding: 15px;
+}
+
+page-monthwise-expense-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-monthwise-expense-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-monthwise-expense-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-monthwise-expense-report .icon {
+  color: #fff;
+}
+
+page-monthwise-expense-report .total {
+  margin: 30px 30px;
+}
+
+page-monthwise-expense-report .data {
+  margin-bottom: 30px;
+}
+
+page-monthwise-expense-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-monthwise-expense-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-monthwise-expense-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-monthwise-expense-report .list {
+  padding: 0;
+}
+
+page-monthwise-expense-report .segment {
+  padding: 0;
+}
+
+page-monthwise-expense-report .segments {
+  background-color: #5ec0db;
+}
+
+page-monthwise-expense-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-monthwise-expense-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-monthwise-expense-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-monthwise-expense-report .list-ios {
+  margin: 0;
+}
+
+page-monthwise-expense-report .expense-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-monthwise-expense-report .expense-report h2 {
+  color: #7b7b7b;
+}
+
+page-monthwise-expense-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-monthwise-expense-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-monthwise-expense-report .item-ios {
+  padding-left: 0px;
+}
+
+page-monthwise-expense-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-monthwise-expense-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-monthwise-expense-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+monthwise-income-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+monthwise-income-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+monthwise-income-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+monthwise-income-report .icon {
+  color: #fff;
+}
+
+monthwise-income-report .total {
+  margin: 30px 30px;
+}
+
+monthwise-income-report .data {
+  margin-bottom: 30px;
+}
+
+monthwise-income-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+monthwise-income-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+monthwise-income-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+monthwise-income-report .list {
+  padding: 0;
+}
+
+monthwise-income-report .segment {
+  padding: 0;
+}
+
+monthwise-income-report .segments {
+  background-color: #5ec0db;
+}
+
+monthwise-income-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+monthwise-income-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+monthwise-income-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+monthwise-income-report .list-ios {
+  margin: 0;
+}
+
+monthwise-income-report .income-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+monthwise-income-report .income-report h2 {
+  color: #7b7b7b;
+}
+
+monthwise-income-report .barGraph {
+  margin-bottom: 25px;
+}
+
+monthwise-income-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+monthwise-income-report .item-ios {
+  padding-left: 0px;
+}
+
+monthwise-income-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+monthwise-income-report .item-ios.item-block .item-inner {
+  padding-right: 0;
 }
 
 monthwise-income-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+page-popover-expense .label {
+  color: #7b7b7b;
+}
+
+page-popover-expense-month .label {
+  color: #7b7b7b;
+}
+
+page-popover-expense-year .label {
+  color: #7b7b7b;
+}
+
+page-popover-income .label {
+  color: #7b7b7b;
+}
+
+page-popover-income-month .label {
+  color: #7b7b7b;
+}
+
+page-popover-income-year .label {
+  color: #7b7b7b;
+}
+
+page-popover-monthly .label {
+  color: #7b7b7b;
+}
+
+page-profile ion-label {
+  color: #7b7b7b;
+  font-weight: 500;
+}
+
+saving-goal-detail-page .detailGoalInfo {
+  background-color: #5ec0db;
+  color: #fff;
+}
+
+saving-goal-detail-page .card-ios p {
+  color: #fff !important;
+}
+
+saving-goal-detail-page .tabs {
+  background-color: #5ec0db;
+}
+
+saving-goal-detail-page .recommended {
+  background-color: #58d1f3;
+  border-radius: 3px;
+  padding: 8px;
+  margin-top: 15px;
+}
+
+saving-goal-detail-page .recommended h2 {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #fff;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+saving-goal-detail-page table {
+  width: 100%;
+  text-align: center;
+}
+
+saving-goal-detail-page table th {
+  font-size: 14px;
+  font-weight: 400px;
+}
+
+saving-goal-detail-page table tbody td {
+  padding-top: 20px;
+}
+
+saving-goal-detail-page .date h2 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+saving-goal-detail-page .label-ios {
+  margin: 6px 8px 6px 0;
+}
+
+saving-goal-detail-page .card-md h2,
+saving-goal-detail-page .card-md p {
+  color: #fff !important;
+}
+
+page-saving-report .grayBackgroundWithPaddings {
   background-color: #85bb65;
   color: #FFFFFF;
   padding: 15px;
-  statusbarPadding: true;
+}
+
+page-saving-report .card-wrapper {
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #67a94b;
+  color: #ffffff;
+}
+
+page-saving-report .savingHead {
+  background-color: #5ec0db;
+  text-align: center;
+  color: #fff;
+}
+
+page-saving-report .scroll-content {
+  padding: 0px !important;
+}
+
+page-saving-report .savingHead p {
+  font-weight: 400;
+}
+
+page-saving-report .savingDetails {
+  padding: 16px;
+}
+
+page-saving-report .info {
+  padding: 10% 0;
+}
+
+page-saving-report .goalInfo {
+  padding: 10% 0;
+}
+
+page-saving-report .goalInfo p {
+  font-size: 18px;
+}
+
+page-saving-report .info p:nth-child(odd) {
+  font-size: 30px;
+}
+
+page-saving-report .saving {
+  background-color: #5ec0db;
+  padding: 10px 5px;
+  border-radius: 2px;
+  color: #fff;
+}
+
+page-saving-report .item-ios {
+  padding-left: 0px;
+}
+
+page-saving-report .label-ios {
+  margin: 0;
+}
+
+page-saving-report .item-ios.item-block .item-inner {
+  padding-right: 0px;
+}
+
+page-saving-report .list-ios {
+  margin-bottom: 12px;
+}
+
+page-saving-report .saving p {
+  font-size: 18px;
+  padding: 8px 0px;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #58d1f3;
+}
+
+page-saving-report .date {
+  font-size: 14px;
+  color: #fff;
+}
+
+page-saving-report .saving h2,
+page-saving-report .saving h3 {
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+page-saving-report .savingGoal {
+  background-color: #5ec0db;
+  color: #fff;
+}
+
+page-saving-report .savingGoal p {
+  color: #fff;
+}
+
+page-saving-report .savingFor {
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+
+page-saving-report .label-md {
+  margin: 0;
+}
+
+page-saving-report .card-md h2,
+page-saving-report .card-md p {
+  color: #fff !important;
+}
+
+page-sign-in .heading {
+  color: #f7f7f7;
+  font-size: 25px;
+  text-align: center;
+}
+
+page-sign-in .login-content {
+  background: #c5c3b9;
+}
+
+page-sign-in .login-content .logo-row {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+page-sign-in .login-content .login-box {
+  background: #ff3b30;
+}
+
+page-sign-in .login-content .logo-row {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+page-sign-in .login-content .loginfield {
+  -webkit-box-align: left;
+  -webkit-align-items: left;
+  -ms-flex-align: left;
+  align-items: left;
+  text-align: left;
+  background: #c5c3b9;
+  color: #ffffff;
+}
+
+page-sign-in .login-content ion-item {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-sign-in .login-content .signup-col {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+page-sign-in .login-content .item-inner {
+  border-bottom-color: #ffffff !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-sign-in .login-content .submit-btn {
+  background: #5ebedc;
+  border: 1px solid #ffffff;
+}
+
+page-sign-in .login-content .register-btn {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+page-sign-in .login-content .createnewac-btn {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+page-sign-up .heading {
+  color: #f7f7f7;
+  font-size: 25px;
+  text-align: center;
+}
+
+page-sign-up .login-content {
+  background: #c5c3b9;
+}
+
+page-sign-up .login-content .logo-row {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+page-sign-up .login-content .login-box {
+  background: #c5c3b9;
+}
+
+page-sign-up .login-content .loginfield {
+  -webkit-box-align: left;
+  -webkit-align-items: left;
+  -ms-flex-align: left;
+  align-items: left;
+  text-align: left;
+  background: #c5c3b9;
+  color: #ffffff;
+}
+
+page-sign-up .login-content ion-item {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-sign-up .login-content .signup-col {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+page-sign-up .login-content .item-inner {
+  border-bottom-color: #ffffff !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-sign-up .login-content .submit-btn {
+  background: #5ebedc;
+  border: 1px solid #ffffff;
+}
+
+page-sign-up .login-content .subheading {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 0.8em;
 }
 
 page-yearly-expense-report .grayBackgroundWithPaddings {
-  background-color: #ff3b30;
+  background-color: #e74c3c;
   color: #FFFFFF;
   padding: 15px;
 }
 
-page-yearly-income-report .grayBackgroundWithPaddings {
-  background-color: #85bb65;
+page-yearly-expense-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-yearly-expense-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-yearly-expense-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-yearly-expense-report .icon {
+  color: #fff;
+}
+
+page-yearly-expense-report .total {
+  margin: 30px 30px;
+}
+
+page-yearly-expense-report .data {
+  margin-bottom: 30px;
+}
+
+page-yearly-expense-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-yearly-expense-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-yearly-expense-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-yearly-expense-report .list {
+  padding: 0;
+}
+
+page-yearly-expense-report .segment {
+  padding: 0;
+}
+
+page-yearly-expense-report .segments {
+  background-color: #5ec0db;
+}
+
+page-yearly-expense-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-yearly-expense-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-yearly-expense-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-yearly-expense-report .list-ios {
+  margin: 0;
+}
+
+page-yearly-expense-report .expense-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-yearly-expense-report .expense-report h2 {
+  color: #7b7b7b;
+}
+
+page-yearly-expense-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-yearly-expense-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-yearly-expense-report .item-ios {
+  padding-left: 0px;
+}
+
+page-yearly-expense-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-yearly-expense-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-yearly-expense-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
   color: #FFFFFF;
-  padding: 15px;
-  statusbarPadding: true;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+page-yearly-income-report .toolbar-background {
+  background-color: #5ec0db;
+  border-color: #5ec0db;
+}
+
+page-yearly-income-report .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+page-yearly-income-report .toolbar-title {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-yearly-income-report .icon {
+  color: #fff;
+}
+
+page-yearly-income-report .total {
+  margin: 30px 30px;
+}
+
+page-yearly-income-report .data {
+  margin-bottom: 30px;
+}
+
+page-yearly-income-report .dashboard {
+  text-align: center;
+  background-color: #5ec0db;
+}
+
+page-yearly-income-report .dashboard h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+page-yearly-income-report .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-yearly-income-report .list {
+  padding: 0;
+}
+
+page-yearly-income-report .segment {
+  padding: 0;
+}
+
+page-yearly-income-report .segments {
+  background-color: #5ec0db;
+}
+
+page-yearly-income-report .segment-button {
+  border: 0 !important;
+  color: #fff !important;
+}
+
+page-yearly-income-report .segment-ios .segment-button.segment-activated {
+  background-color: #4e90ad;
+}
+
+page-yearly-income-report .date {
+  font-size: 14px;
+  color: #7b7b7b;
+}
+
+page-yearly-income-report .list-ios {
+  margin: 0;
+}
+
+page-yearly-income-report .income-report h3 {
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 12px;
+}
+
+page-yearly-income-report .income-report h2 {
+  color: #7b7b7b;
+}
+
+page-yearly-income-report .barGraph {
+  margin-bottom: 25px;
+}
+
+page-yearly-income-report .circleImg {
+  background: #5ec0db;
+  height: 56px;
+  border-radius: 3px;
+}
+
+page-yearly-income-report .item-ios {
+  padding-left: 0px;
+}
+
+page-yearly-income-report .label-ios {
+  margin: 11px 8px 11px 8px;
+}
+
+page-yearly-income-report .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-yearly-income-report .grayBackgroundWithPaddings {
+  background-color: #5ec0db;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 10px;
 }
